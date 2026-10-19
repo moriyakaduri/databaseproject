@@ -1,8 +1,7 @@
 -- הכנסת מחלקות
 INSERT INTO Ward (WardName, WardType, Floor, Capacity, Phone) VALUES
 ('פנימית א', 'פנימית', 2, 30, '02-5551111'),
-('ילדים ב', 'ילדים', 3, 20, '02-5552222'),
-('מיון כללי', 'מיון', 1, 15, '02-5553333');
+('ילדים ב', 'ילדים', 3, 20, '02-5552222');
 
 -- הכנסת רופאים
 INSERT INTO Doctor (LicenseNumber, FirstName, LastName, Specialty, Phone, Email) VALUES
@@ -17,10 +16,26 @@ INSERT INTO Patient (IDNumber, FirstName, LastName, DateOfBirth, Gender, Phone, 
 -- הכנסת בדיקות מעבדה
 INSERT INTO LabTest (TestName, Category, NormalRange) VALUES
 ('ספירת דם מלאה (CBC)', 'המטולוגיה', '4.5 - 11.0'),
-('תפקודי כבד (ALT/AST)', 'ביוכימיה', '7 - 56'),
 ('תרבית שתן', 'מיקרוביולוגיה', 'Negative');
 
--- הכנסת הזמנת בדיקה
-INSERT INTO TestOrder (PatientID, DoctorID, WardID, TestID) VALUES
-(1, 1, 1, 1),
-(2, 2, 2, 3);
+-- הכנסת טכנאי מעבדה
+INSERT INTO LabTechnician (FirstName, LastName, CertificationNumber, Phone) VALUES
+('רון', 'לוי', 'CERT801', '052-1111111'),
+('מיכל', 'שפירא', 'CERT802', '052-2222222');
+
+-- הכנסת הזמנות בדיקה
+INSERT INTO TestOrder (PatientID, DoctorID, WardID, TestID, Priority, Status) VALUES
+(1, 1, 1, 1, 'Normal', 'Completed'),
+(2, 2, 2, 2, 'Urgent', 'Completed');
+
+-- הכנסת תוצאות בדיקה
+-- תוצאה 1: תקינה
+INSERT INTO TestResult (OrderID, TechnicianID, ResultValue, Interpretation, Comments) VALUES
+(1, 1, '4.8 (תקין)', 'Normal', 'בדיקה שגרתית תקינה');
+-- תוצאה 2: קריטית! (תייצר התראה)
+INSERT INTO TestResult (OrderID, TechnicianID, ResultValue, Interpretation, Comments) VALUES
+(2, 2, 'חיובי - חיידק E.coli', 'Critical', 'דורש טיפול אנטיביוטי מיידי!');
+
+-- הכנסת התראה רפואית אך ורק עבור התוצאה הקריטית (ResultID = 2)
+INSERT INTO LabAlert (ResultID, AlertStatus) VALUES
+(2, 'New');
