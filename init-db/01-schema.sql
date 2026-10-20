@@ -21,17 +21,8 @@ CREATE TABLE IF NOT EXISTS Doctor (
     Email VARCHAR(100)
 );
 
--- 3: מחלקה (Ward)
-CREATE TABLE IF NOT EXISTS Ward (
-    WardID SERIAL PRIMARY KEY,
-    WardName VARCHAR(80) NOT NULL,
-    WardType VARCHAR(50) NOT NULL,
-    Floor SMALLINT NOT NULL,
-    Capacity SMALLINT NOT NULL,
-    Phone VARCHAR(15)
-);
 
--- 4: קטלוג בדיקות מעבדה (LabTest)
+-- 3: קטלוג בדיקות מעבדה (LabTest)
 CREATE TABLE IF NOT EXISTS LabTest (
     TestID SERIAL PRIMARY KEY,
     TestName VARCHAR(100) NOT NULL,
@@ -39,7 +30,7 @@ CREATE TABLE IF NOT EXISTS LabTest (
     NormalRange VARCHAR(50)
 );
 
--- 5: טכנאי מעבדה (LabTechnician)
+-- 4: טכנאי מעבדה (LabTechnician)
 CREATE TABLE IF NOT EXISTS LabTechnician (
     TechnicianID SERIAL PRIMARY KEY,
     FirstName VARCHAR(50) NOT NULL,
@@ -48,7 +39,7 @@ CREATE TABLE IF NOT EXISTS LabTechnician (
     Phone VARCHAR(15)
 );
 
--- 6: הזמנת בדיקה (TestOrder)
+-- 5: הזמנת בדיקה (TestOrder)
 CREATE TABLE IF NOT EXISTS TestOrder (
     OrderID SERIAL PRIMARY KEY,
     PatientID INT REFERENCES Patient(PatientID) ON DELETE CASCADE,
@@ -60,7 +51,7 @@ CREATE TABLE IF NOT EXISTS TestOrder (
     Status VARCHAR(30) DEFAULT 'Pending'
 );
 
--- 7: תוצאת בדיקה (TestResult)
+-- 6: תוצאת בדיקה (TestResult)
 CREATE TABLE IF NOT EXISTS TestResult (
     ResultID SERIAL PRIMARY KEY,
     OrderID INT UNIQUE REFERENCES TestOrder(OrderID) ON DELETE CASCADE,
@@ -71,7 +62,7 @@ CREATE TABLE IF NOT EXISTS TestResult (
     Comments VARCHAR(250)
 );
 
--- 8: התראה רפואית (LabAlert)
+-- 7: התראה רפואית (LabAlert)
 CREATE TABLE IF NOT EXISTS LabAlert (
     AlertID SERIAL PRIMARY KEY,
     ResultID INT UNIQUE REFERENCES TestResult(ResultID) ON DELETE CASCADE,

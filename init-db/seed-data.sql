@@ -1,7 +1,3 @@
--- הכנסת מחלקות
-INSERT INTO Ward (WardName, WardType, Floor, Capacity, Phone) VALUES
-('פנימית א', 'פנימית', 2, 30, '02-5551111'),
-('ילדים ב', 'ילדים', 3, 20, '02-5552222');
 
 -- הכנסת רופאים
 INSERT INTO Doctor (LicenseNumber, FirstName, LastName, Specialty, Phone, Email) VALUES
