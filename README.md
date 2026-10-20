@@ -1,3 +1,13 @@
+<img width="1578" height="718" alt="WhatsApp Image 2026-10-19 at 17 10 59" src="https://github.com/user-attachments/assets/5f1c4f2b-43d1-4498-aaf4-a54caeb25f7d" />
+<img width="1543" height="716" alt="WhatsApp Image 2026-10-19 at 17 10 21" src="https://github.com/user-attachments/assets/b10ee0ef-b85a-4a76-beb5-18b12fa48901" />
+<img width="1579" height="719" alt="WhatsApp Image 2026-10-19 at 17 09 44" src="https://github.com/user-attachments/assets/ad962298-7600-45de-b31c-e50fb699db55" />
+<img width="1557" height="726" alt="WhatsApp Image 2026-10-19 at 17 09 15" src="https://github.com/user-attachments/assets/61de110f-bb7d-44bb-a535-61dacb0c9802" />
+<img width="1558" height="743" alt="WhatsApp Image 2026-10-19 at 17 08 46" src="https://github.com/user-attachments/assets/52148a86-5331-4c2e-a33c-21ef9177800c" />
+<img width="1432" height="649" alt="WhatsApp Image 2026-10-19 at 17 07 07" src="https://github.com/user-attachments/assets/eedea562-362f-4e70-80ed-6b5907600ed2" />
+<img width="1600" height="650" alt="WhatsApp Image 2026-10-19 at 17 05 19" src="https://github.com/user-attachments/assets/80ae227b-8eb0-4964-a3fc-7db86342eb16" />
+<img width="847" height="600" alt="צילום מסך 2026-10-20 212110" src="https://github.com/user-attachments/assets/b7e4a881-88c0-460e-83bc-d25c6ff2fb83" />
+<img width="1600" height="656" alt="WhatsApp Image 2026-10-19 at 17 12 18" src="https://github.com/user-attachments/assets/ba6c2ff9-5ce0-483c-abf5-323d16749168" />
+<img width="1580" height="740" alt="WhatsApp Image 2026-10-19 at 17 11 35" src="https://github.com/user-attachments/assets/772a8b34-198c-4699-af36-06a91a6a58ae" />
 User Interface (UI) - Screens Specification
 As part of the Top-Down design phase, the main screens of the system were defined and designed using Google AI Studio. These screens reflect the data flow and the required functionality for managing the hospital laboratory, serving as the foundation for deriving the database entities and fields.
 
