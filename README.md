@@ -29,6 +29,7 @@ The database structure is visualized in the ERD diagram. The schema is fully nor
 
 <img width="847" height="600" alt="צילום מסך 2026-10-20 212110" src="https://github.com/user-attachments/assets/b7e4a881-88c0-460e-83bc-d25c6ff2fb83" />
 
+<img width="4512" height="1734" alt="erdplus (3)" src="https://github.com/user-attachments/assets/9b56683c-d596-44ee-9976-4997295965e8" />
 
 
 
