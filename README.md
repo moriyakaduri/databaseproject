@@ -29,6 +29,9 @@ The database structure is visualized in the ERD diagram. The schema is fully nor
 
 <img width="847" height="600" alt="צילום מסך 2026-10-20 212110" src="https://github.com/user-attachments/assets/b7e4a881-88c0-460e-83bc-d25c6ff2fb83" />
 
+
+
+
 3. Entities and Attributes Description
 
 The database is structured around two hospital-wide entities (Patient, Doctor) and five laboratory-specific entities:
