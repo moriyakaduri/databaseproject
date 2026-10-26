@@ -12,10 +12,6 @@ Explore the Hospital Laboratory schema directly on ERDPlus-
 https://erdplus.com/diagrams/685972
 
 The database structure is visualized in the ERD diagram. The schema is fully normalized (3NF), ensuring data integrity and consisting of 7 primary entities connected to eliminate redundant data.
-<img width="847" height="600" alt="צילום מסך 2026-10-20 212110" src="https://github.com/user-attachments/assets/b7e4a881-88c0-460e-83bc-d25c6ff2fb83" />
-
-
-
 
 Hospital Laboratory Information System - Database Design
 
@@ -30,6 +26,7 @@ Explore the Hospital Laboratory schema directly on ERDPlus-
 https://erdplus.com/diagrams/685972
 
 The database structure is visualized in the ERD diagram. The schema is fully normalized (3NF), ensuring data integrity and consisting of 7 primary entities connected to eliminate redundant data.
+
 <img width="847" height="600" alt="צילום מסך 2026-10-20 212110" src="https://github.com/user-attachments/assets/b7e4a881-88c0-460e-83bc-d25c6ff2fb83" />
 
 3. Entities and Attributes Description
