@@ -1,0 +1,12 @@
+       t       | count 
+---------------+-------
+ patient       |  3000
+ doctor        |   120
+ testtype      |    20
+ labtechnician |    80
+ testorder     |  5000
+ labtest       | 10000
+ testresult    |  8000
+ labalert      |  1557
+(8 rows)
+

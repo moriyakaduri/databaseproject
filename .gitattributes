@@ -1,0 +1,13 @@
+*.sql text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+*.csv text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.yml text eol=lf
+.env.example text eol=lf
+*.erdplus -text
+*.dump binary
+*.png binary
+*.jpg binary
+*.jpeg binary

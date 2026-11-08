@@ -1,0 +1,10 @@
+/*
+!/README.md
+!/.gitignore
+!/.gitattributes
+!/DBProject_216217489_326335387/
+**/.env
+**/.env.*
+!**/.env.example
+**/__pycache__/
+**/*.pyc

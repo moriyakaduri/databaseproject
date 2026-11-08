@@ -1,0 +1,3 @@
+Generated 20,000 lab tests, 16,000 results, 1,600 alerts; no real medical data.
+3c8673bb425032f0a67ebba4aa610b20e041b019b069321abb49f56d2b469b40  /tmp/stage_a_programing/generated.sql
+PASS: regenerated Python SQL is byte-for-byte identical to the SQL used for population.

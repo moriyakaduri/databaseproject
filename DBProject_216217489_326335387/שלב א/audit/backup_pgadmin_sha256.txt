@@ -1,0 +1,6 @@
+
+Algorithm : SHA256
+Hash      : 90837475319F7629B39256BBFF19B48D9C09BEA5F6D3E7930783C97351DAFA56
+Path      : C:\Users\user6\Documents\ChatGPT\מיניפבסנת\DBProject_216217489_326335387\שלב א\Backup\backup_pgadmin_2026-11-08.dump
+
+

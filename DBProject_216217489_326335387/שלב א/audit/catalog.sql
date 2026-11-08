@@ -1,0 +1,1 @@
+COPY (SELECT table_name,column_name,ordinal_position,data_type,character_maximum_length,numeric_precision,numeric_scale,is_nullable,column_default,is_identity FROM information_schema.columns WHERE table_schema='public' ORDER BY table_name,ordinal_position) TO STDOUT WITH CSV HEADER;

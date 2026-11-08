@@ -1,0 +1,1778 @@
+{
+  "diagramType": 1,
+  "data": {
+    "nodes": [
+      {
+        "id": "E_PATIENT",
+        "type": "Entity",
+        "position": {
+          "x": 200,
+          "y": 200
+        },
+        "data": {
+          "label": "Patient",
+          "type": "Regular",
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "E_DOCTOR",
+        "type": "Entity",
+        "position": {
+          "x": 600,
+          "y": 200
+        },
+        "data": {
+          "label": "Doctor",
+          "type": "Regular",
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "E_TESTTYPE",
+        "type": "Entity",
+        "position": {
+          "x": 1000,
+          "y": 200
+        },
+        "data": {
+          "label": "TestType",
+          "type": "Regular",
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "E_LABTECHNICIAN",
+        "type": "Entity",
+        "position": {
+          "x": 1400,
+          "y": 200
+        },
+        "data": {
+          "label": "LabTechnician",
+          "type": "Regular",
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "E_TESTORDER",
+        "type": "Entity",
+        "position": {
+          "x": 222.63297872340428,
+          "y": 570.2260638297872
+        },
+        "data": {
+          "label": "TestOrder",
+          "type": "Regular",
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "E_LABTEST",
+        "type": "Entity",
+        "position": {
+          "x": 750.2127659574469,
+          "y": 568.6702127659576
+        },
+        "data": {
+          "label": "LabTest",
+          "type": "Regular",
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "E_TESTRESULT",
+        "type": "Entity",
+        "position": {
+          "x": 1298.0186170212764,
+          "y": 601.3430851063829
+        },
+        "data": {
+          "label": "TestResult",
+          "type": "Regular",
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "E_LABALERT",
+        "type": "Entity",
+        "position": {
+          "x": 1853.6037234042553,
+          "y": 609.1223404255319
+        },
+        "data": {
+          "label": "LabAlert",
+          "type": "Regular",
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "R_PAT_ORD",
+        "type": "Relationship",
+        "position": {
+          "x": 205.09308510638297,
+          "y": 384.2287234042553
+        },
+        "data": {
+          "label": "Receives",
+          "type": "Regular",
+          "sourceEntityDetails": {
+            "id": "E_PATIENT",
+            "minCardinality": "Mandatory",
+            "maxCardinality": "One"
+          },
+          "targetEntityDetails": {
+            "id": "E_TESTORDER",
+            "minCardinality": "Optional",
+            "maxCardinality": "Many"
+          },
+          "isConnectable": true,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "R_DOC_ORD",
+        "type": "Relationship",
+        "position": {
+          "x": 500,
+          "y": 350
+        },
+        "data": {
+          "label": "Creates",
+          "type": "Regular",
+          "sourceEntityDetails": {
+            "id": "E_DOCTOR",
+            "minCardinality": "Mandatory",
+            "maxCardinality": "One"
+          },
+          "targetEntityDetails": {
+            "id": "E_TESTORDER",
+            "minCardinality": "Optional",
+            "maxCardinality": "Many"
+          },
+          "isConnectable": true,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "R_ORD_LAB",
+        "type": "Relationship",
+        "position": {
+          "x": 419.52127659574467,
+          "y": 585.7845744680851
+        },
+        "data": {
+          "label": "Contains",
+          "type": "Regular",
+          "sourceEntityDetails": {
+            "id": "E_TESTORDER",
+            "minCardinality": "Mandatory",
+            "maxCardinality": "One"
+          },
+          "targetEntityDetails": {
+            "id": "E_LABTEST",
+            "minCardinality": "Optional",
+            "maxCardinality": "Many"
+          },
+          "isConnectable": true,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "R_TYP_LAB",
+        "type": "Relationship",
+        "position": {
+          "x": 900,
+          "y": 350
+        },
+        "data": {
+          "label": "Defines",
+          "type": "Regular",
+          "sourceEntityDetails": {
+            "id": "E_TESTTYPE",
+            "minCardinality": "Mandatory",
+            "maxCardinality": "One"
+          },
+          "targetEntityDetails": {
+            "id": "E_LABTEST",
+            "minCardinality": "Optional",
+            "maxCardinality": "Many"
+          },
+          "isConnectable": true,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "R_TEC_LAB",
+        "type": "Relationship",
+        "position": {
+          "x": 1100,
+          "y": 350
+        },
+        "data": {
+          "label": "Performs",
+          "type": "Regular",
+          "sourceEntityDetails": {
+            "id": "E_LABTECHNICIAN",
+            "minCardinality": "Optional",
+            "maxCardinality": "One"
+          },
+          "targetEntityDetails": {
+            "id": "E_LABTEST",
+            "minCardinality": "Optional",
+            "maxCardinality": "Many"
+          },
+          "isConnectable": true,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "R_LAB_RES",
+        "type": "Relationship",
+        "position": {
+          "x": 1009.3351063829789,
+          "y": 593.563829787234
+        },
+        "data": {
+          "label": "Produces",
+          "type": "Regular",
+          "sourceEntityDetails": {
+            "id": "E_LABTEST",
+            "minCardinality": "Mandatory",
+            "maxCardinality": "One"
+          },
+          "targetEntityDetails": {
+            "id": "E_TESTRESULT",
+            "minCardinality": "Optional",
+            "maxCardinality": "One"
+          },
+          "isConnectable": true,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "R_RES_ALT",
+        "type": "Relationship",
+        "position": {
+          "x": 1526.023936170213,
+          "y": 610.6781914893616
+        },
+        "data": {
+          "label": "Triggers",
+          "type": "Regular",
+          "sourceEntityDetails": {
+            "id": "E_TESTRESULT",
+            "minCardinality": "Mandatory",
+            "maxCardinality": "One"
+          },
+          "targetEntityDetails": {
+            "id": "E_LABALERT",
+            "minCardinality": "Optional",
+            "maxCardinality": "Many"
+          },
+          "isConnectable": true,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_PAT_1",
+        "parentId": "E_PATIENT",
+        "type": "Attribute",
+        "position": {
+          "x": 0,
+          "y": -120
+        },
+        "data": {
+          "label": "PatientID",
+          "types": {
+            "Unique": true
+          },
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_PAT_2",
+        "parentId": "E_PATIENT",
+        "type": "Attribute",
+        "position": {
+          "x": -100,
+          "y": -100
+        },
+        "data": {
+          "label": "IDNumber",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_PAT_3",
+        "parentId": "E_PATIENT",
+        "type": "Attribute",
+        "position": {
+          "x": 100,
+          "y": -100
+        },
+        "data": {
+          "label": "FirstName",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_PAT_4",
+        "parentId": "E_PATIENT",
+        "type": "Attribute",
+        "position": {
+          "x": -150,
+          "y": 0
+        },
+        "data": {
+          "label": "LastName",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_PAT_5",
+        "parentId": "E_PATIENT",
+        "type": "Attribute",
+        "position": {
+          "x": 150,
+          "y": 0
+        },
+        "data": {
+          "label": "DateOfBirth",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_PAT_6",
+        "parentId": "E_PATIENT",
+        "type": "Attribute",
+        "position": {
+          "x": -100,
+          "y": 100
+        },
+        "data": {
+          "label": "Gender",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_PAT_7",
+        "parentId": "E_PATIENT",
+        "type": "Attribute",
+        "position": {
+          "x": 100,
+          "y": 100
+        },
+        "data": {
+          "label": "Phone",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_DOC_1",
+        "parentId": "E_DOCTOR",
+        "type": "Attribute",
+        "position": {
+          "x": 0,
+          "y": -120
+        },
+        "data": {
+          "label": "DoctorID",
+          "types": {
+            "Unique": true
+          },
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_DOC_2",
+        "parentId": "E_DOCTOR",
+        "type": "Attribute",
+        "position": {
+          "x": -100,
+          "y": -100
+        },
+        "data": {
+          "label": "LicenseNumber",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_DOC_3",
+        "parentId": "E_DOCTOR",
+        "type": "Attribute",
+        "position": {
+          "x": 100,
+          "y": -100
+        },
+        "data": {
+          "label": "FirstName",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_DOC_4",
+        "parentId": "E_DOCTOR",
+        "type": "Attribute",
+        "position": {
+          "x": -150,
+          "y": 0
+        },
+        "data": {
+          "label": "LastName",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_DOC_5",
+        "parentId": "E_DOCTOR",
+        "type": "Attribute",
+        "position": {
+          "x": 150,
+          "y": 0
+        },
+        "data": {
+          "label": "Specialty",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_DOC_6",
+        "parentId": "E_DOCTOR",
+        "type": "Attribute",
+        "position": {
+          "x": 85.57180851063833,
+          "y": 87.32712765957444
+        },
+        "data": {
+          "label": "Phone",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": true,
+        "dragging": false
+      },
+      {
+        "id": "A_ORD_1",
+        "parentId": "E_TESTORDER",
+        "type": "Attribute",
+        "position": {
+          "x": -119.80053191489361,
+          "y": 119.60106382978722
+        },
+        "data": {
+          "label": "OrderID",
+          "types": {
+            "Unique": true
+          },
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_ORD_2",
+        "parentId": "E_TESTORDER",
+        "type": "Attribute",
+        "position": {
+          "x": -152.89893617021278,
+          "y": -64.21542553191489
+        },
+        "data": {
+          "label": "OrderedAt",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_ORD_3",
+        "parentId": "E_TESTORDER",
+        "type": "Attribute",
+        "position": {
+          "x": -169.16223404255314,
+          "y": 60.252659574468
+        },
+        "data": {
+          "label": "Priority",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_ORD_4",
+        "parentId": "E_TESTORDER",
+        "type": "Attribute",
+        "position": {
+          "x": 0,
+          "y": 120
+        },
+        "data": {
+          "label": "Notes",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_TYP_1",
+        "parentId": "E_TESTTYPE",
+        "type": "Attribute",
+        "position": {
+          "x": 0,
+          "y": -120
+        },
+        "data": {
+          "label": "TestTypeID",
+          "types": {
+            "Unique": true
+          },
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_TYP_2",
+        "parentId": "E_TESTTYPE",
+        "type": "Attribute",
+        "position": {
+          "x": -100,
+          "y": -100
+        },
+        "data": {
+          "label": "TestCode",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_TYP_3",
+        "parentId": "E_TESTTYPE",
+        "type": "Attribute",
+        "position": {
+          "x": 100,
+          "y": -100
+        },
+        "data": {
+          "label": "TestName",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_TYP_4",
+        "parentId": "E_TESTTYPE",
+        "type": "Attribute",
+        "position": {
+          "x": -150,
+          "y": 0
+        },
+        "data": {
+          "label": "Category",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_TYP_5",
+        "parentId": "E_TESTTYPE",
+        "type": "Attribute",
+        "position": {
+          "x": 150,
+          "y": 0
+        },
+        "data": {
+          "label": "DefaultUnit",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_LAB_1",
+        "parentId": "E_LABTEST",
+        "type": "Attribute",
+        "position": {
+          "x": 0,
+          "y": -120
+        },
+        "data": {
+          "label": "LabTestID",
+          "types": {
+            "Unique": true
+          },
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_LAB_2",
+        "parentId": "E_LABTEST",
+        "type": "Attribute",
+        "position": {
+          "x": -113.77659574468089,
+          "y": -101.781914893617
+        },
+        "data": {
+          "label": "Status",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_LAB_3",
+        "parentId": "E_LABTEST",
+        "type": "Attribute",
+        "position": {
+          "x": -132.04787234042556,
+          "y": 86.47606382978722
+        },
+        "data": {
+          "label": "PerformedLocation",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_LAB_4",
+        "parentId": "E_LABTEST",
+        "type": "Attribute",
+        "position": {
+          "x": -207.5664893617021,
+          "y": -56.01063829787233
+        },
+        "data": {
+          "label": "ScheduledAt",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_LAB_5",
+        "parentId": "E_LABTEST",
+        "type": "Attribute",
+        "position": {
+          "x": 128.218085106383,
+          "y": 49.78723404255311
+        },
+        "data": {
+          "label": "StartedAt",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_LAB_6",
+        "parentId": "E_LABTEST",
+        "type": "Attribute",
+        "position": {
+          "x": 0,
+          "y": 120
+        },
+        "data": {
+          "label": "CompletedAt",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_TEC_1",
+        "parentId": "E_LABTECHNICIAN",
+        "type": "Attribute",
+        "position": {
+          "x": 0,
+          "y": -120
+        },
+        "data": {
+          "label": "TechnicianID",
+          "types": {
+            "Unique": true
+          },
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_TEC_2",
+        "parentId": "E_LABTECHNICIAN",
+        "type": "Attribute",
+        "position": {
+          "x": -100,
+          "y": -100
+        },
+        "data": {
+          "label": "FirstName",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_TEC_3",
+        "parentId": "E_LABTECHNICIAN",
+        "type": "Attribute",
+        "position": {
+          "x": 100,
+          "y": -100
+        },
+        "data": {
+          "label": "LastName",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_TEC_4",
+        "parentId": "E_LABTECHNICIAN",
+        "type": "Attribute",
+        "position": {
+          "x": -150,
+          "y": 0
+        },
+        "data": {
+          "label": "CertificationNumber",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_TEC_5",
+        "parentId": "E_LABTECHNICIAN",
+        "type": "Attribute",
+        "position": {
+          "x": 150,
+          "y": 0
+        },
+        "data": {
+          "label": "Phone",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_RES_1",
+        "parentId": "E_TESTRESULT",
+        "type": "Attribute",
+        "position": {
+          "x": 0,
+          "y": -120
+        },
+        "data": {
+          "label": "ResultID",
+          "types": {
+            "Unique": true
+          },
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_RES_2",
+        "parentId": "E_TESTRESULT",
+        "type": "Attribute",
+        "position": {
+          "x": -120,
+          "y": -80
+        },
+        "data": {
+          "label": "NumericValue",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_RES_3",
+        "parentId": "E_TESTRESULT",
+        "type": "Attribute",
+        "position": {
+          "x": 120,
+          "y": -80
+        },
+        "data": {
+          "label": "TextValue",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_RES_4",
+        "parentId": "E_TESTRESULT",
+        "type": "Attribute",
+        "position": {
+          "x": -150,
+          "y": 0
+        },
+        "data": {
+          "label": "Unit",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_RES_5",
+        "parentId": "E_TESTRESULT",
+        "type": "Attribute",
+        "position": {
+          "x": 115.77127659574467,
+          "y": 85.57180851063833
+        },
+        "data": {
+          "label": "ResultedAt",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_RES_6",
+        "parentId": "E_TESTRESULT",
+        "type": "Attribute",
+        "position": {
+          "x": 0,
+          "y": 120
+        },
+        "data": {
+          "label": "IsAbnormal",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_ALT_1",
+        "parentId": "E_LABALERT",
+        "type": "Attribute",
+        "position": {
+          "x": 0,
+          "y": -120
+        },
+        "data": {
+          "label": "AlertID",
+          "types": {
+            "Unique": true
+          },
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_ALT_2",
+        "parentId": "E_LABALERT",
+        "type": "Attribute",
+        "position": {
+          "x": -120,
+          "y": -80
+        },
+        "data": {
+          "label": "Severity",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_ALT_3",
+        "parentId": "E_LABALERT",
+        "type": "Attribute",
+        "position": {
+          "x": 120,
+          "y": -80
+        },
+        "data": {
+          "label": "Message",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_ALT_4",
+        "parentId": "E_LABALERT",
+        "type": "Attribute",
+        "position": {
+          "x": -126.66223404255334,
+          "y": 74.68085106382978
+        },
+        "data": {
+          "label": "CreatedAt",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_ALT_5",
+        "parentId": "E_LABALERT",
+        "type": "Attribute",
+        "position": {
+          "x": 150,
+          "y": 0
+        },
+        "data": {
+          "label": "Status",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "A_ALT_6",
+        "parentId": "E_LABALERT",
+        "type": "Attribute",
+        "position": {
+          "x": 0,
+          "y": 120
+        },
+        "data": {
+          "label": "AcknowledgedAt",
+          "types": [],
+          "isConnectable": false,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 100,
+          "height": 50
+        },
+        "selected": false,
+        "dragging": false
+      }
+    ],
+    "edges": [
+      {
+        "id": "EDG_PAT_1",
+        "type": "Attribute",
+        "source": "E_PATIENT",
+        "target": "A_PAT_1"
+      },
+      {
+        "id": "EDG_PAT_2",
+        "type": "Attribute",
+        "source": "E_PATIENT",
+        "target": "A_PAT_2"
+      },
+      {
+        "id": "EDG_PAT_3",
+        "type": "Attribute",
+        "source": "E_PATIENT",
+        "target": "A_PAT_3"
+      },
+      {
+        "id": "EDG_PAT_4",
+        "type": "Attribute",
+        "source": "E_PATIENT",
+        "target": "A_PAT_4"
+      },
+      {
+        "id": "EDG_PAT_5",
+        "type": "Attribute",
+        "source": "E_PATIENT",
+        "target": "A_PAT_5"
+      },
+      {
+        "id": "EDG_PAT_6",
+        "type": "Attribute",
+        "source": "E_PATIENT",
+        "target": "A_PAT_6"
+      },
+      {
+        "id": "EDG_PAT_7",
+        "type": "Attribute",
+        "source": "E_PATIENT",
+        "target": "A_PAT_7"
+      },
+      {
+        "id": "EDG_DOC_1",
+        "type": "Attribute",
+        "source": "E_DOCTOR",
+        "target": "A_DOC_1"
+      },
+      {
+        "id": "EDG_DOC_2",
+        "type": "Attribute",
+        "source": "E_DOCTOR",
+        "target": "A_DOC_2"
+      },
+      {
+        "id": "EDG_DOC_3",
+        "type": "Attribute",
+        "source": "E_DOCTOR",
+        "target": "A_DOC_3"
+      },
+      {
+        "id": "EDG_DOC_4",
+        "type": "Attribute",
+        "source": "E_DOCTOR",
+        "target": "A_DOC_4"
+      },
+      {
+        "id": "EDG_DOC_5",
+        "type": "Attribute",
+        "source": "E_DOCTOR",
+        "target": "A_DOC_5"
+      },
+      {
+        "id": "EDG_DOC_6",
+        "type": "Attribute",
+        "source": "E_DOCTOR",
+        "target": "A_DOC_6"
+      },
+      {
+        "id": "EDG_ORD_1",
+        "type": "Attribute",
+        "source": "E_TESTORDER",
+        "target": "A_ORD_1"
+      },
+      {
+        "id": "EDG_ORD_2",
+        "type": "Attribute",
+        "source": "E_TESTORDER",
+        "target": "A_ORD_2"
+      },
+      {
+        "id": "EDG_ORD_3",
+        "type": "Attribute",
+        "source": "E_TESTORDER",
+        "target": "A_ORD_3"
+      },
+      {
+        "id": "EDG_ORD_4",
+        "type": "Attribute",
+        "source": "E_TESTORDER",
+        "target": "A_ORD_4"
+      },
+      {
+        "id": "EDG_TYP_1",
+        "type": "Attribute",
+        "source": "E_TESTTYPE",
+        "target": "A_TYP_1"
+      },
+      {
+        "id": "EDG_TYP_2",
+        "type": "Attribute",
+        "source": "E_TESTTYPE",
+        "target": "A_TYP_2"
+      },
+      {
+        "id": "EDG_TYP_3",
+        "type": "Attribute",
+        "source": "E_TESTTYPE",
+        "target": "A_TYP_3"
+      },
+      {
+        "id": "EDG_TYP_4",
+        "type": "Attribute",
+        "source": "E_TESTTYPE",
+        "target": "A_TYP_4"
+      },
+      {
+        "id": "EDG_TYP_5",
+        "type": "Attribute",
+        "source": "E_TESTTYPE",
+        "target": "A_TYP_5"
+      },
+      {
+        "id": "EDG_LAB_1",
+        "type": "Attribute",
+        "source": "E_LABTEST",
+        "target": "A_LAB_1"
+      },
+      {
+        "id": "EDG_LAB_2",
+        "type": "Attribute",
+        "source": "E_LABTEST",
+        "target": "A_LAB_2"
+      },
+      {
+        "id": "EDG_LAB_3",
+        "type": "Attribute",
+        "source": "E_LABTEST",
+        "target": "A_LAB_3"
+      },
+      {
+        "id": "EDG_LAB_4",
+        "type": "Attribute",
+        "source": "E_LABTEST",
+        "target": "A_LAB_4"
+      },
+      {
+        "id": "EDG_LAB_5",
+        "type": "Attribute",
+        "source": "E_LABTEST",
+        "target": "A_LAB_5"
+      },
+      {
+        "id": "EDG_LAB_6",
+        "type": "Attribute",
+        "source": "E_LABTEST",
+        "target": "A_LAB_6"
+      },
+      {
+        "id": "EDG_TEC_1",
+        "type": "Attribute",
+        "source": "E_LABTECHNICIAN",
+        "target": "A_TEC_1"
+      },
+      {
+        "id": "EDG_TEC_2",
+        "type": "Attribute",
+        "source": "E_LABTECHNICIAN",
+        "target": "A_TEC_2"
+      },
+      {
+        "id": "EDG_TEC_3",
+        "type": "Attribute",
+        "source": "E_LABTECHNICIAN",
+        "target": "A_TEC_3"
+      },
+      {
+        "id": "EDG_TEC_4",
+        "type": "Attribute",
+        "source": "E_LABTECHNICIAN",
+        "target": "A_TEC_4"
+      },
+      {
+        "id": "EDG_TEC_5",
+        "type": "Attribute",
+        "source": "E_LABTECHNICIAN",
+        "target": "A_TEC_5"
+      },
+      {
+        "id": "EDG_RES_1",
+        "type": "Attribute",
+        "source": "E_TESTRESULT",
+        "target": "A_RES_1"
+      },
+      {
+        "id": "EDG_RES_2",
+        "type": "Attribute",
+        "source": "E_TESTRESULT",
+        "target": "A_RES_2"
+      },
+      {
+        "id": "EDG_RES_3",
+        "type": "Attribute",
+        "source": "E_TESTRESULT",
+        "target": "A_RES_3"
+      },
+      {
+        "id": "EDG_RES_4",
+        "type": "Attribute",
+        "source": "E_TESTRESULT",
+        "target": "A_RES_4"
+      },
+      {
+        "id": "EDG_RES_5",
+        "type": "Attribute",
+        "source": "E_TESTRESULT",
+        "target": "A_RES_5"
+      },
+      {
+        "id": "EDG_RES_6",
+        "type": "Attribute",
+        "source": "E_TESTRESULT",
+        "target": "A_RES_6"
+      },
+      {
+        "id": "EDG_ALT_1",
+        "type": "Attribute",
+        "source": "E_LABALERT",
+        "target": "A_ALT_1"
+      },
+      {
+        "id": "EDG_ALT_2",
+        "type": "Attribute",
+        "source": "E_LABALERT",
+        "target": "A_ALT_2"
+      },
+      {
+        "id": "EDG_ALT_3",
+        "type": "Attribute",
+        "source": "E_LABALERT",
+        "target": "A_ALT_3"
+      },
+      {
+        "id": "EDG_ALT_4",
+        "type": "Attribute",
+        "source": "E_LABALERT",
+        "target": "A_ALT_4"
+      },
+      {
+        "id": "EDG_ALT_5",
+        "type": "Attribute",
+        "source": "E_LABALERT",
+        "target": "A_ALT_5"
+      },
+      {
+        "id": "EDG_ALT_6",
+        "type": "Attribute",
+        "source": "E_LABALERT",
+        "target": "A_ALT_6"
+      },
+      {
+        "id": "REL_PAT_ORD_1",
+        "type": "Relationship",
+        "source": "R_PAT_ORD",
+        "target": "E_PATIENT",
+        "data": {
+          "id": "REL_PAT_ORD_1",
+          "minCardinality": "Mandatory",
+          "maxCardinality": "One"
+        }
+      },
+      {
+        "id": "REL_PAT_ORD_2",
+        "type": "Relationship",
+        "source": "R_PAT_ORD",
+        "target": "E_TESTORDER",
+        "data": {
+          "id": "REL_PAT_ORD_2",
+          "minCardinality": "Optional",
+          "maxCardinality": "Many"
+        }
+      },
+      {
+        "id": "REL_DOC_ORD_1",
+        "type": "Relationship",
+        "source": "R_DOC_ORD",
+        "target": "E_DOCTOR",
+        "data": {
+          "id": "REL_DOC_ORD_1",
+          "minCardinality": "Mandatory",
+          "maxCardinality": "One"
+        }
+      },
+      {
+        "id": "REL_DOC_ORD_2",
+        "type": "Relationship",
+        "source": "R_DOC_ORD",
+        "target": "E_TESTORDER",
+        "data": {
+          "id": "REL_DOC_ORD_2",
+          "minCardinality": "Optional",
+          "maxCardinality": "Many"
+        }
+      },
+      {
+        "id": "REL_ORD_LAB_1",
+        "type": "Relationship",
+        "source": "R_ORD_LAB",
+        "target": "E_TESTORDER",
+        "data": {
+          "id": "REL_ORD_LAB_1",
+          "minCardinality": "Mandatory",
+          "maxCardinality": "One"
+        }
+      },
+      {
+        "id": "REL_ORD_LAB_2",
+        "type": "Relationship",
+        "source": "R_ORD_LAB",
+        "target": "E_LABTEST",
+        "data": {
+          "id": "REL_ORD_LAB_2",
+          "minCardinality": "Optional",
+          "maxCardinality": "Many"
+        }
+      },
+      {
+        "id": "REL_TYP_LAB_1",
+        "type": "Relationship",
+        "source": "R_TYP_LAB",
+        "target": "E_TESTTYPE",
+        "data": {
+          "id": "REL_TYP_LAB_1",
+          "minCardinality": "Mandatory",
+          "maxCardinality": "One"
+        }
+      },
+      {
+        "id": "REL_TYP_LAB_2",
+        "type": "Relationship",
+        "source": "R_TYP_LAB",
+        "target": "E_LABTEST",
+        "data": {
+          "id": "REL_TYP_LAB_2",
+          "minCardinality": "Optional",
+          "maxCardinality": "Many"
+        }
+      },
+      {
+        "id": "REL_TEC_LAB_1",
+        "type": "Relationship",
+        "source": "R_TEC_LAB",
+        "target": "E_LABTECHNICIAN",
+        "data": {
+          "id": "REL_TEC_LAB_1",
+          "minCardinality": "Optional",
+          "maxCardinality": "One"
+        }
+      },
+      {
+        "id": "REL_TEC_LAB_2",
+        "type": "Relationship",
+        "source": "R_TEC_LAB",
+        "target": "E_LABTEST",
+        "data": {
+          "id": "REL_TEC_LAB_2",
+          "minCardinality": "Optional",
+          "maxCardinality": "Many"
+        }
+      },
+      {
+        "id": "REL_LAB_RES_1",
+        "type": "Relationship",
+        "source": "R_LAB_RES",
+        "target": "E_LABTEST",
+        "data": {
+          "id": "REL_LAB_RES_1",
+          "minCardinality": "Mandatory",
+          "maxCardinality": "One"
+        }
+      },
+      {
+        "id": "REL_LAB_RES_2",
+        "type": "Relationship",
+        "source": "R_LAB_RES",
+        "target": "E_TESTRESULT",
+        "data": {
+          "id": "REL_LAB_RES_2",
+          "minCardinality": "Optional",
+          "maxCardinality": "One"
+        }
+      },
+      {
+        "id": "REL_RES_ALT_1",
+        "type": "Relationship",
+        "source": "R_RES_ALT",
+        "target": "E_TESTRESULT",
+        "data": {
+          "id": "REL_RES_ALT_1",
+          "minCardinality": "Mandatory",
+          "maxCardinality": "One"
+        }
+      },
+      {
+        "id": "REL_RES_ALT_2",
+        "type": "Relationship",
+        "source": "R_RES_ALT",
+        "target": "E_LABALERT",
+        "data": {
+          "id": "REL_RES_ALT_2",
+          "minCardinality": "Optional",
+          "maxCardinality": "Many"
+        }
+      }
+    ],
+    "viewport": {
+      "x": 145.3703426424447,
+      "y": 75.00139768669399,
+      "zoom": 0.5633623779203359
+    }
+  },
+  "name": "Hospital_Lab_ERD_fixed (1) (2)22(1) (1) (3)",
+  "folder": {
+    "name": "Diagrams",
+    "folderType": 1,
+    "depth": 0,
+    "id": 471820
+  },
+  "id": 719229,
+  "updatedAtTimestamp": 1794083897
+}

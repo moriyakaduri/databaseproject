@@ -1,0 +1,7 @@
+PASS: 29 required artifact paths and 88 local Markdown links verified.
+PASS: all original-row fingerprints match before and after data additions.
+PASS: Custom backup header and recorded SHA-256 match: backup_cli_2026-11-08.dump
+PASS: Custom backup header and recorded SHA-256 match: backup_pgadmin_2026-11-08.dump
+PASS: no populated .env file, private key or supported access-token pattern found in submission files.
+LIMITATION: this scan is not proof that every possible secret pattern is absent. File provenance was reviewed separately.
+OPEN ITEMS: partner-computer restore evidence; DATE-vs-TIMESTAMP lecturer clarification; remaining screenshots if not linked in README. AI Studio was excluded by user instruction.

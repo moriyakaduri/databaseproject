@@ -1,0 +1,66 @@
+      current_database       |                                                       version                                                        
+-----------------------------+----------------------------------------------------------------------------------------------------------------------
+ stage_a_restore_ui_20261108 | PostgreSQL 16.15 (Debian 16.15-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+(1 row)
+
+  table_name   | row_count 
+---------------+-----------
+ patient       |      3000
+ doctor        |       500
+ testtype      |       500
+ labtechnician |       500
+ testorder     |      5000
+ labtest       |     30000
+ testresult    |     24000
+ labalert      |      3157
+(8 rows)
+
+DO
+                   issue                   | violations 
+-------------------------------------------+------------
+ ack_before_alert                          |          0
+ alert_status_timestamp_mismatch           |          0
+ end_before_start                          |          0
+ start_before_schedule                     |          0
+ lab_status_timestamp_mismatch             |          0
+ alert_before_result_or_normal             |          0
+ test_before_order                         |          0
+ completed_without_result                  |          0
+ result_before_completion_or_not_completed |          0
+(9 rows)
+
+ joined_results 
+----------------
+          24000
+(1 row)
+
+   conrelid    |                conname                |                                                                                          pg_get_constraintdef                                                                                           | convalidated 
+---------------+---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------
+ doctor        | doctor_licensenumber_key              | UNIQUE (licensenumber)                                                                                                                                                                                  | t
+ doctor        | doctor_pkey                           | PRIMARY KEY (doctorid)                                                                                                                                                                                  | t
+ labalert      | chk_labalert_severity                 | CHECK (((severity)::text = ANY (ARRAY[('Low'::character varying)::text, ('Medium'::character varying)::text, ('High'::character varying)::text, ('Critical'::character varying)::text])))               | t
+ labalert      | chk_labalert_status                   | CHECK (((status)::text = ANY (ARRAY[('Open'::character varying)::text, ('Acknowledged'::character varying)::text, ('Resolved'::character varying)::text])))                                             | t
+ labalert      | fk_labalert_result                    | FOREIGN KEY (resultid) REFERENCES testresult(resultid)                                                                                                                                                  | t
+ labalert      | labalert_pkey                         | PRIMARY KEY (alertid)                                                                                                                                                                                   | t
+ labtechnician | labtechnician_certificationnumber_key | UNIQUE (certificationnumber)                                                                                                                                                                            | t
+ labtechnician | labtechnician_pkey                    | PRIMARY KEY (technicianid)                                                                                                                                                                              | t
+ labtest       | chk_labtest_status                    | CHECK (((status)::text = ANY (ARRAY[('Scheduled'::character varying)::text, ('InProgress'::character varying)::text, ('Completed'::character varying)::text, ('Cancelled'::character varying)::text]))) | t
+ labtest       | fk_labtest_order                      | FOREIGN KEY (orderid) REFERENCES testorder(orderid)                                                                                                                                                     | t
+ labtest       | fk_labtest_technician                 | FOREIGN KEY (technicianid) REFERENCES labtechnician(technicianid)                                                                                                                                       | t
+ labtest       | fk_labtest_type                       | FOREIGN KEY (testtypeid) REFERENCES testtype(testtypeid)                                                                                                                                                | t
+ labtest       | labtest_pkey                          | PRIMARY KEY (labtestid)                                                                                                                                                                                 | t
+ patient       | chk_patient_gender                    | CHECK (((gender)::text = ANY (ARRAY[('M'::character varying)::text, ('F'::character varying)::text, ('other'::character varying)::text])))                                                              | t
+ patient       | patient_idnumber_key                  | UNIQUE (idnumber)                                                                                                                                                                                       | t
+ patient       | patient_pkey                          | PRIMARY KEY (patientid)                                                                                                                                                                                 | t
+ testorder     | chk_testorder_priority                | CHECK (((priority)::text = ANY (ARRAY[('Routine'::character varying)::text, ('Urgent'::character varying)::text, ('STAT'::character varying)::text])))                                                  | t
+ testorder     | fk_testorder_doctor                   | FOREIGN KEY (doctorid) REFERENCES doctor(doctorid)                                                                                                                                                      | t
+ testorder     | fk_testorder_patient                  | FOREIGN KEY (patientid) REFERENCES patient(patientid)                                                                                                                                                   | t
+ testorder     | testorder_pkey                        | PRIMARY KEY (orderid)                                                                                                                                                                                   | t
+ testresult    | chk_testresult_has_value              | CHECK (((numericvalue IS NOT NULL) OR (textvalue IS NOT NULL)))                                                                                                                                         | t
+ testresult    | fk_testresult_labtest                 | FOREIGN KEY (labtestid) REFERENCES labtest(labtestid)                                                                                                                                                   | t
+ testresult    | testresult_labtestid_key              | UNIQUE (labtestid)                                                                                                                                                                                      | t
+ testresult    | testresult_pkey                       | PRIMARY KEY (resultid)                                                                                                                                                                                  | t
+ testtype      | testtype_pkey                         | PRIMARY KEY (testtypeid)                                                                                                                                                                                | t
+ testtype      | testtype_testcode_key                 | UNIQUE (testcode)                                                                                                                                                                                       | t
+(26 rows)
+

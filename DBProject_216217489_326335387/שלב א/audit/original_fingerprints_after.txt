@@ -1,0 +1,40 @@
+ table_name | count |       original_rows_digest       
+------------+-------+----------------------------------
+ patient    |  3000 | c13039f9418dc0147a03e2807351c3e8
+(1 row)
+
+ table_name | count |       original_rows_digest       
+------------+-------+----------------------------------
+ doctor     |   120 | 569dad0a5ac1913a9cfd6493772fd9c4
+(1 row)
+
+ table_name | count |       original_rows_digest       
+------------+-------+----------------------------------
+ testtype   |    20 | d3c65fe9887a592ba69935fac856dbd3
+(1 row)
+
+  table_name   | count |       original_rows_digest       
+---------------+-------+----------------------------------
+ labtechnician |    80 | d25d1e8b16f385808a2015879dd4e2ee
+(1 row)
+
+ table_name | count |       original_rows_digest       
+------------+-------+----------------------------------
+ testorder  |  5000 | af2dc3703a21354059241a056179eb59
+(1 row)
+
+ table_name | count |       original_rows_digest       
+------------+-------+----------------------------------
+ labtest    | 10000 | 2b9ec13c175be5ce6e0172c71435a23a
+(1 row)
+
+ table_name | count |       original_rows_digest       
+------------+-------+----------------------------------
+ testresult |  8000 | f9a2b6c48a2a565a8076c245f705d25e
+(1 row)
+
+ table_name | count |       original_rows_digest       
+------------+-------+----------------------------------
+ labalert   |  1557 | 0d7233d6d5d4862e358200690257f57b
+(1 row)
+

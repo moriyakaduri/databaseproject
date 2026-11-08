@@ -1,0 +1,14 @@
+BEGIN
+INSERT 0 380
+INSERT 0 480
+ setval 
+--------
+    500
+(1 row)
+
+ setval 
+--------
+    500
+(1 row)
+
+COMMIT

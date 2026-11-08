@@ -1,0 +1,764 @@
+{
+  "diagramType": 2,
+  "data": {
+    "nodes": [
+      {
+        "id": "E_PATIENT",
+        "type": "Table",
+        "position": {
+          "x": 391.9738886171929,
+          "y": 441.964071919671
+        },
+        "data": {
+          "label": "PATIENT",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "87e80425-72ae-4b2c-b47a-f85d9f89fcf5",
+              "name": "PatientID",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "27af65a3-5276-4929-a499-7fecf0ae3d65",
+              "name": "IDNumber",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "d8927c0b-c38b-433d-abfe-c5cec06a90bf",
+              "name": "FirstName",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "828abe45-5230-43ab-84c5-87f05061a11d",
+              "name": "LastName",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "957f56c9-5730-410b-9c08-f80ba5089603",
+              "name": "DateOfBirth",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "3965b425-25d1-4446-8f93-32a7968354de",
+              "name": "Gender",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "1f1c8fa1-e02b-4f1f-8640-c09da9f63df2",
+              "name": "Phone",
+              "type": "INT",
+              "isPrimaryKey": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 199
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "E_DOCTOR",
+        "type": "Table",
+        "position": {
+          "x": 699.8422707885354,
+          "y": 773.5197195193319
+        },
+        "data": {
+          "label": "DOCTOR",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "e30ccb3e-84d5-4fe2-bac7-301f6507dc44",
+              "name": "DoctorID",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "77231698-b156-4efe-b38f-5982bb859b09",
+              "name": "LicenseNumber",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "3a573ed6-f52c-4004-8051-3a33eaf50b2d",
+              "name": "FirstName",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "7276b783-61b6-4129-af7b-9a0389e8bc5e",
+              "name": "LastName",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "a267f9c2-4830-40bf-9fd4-4331221c5629",
+              "name": "Specialty",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "3486a583-3e41-4382-a64d-60b662ea42dc",
+              "name": "Phone",
+              "type": "INT",
+              "isPrimaryKey": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 174
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "E_TESTTYPE",
+        "type": "Table",
+        "position": {
+          "x": 1296.2532952905724,
+          "y": 607.552875841727
+        },
+        "data": {
+          "label": "TESTTYPE",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "31851ee6-fd04-4192-975b-b21458d8c95c",
+              "name": "TestTypeID",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "411511b9-d603-491d-bdb6-b139ff326f05",
+              "name": "TestCode",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "644441d0-f630-4854-9fa8-0f865c49ef46",
+              "name": "TestName",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "01a9511e-c876-493e-a952-a2e08adeae20",
+              "name": "Category",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "278f06d3-934d-4feb-9be0-ee76b9872890",
+              "name": "DefaultUnit",
+              "type": "INT",
+              "isPrimaryKey": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 150
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "E_LABTECHNICIAN",
+        "type": "Table",
+        "position": {
+          "x": 1301.7944877489813,
+          "y": 810.5109344938321
+        },
+        "data": {
+          "label": "LABTECHNICIAN",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "ce8592ff-ef66-4eb5-a4ac-6cc12a82abf2",
+              "name": "TechnicianID",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "27175543-ef73-4071-aa4a-beec95a54132",
+              "name": "FirstName",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "957eb64a-217a-4b2e-9806-87d9acef4c4d",
+              "name": "LastName",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "c68e0555-e618-4ce8-894f-1b5ea360a12a",
+              "name": "CertificationNumber",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "9970cfd2-06a6-4124-998c-849bdb05ba7e",
+              "name": "Phone",
+              "type": "INT",
+              "isPrimaryKey": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 150
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "E_TESTORDER",
+        "type": "Table",
+        "position": {
+          "x": 393.09243648902316,
+          "y": 704.4289524600442
+        },
+        "data": {
+          "label": "TESTORDER",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "035f5cd1-659a-4b29-bba9-acb1db0cb5b1",
+              "name": "OrderID",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "c74648bb-eff9-4fb3-bc4e-9405b9e00b05",
+              "name": "OrderedAt",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "318435ff-a1a5-491d-8622-7e74820d45a8",
+              "name": "Priority",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "eeb0871f-a2f0-42e6-8f4f-c379056da8e5",
+              "name": "Notes",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "313e796e-e524-4951-b8e4-174758f68eb3",
+              "name": "fk_PATIENT",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "2f27e99d-658a-430d-9315-4bcba1e89b21",
+                "sourceTableId": "E_PATIENT",
+                "columns": [
+                  {
+                    "id": "fk_87e80425-72ae-4b2c-b47a-f85d9f89fcf5",
+                    "name": "PatientID",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isOptional": false
+            },
+            {
+              "id": "a64daefd-8d4d-4808-9ba3-ab3d29d9548c",
+              "name": "fk_DOCTOR",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "1e74ade0-ec12-4f3d-a07f-e8bbc20435fd",
+                "sourceTableId": "E_DOCTOR",
+                "columns": [
+                  {
+                    "id": "fk_e30ccb3e-84d5-4fe2-bac7-301f6507dc44",
+                    "name": "DoctorID",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isOptional": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 175
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "E_LABTEST",
+        "type": "Table",
+        "position": {
+          "x": 995.1153110408659,
+          "y": 547.1161601453956
+        },
+        "data": {
+          "label": "LABTEST",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "5dae15b7-1407-411f-92fb-0bf01f6cb8ff",
+              "name": "LabTestID",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "8b331918-ffd7-43b6-babc-caf42306a0e9",
+              "name": "Status",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "eb586141-be6b-4472-96c5-5b3d58f0940d",
+              "name": "PerformedLocation",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "4baae4a7-b4aa-43e3-b308-28ed76e8e449",
+              "name": "ScheduledAt",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "d982cb7f-1ce1-48c5-84ef-12dce0355244",
+              "name": "StartedAt",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "b6b52b48-e926-4864-88e3-c72716f75dfa",
+              "name": "CompletedAt",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "d71818de-1cf6-4c55-aea4-aa0c6e5bbde8",
+              "name": "fk_TESTORDER",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "ae3f6371-72a2-4c42-99cc-656de40dbecf",
+                "sourceTableId": "E_TESTORDER",
+                "columns": [
+                  {
+                    "id": "fk_035f5cd1-659a-4b29-bba9-acb1db0cb5b1",
+                    "name": "OrderID",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isOptional": false
+            },
+            {
+              "id": "ff75142f-76b6-4ec7-bcee-4084262f3cf7",
+              "name": "fk_TESTTYPE",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "52a45ee3-1e75-4f84-a080-dd28d5d039fb",
+                "sourceTableId": "E_TESTTYPE",
+                "columns": [
+                  {
+                    "id": "fk_31851ee6-fd04-4192-975b-b21458d8c95c",
+                    "name": "TestTypeID",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isOptional": false
+            },
+            {
+              "id": "e89ecedc-9ed8-4cd3-8c02-4d9e762814a6",
+              "name": "fk_LABTECHNICIAN",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "50d54efd-5185-45cd-82e5-3061851b2227",
+                "sourceTableId": "E_LABTECHNICIAN",
+                "columns": [
+                  {
+                    "id": "fk_ce8592ff-ef66-4eb5-a4ac-6cc12a82abf2",
+                    "name": "TechnicianID",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isOptional": true
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 250
+        },
+        "selected": true,
+        "dragging": false
+      },
+      {
+        "id": "E_TESTRESULT",
+        "type": "Table",
+        "position": {
+          "x": 1307.8391682463782,
+          "y": 352.5557874038026
+        },
+        "data": {
+          "label": "TESTRESULT",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "ec9b814e-28d3-4761-9c7d-e2b0a69b0463",
+              "name": "ResultID",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "7bb6615d-bf15-4f1e-889a-83d9d24da686",
+              "name": "NumericValue",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "fa6015b3-ba2b-415e-8742-630ca49f8d8f",
+              "name": "TextValue",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "e27f2f9d-063e-495f-b3c4-e221f6106119",
+              "name": "Unit",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "85f8d3b9-ac36-4f6b-81fe-1323c531519c",
+              "name": "ResultedAt",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "578230fe-3f22-4e49-b3a6-1928d845c730",
+              "name": "IsAbnormal",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "d08ec1a7-857f-4d90-8bb4-d74f07b68358",
+              "name": "fk_LABTEST",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "f7e8f437-32ed-4713-abb2-fd140fddb4ee",
+                "sourceTableId": "E_LABTEST",
+                "columns": [
+                  {
+                    "id": "fk_5dae15b7-1407-411f-92fb-0bf01f6cb8ff",
+                    "name": "LabTestID",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isOptional": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 200
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "E_LABALERT",
+        "type": "Table",
+        "position": {
+          "x": 1619.5472525393277,
+          "y": 556.7460672249887
+        },
+        "data": {
+          "label": "LABALERT",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "bf17eb34-8d56-452a-b64c-5a727137ec66",
+              "name": "AlertID",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "0fa4599d-a754-4665-aa36-0a657b20463e",
+              "name": "Severity",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "b5b4c825-1f3e-4e94-80ab-ba6e49323e9f",
+              "name": "Message",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "97f983a3-5554-4b70-995f-2a9d4d1c0067",
+              "name": "CreatedAt",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "85e92d2a-205a-4671-9a1c-2bef8e6db96e",
+              "name": "Status",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "351a791d-f077-4b3b-a3eb-ff984af51ef9",
+              "name": "AcknowledgedAt",
+              "type": "INT",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "f80626a6-428b-4f0c-b2ad-228e6cab253b",
+              "name": "fk_TESTRESULT",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "92c54ff5-5299-4a15-8ff8-4c7417b04256",
+                "sourceTableId": "E_TESTRESULT",
+                "columns": [
+                  {
+                    "id": "fk_ec9b814e-28d3-4761-9c7d-e2b0a69b0463",
+                    "name": "ResultID",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isOptional": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 200
+        },
+        "selected": false,
+        "dragging": false
+      }
+    ],
+    "edges": [
+      {
+        "id": "E_PATIENT->E_TESTORDER_2f27e99d-658a-430d-9315-4bcba1e89b21",
+        "type": "Relational",
+        "source": "E_PATIENT",
+        "targetHandle": "foreign-key-handle-2f27e99d-658a-430d-9315-4bcba1e89b21",
+        "target": "E_TESTORDER",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "2f27e99d-658a-430d-9315-4bcba1e89b21",
+            "sourceTableId": "E_PATIENT",
+            "columns": [
+              {
+                "id": "fk_87e80425-72ae-4b2c-b47a-f85d9f89fcf5",
+                "name": "PatientID",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "E_DOCTOR->E_TESTORDER_1e74ade0-ec12-4f3d-a07f-e8bbc20435fd",
+        "type": "Relational",
+        "source": "E_DOCTOR",
+        "targetHandle": "foreign-key-handle-1e74ade0-ec12-4f3d-a07f-e8bbc20435fd",
+        "target": "E_TESTORDER",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "1e74ade0-ec12-4f3d-a07f-e8bbc20435fd",
+            "sourceTableId": "E_DOCTOR",
+            "columns": [
+              {
+                "id": "fk_e30ccb3e-84d5-4fe2-bac7-301f6507dc44",
+                "name": "DoctorID",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "E_TESTORDER->E_LABTEST_ae3f6371-72a2-4c42-99cc-656de40dbecf",
+        "type": "Relational",
+        "source": "E_TESTORDER",
+        "targetHandle": "foreign-key-handle-ae3f6371-72a2-4c42-99cc-656de40dbecf",
+        "target": "E_LABTEST",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "ae3f6371-72a2-4c42-99cc-656de40dbecf",
+            "sourceTableId": "E_TESTORDER",
+            "columns": [
+              {
+                "id": "fk_035f5cd1-659a-4b29-bba9-acb1db0cb5b1",
+                "name": "OrderID",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "E_TESTTYPE->E_LABTEST_52a45ee3-1e75-4f84-a080-dd28d5d039fb",
+        "type": "Relational",
+        "source": "E_TESTTYPE",
+        "targetHandle": "foreign-key-handle-52a45ee3-1e75-4f84-a080-dd28d5d039fb",
+        "target": "E_LABTEST",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "52a45ee3-1e75-4f84-a080-dd28d5d039fb",
+            "sourceTableId": "E_TESTTYPE",
+            "columns": [
+              {
+                "id": "fk_31851ee6-fd04-4192-975b-b21458d8c95c",
+                "name": "TestTypeID",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "E_LABTECHNICIAN->E_LABTEST_50d54efd-5185-45cd-82e5-3061851b2227",
+        "type": "Relational",
+        "source": "E_LABTECHNICIAN",
+        "targetHandle": "foreign-key-handle-50d54efd-5185-45cd-82e5-3061851b2227",
+        "target": "E_LABTEST",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "50d54efd-5185-45cd-82e5-3061851b2227",
+            "sourceTableId": "E_LABTECHNICIAN",
+            "columns": [
+              {
+                "id": "fk_ce8592ff-ef66-4eb5-a4ac-6cc12a82abf2",
+                "name": "TechnicianID",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "E_LABTEST->E_TESTRESULT_f7e8f437-32ed-4713-abb2-fd140fddb4ee",
+        "type": "Relational",
+        "source": "E_LABTEST",
+        "targetHandle": "foreign-key-handle-f7e8f437-32ed-4713-abb2-fd140fddb4ee",
+        "target": "E_TESTRESULT",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "f7e8f437-32ed-4713-abb2-fd140fddb4ee",
+            "sourceTableId": "E_LABTEST",
+            "columns": [
+              {
+                "id": "fk_5dae15b7-1407-411f-92fb-0bf01f6cb8ff",
+                "name": "LabTestID",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "E_TESTRESULT->E_LABALERT_92c54ff5-5299-4a15-8ff8-4c7417b04256",
+        "type": "Relational",
+        "source": "E_TESTRESULT",
+        "targetHandle": "foreign-key-handle-92c54ff5-5299-4a15-8ff8-4c7417b04256",
+        "target": "E_LABALERT",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "92c54ff5-5299-4a15-8ff8-4c7417b04256",
+            "sourceTableId": "E_TESTRESULT",
+            "columns": [
+              {
+                "id": "fk_ec9b814e-28d3-4761-9c7d-e2b0a69b0463",
+                "name": "ResultID",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "viewport": {
+      "x": -142.9223269709929,
+      "y": -203.1941815779278,
+      "zoom": 0.7923347274023469
+    }
+  },
+  "name": "Hospital_Lab_ERD_fixed (1) (2)22(1) (1) (3)-Relational Schema",
+  "folder": {
+    "name": "Diagrams",
+    "folderType": 1,
+    "depth": 0,
+    "id": 471820
+  },
+  "id": 724553,
+  "updatedAtTimestamp": 1794126985
+}

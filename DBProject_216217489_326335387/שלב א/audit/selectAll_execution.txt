@@ -1,0 +1,1 @@
+selectAll.sql completed with ON_ERROR_STOP=1 on Hospiatl_Lab_db. Full output contains 66805 lines, including all 66657 table rows and query headers/counts/JOIN preview. Output retained in PostgreSQL container at /tmp/stage_a_selectAll_output.txt.

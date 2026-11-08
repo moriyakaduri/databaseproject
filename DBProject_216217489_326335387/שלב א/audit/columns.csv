@@ -1,0 +1,53 @@
+table_name,column_name,ordinal_position,data_type,character_maximum_length,numeric_precision,numeric_scale,is_nullable,column_default,is_identity
+doctor,doctorid,1,integer,,32,0,NO,,YES
+doctor,licensenumber,2,character varying,20,,,NO,,NO
+doctor,firstname,3,character varying,50,,,NO,,NO
+doctor,lastname,4,character varying,50,,,NO,,NO
+doctor,specialty,5,character varying,60,,,NO,,NO
+doctor,phone,6,character varying,15,,,YES,,NO
+labalert,alertid,1,integer,,32,0,NO,,YES
+labalert,severity,2,character varying,20,,,NO,,NO
+labalert,message,3,text,,,,NO,,NO
+labalert,createdat,4,timestamp without time zone,,,,NO,CURRENT_TIMESTAMP,NO
+labalert,status,5,character varying,30,,,NO,'Open'::character varying,NO
+labalert,acknowledgedat,6,timestamp without time zone,,,,YES,,NO
+labalert,resultid,7,integer,,32,0,NO,,NO
+labtechnician,technicianid,1,integer,,32,0,NO,,YES
+labtechnician,firstname,2,character varying,50,,,NO,,NO
+labtechnician,lastname,3,character varying,50,,,NO,,NO
+labtechnician,certificationnumber,4,character varying,30,,,NO,,NO
+labtechnician,phone,5,character varying,15,,,YES,,NO
+labtest,labtestid,1,integer,,32,0,NO,,YES
+labtest,status,2,character varying,30,,,NO,'Scheduled'::character varying,NO
+labtest,performedlocation,3,character varying,100,,,YES,,NO
+labtest,scheduledat,4,timestamp without time zone,,,,YES,,NO
+labtest,startedat,5,timestamp without time zone,,,,YES,,NO
+labtest,completedat,6,timestamp without time zone,,,,YES,,NO
+labtest,orderid,7,integer,,32,0,NO,,NO
+labtest,testtypeid,8,integer,,32,0,NO,,NO
+labtest,technicianid,9,integer,,32,0,YES,,NO
+patient,patientid,1,integer,,32,0,NO,,YES
+patient,idnumber,2,character varying,9,,,NO,,NO
+patient,firstname,3,character varying,50,,,NO,,NO
+patient,lastname,4,character varying,50,,,NO,,NO
+patient,dateofbirth,5,date,,,,NO,,NO
+patient,gender,6,character varying,10,,,YES,,NO
+patient,phone,7,character varying,15,,,YES,,NO
+testorder,orderid,1,integer,,32,0,NO,,YES
+testorder,orderedat,2,timestamp without time zone,,,,NO,CURRENT_TIMESTAMP,NO
+testorder,priority,3,character varying,20,,,NO,'Routine'::character varying,NO
+testorder,notes,4,text,,,,YES,,NO
+testorder,patientid,5,integer,,32,0,NO,,NO
+testorder,doctorid,6,integer,,32,0,NO,,NO
+testresult,resultid,1,integer,,32,0,NO,,YES
+testresult,numericvalue,2,numeric,,12,3,YES,,NO
+testresult,textvalue,3,text,,,,YES,,NO
+testresult,unit,4,character varying,30,,,YES,,NO
+testresult,resultedat,5,timestamp without time zone,,,,NO,CURRENT_TIMESTAMP,NO
+testresult,isabnormal,6,boolean,,,,NO,false,NO
+testresult,labtestid,7,integer,,32,0,NO,,NO
+testtype,testtypeid,1,integer,,32,0,NO,,YES
+testtype,testcode,2,character varying,30,,,NO,,NO
+testtype,testname,3,character varying,100,,,NO,,NO
+testtype,category,4,character varying,60,,,YES,,NO
+testtype,defaultunit,5,character varying,30,,,YES,,NO

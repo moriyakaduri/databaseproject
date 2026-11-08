@@ -1,0 +1,8 @@
+BEGIN
+COPY 420
+ setval 
+--------
+    500
+(1 row)
+
+COMMIT

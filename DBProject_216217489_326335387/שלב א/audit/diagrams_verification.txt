@@ -1,0 +1,4 @@
+PASS: original ERD and DSD contain 8 matching entities/tables, 52 SQL columns, 7 matching relationships, matching PKs and FK optionality.
+PASS: ERD contains 45 entity attributes; 7 FK columns are introduced by relationships.
+NOTE: original DSD metadata uses INT placeholders for non-key fields, including 37 fields whose live PostgreSQL types are not INTEGER.
+Original files were preserved byte-for-byte. The live catalog, createTables.sql and DataDictionary.md specify actual PostgreSQL types.
