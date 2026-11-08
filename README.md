@@ -312,3 +312,8 @@ docker compose -p stage_a_review exec -w /submission db sh -c 'psql -U "$POSTGRE
 ![הרצת CREATE ו־DROP בבסיס ניסוי בלבד](DBProject_216217489_326335387/שלב%20א/screenshots/create-drop-temporary-log.jpg)
 
 צילום זה מציג את יומן הבדיקה על בסיס זמני ייעודי, שבו נוצרו שמונה הטבלאות ונמחקו בסדר התלויות. בסיס הנתונים הראשי לא נמחק.
+****הוכחת שחזור: צילומי המסך וקובץ התוצאות (partner_restore_result.txt) מציגים שחזור מוצלח על מחשב שותף, ומוכיחים שקובץ הגיבוי תקין וניתן לפריסה בלתי תלויה.
+
+שלמות הנתונים: תוצאות הבדיקה מאמתות שכל הרשומות הועברו במלואן (24,000 תוצאות) וכי לא הופרו אילוצי מערכת (הודעת PASS ואפס הפרות).
+צילומי מסך סיכרון של 2 המחשבים<img width="1856" height="1015" alt="צילום מסך 2026-11-08 170102" src="https://github.com/user-attachments/assets/4b8aa799-6a65-4da3-a2a9-1b17e88050d6" /> <img width="1882" height="1023" alt="צילום מסך 2026-11-08 170052" src="https://github.com/user-attachments/assets/45e3fb2c-d687-4a23-861c-f31d8d36f8c3" />
+<img width="1861" height="1011" alt="צילום מסך 2026-11-08 170114" src="https://github.com/user-attachments/assets/a1987080-b9ec-423c-b7da-62df2bf618f3" />
