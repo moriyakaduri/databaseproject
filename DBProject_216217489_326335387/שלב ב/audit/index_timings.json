@@ -1,0 +1,14 @@
+{
+  "idx_testorder_patient_date": {
+    "median_before_ms": 0.637,
+    "median_after_ms": 0.189
+  },
+  "idx_labtest_type_status": {
+    "median_before_ms": 3.051,
+    "median_after_ms": 0.983
+  },
+  "idx_labalert_open_created": {
+    "median_before_ms": 0.841,
+    "median_after_ms": 0.522
+  }
+}

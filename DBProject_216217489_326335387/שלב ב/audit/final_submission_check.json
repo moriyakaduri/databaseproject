@@ -1,0 +1,77 @@
+{
+  "checked_at_utc": "2026-11-14T21:55:00.466952+00:00",
+  "status": "PASS",
+  "database": "codex_stage_b_20261112",
+  "restored_database": "codex_stage_b_20261112_restore",
+  "selects": {
+    "Q1A": {
+      "rows": 600,
+      "columns": 7
+    },
+    "Q1B": {
+      "rows": 600,
+      "columns": 7
+    },
+    "Q2A": {
+      "rows": 327,
+      "columns": 5
+    },
+    "Q2B": {
+      "rows": 327,
+      "columns": 5
+    },
+    "Q3A": {
+      "rows": 3000,
+      "columns": 9
+    },
+    "Q3B": {
+      "rows": 3000,
+      "columns": 9
+    },
+    "Q4A": {
+      "rows": 20,
+      "columns": 5
+    },
+    "Q4B": {
+      "rows": 20,
+      "columns": 5
+    },
+    "Q5": {
+      "rows": 588,
+      "columns": 7
+    },
+    "Q6": {
+      "rows": 400,
+      "columns": 9
+    },
+    "Q7": {
+      "rows": 1000,
+      "columns": 8
+    },
+    "Q8": {
+      "rows": 234,
+      "columns": 7
+    }
+  },
+  "equivalent_pairs": 4,
+  "authentic_screenshots_in_gallery": 85,
+  "source_sha256": {
+    "שלב ב\\Queries.sql": "42af2919e1066cde294300bedba78a86650cac88e33276e67ae5efc76bfe4945",
+    "שלב ב\\Constraints.sql": "0da552d1925a4a3705148d424a6acabb1fa8f30e3e238b0f8cdbb51c374bbf62",
+    "שלב ב\\RollbackCommit.sql": "5790d479becb54600f38dfb1a6fc5b15e73569f04d38da3109e0553b26bf12db",
+    "שלב ב\\Index.sql": "71abf461c6f26f45bddd5888027a839c6149c64f754caf945d4217c0e34746a6",
+    "שלב ב\\StageA_Migration.sql": "4602e6ae4c9e51b8f87312a770c70e9815fa5e5ab82ec92ef68c8f9e335f5d7a",
+    "שלב ב\\PartnerValidation.sql": "ae76e604a06c0566f36b93e4c88cfc15c4b8381307ef0b643fc5c5f6a9162560",
+    "שלב ב\\backup2.dump": "6fcacd9ef01f0bad38d48ff35348453af207af81723bd78855ac054150ff6a98",
+    "שלב א\\createTables.sql": "99eb69324145e35ca3db67c088e558f8a0e24b589342ef30736e27cea22d9f8b",
+    "שלב א\\SQLInsert\\baseSeed.sql": "9412a7767bcfe9594e30d7e78dce97a297a49d9fbc874b449f565682f9b988a3",
+    "שלב א\\DataImportFiles\\technicians.csv": "250fb4061fbf30fc1060189febd563a508e9798bcef34529b9531cb552520894",
+    "שלב א\\DataImportFiles\\import.sql": "a7a0634c959201f70444aad28107a5cb077f049a7ca0af999fb0e888ce785c3d"
+  },
+  "scope": "Read-only final checks; mutation/constraint/transaction/index tests are retained in numbered audit logs.",
+  "limitations": [
+    "Native ERDPlus image download failed; full diagrams rendered locally from verified sources.",
+    "Some pgAdmin screenshots show leftmost columns; full SQL and text results are supplied.",
+    "backup2 was restored locally; partner-machine backup2 restore has not yet been performed."
+  ]
+}

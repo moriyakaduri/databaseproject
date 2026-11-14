@@ -1,0 +1,41 @@
+PASS: original DB unchanged; migrated copy preserves every original column value.
+   tab   | count |               hash               
+---------+-------+----------------------------------
+ patient |  3000 | 944cedf8a125e8f4c23e3a81d9aa70b2
+(1 row)
+
+  tab   | count |               hash               
+--------+-------+----------------------------------
+ doctor |   500 | 30b85eb652cba6058ce7a98f0b9fbe83
+(1 row)
+
+   tab    | count |               hash               
+----------+-------+----------------------------------
+ testtype |   500 | 5fb669fac0c2596bced5a85b67b92c57
+(1 row)
+
+      tab      | count |               hash               
+---------------+-------+----------------------------------
+ labtechnician |   500 | 93a7d59f2618183b66d9b3c1bc95a426
+(1 row)
+
+    tab    | count |               hash               
+-----------+-------+----------------------------------
+ testorder |  5001 | 0af56c4e5076aadb98092057a67f76bd
+(1 row)
+
+   tab   | count |               hash               
+---------+-------+----------------------------------
+ labtest | 30000 | d3f5a3399d715e7eb8e85e42f88106dd
+(1 row)
+
+    tab     | count |               hash               
+------------+-------+----------------------------------
+ testresult | 24000 | ff65a92eff1af6a4b4da4f6716400c6f
+(1 row)
+
+   tab    | count |               hash               
+----------+-------+----------------------------------
+ labalert |  3157 | 371abb9e947ce379c196dcacea328679
+(1 row)
+

@@ -1,6 +1,6 @@
 -- 2createTables.sql
 -- HOSPITAL LABORATORY - PostgreSQL 16 / pgAdmin
--- Based on the lecturer-approved ERD / DSD: 8 tables, no added columns.
+-- 8 tables; revised Stage A adds CertificationExpiresOn (DATE).
 -- Run in your NEW, EMPTY project database (hospital_lab_db).
 -- Order: independent tables first, then dependent tables.
 -- PostgreSQL stores unquoted table/column names in lower case.
@@ -44,6 +44,7 @@ CREATE TABLE LABTECHNICIAN (
     FirstName           VARCHAR(50)  NOT NULL,
     LastName            VARCHAR(50)  NOT NULL,
     CertificationNumber VARCHAR(30)  NOT NULL UNIQUE,
+    CertificationExpiresOn DATE      NOT NULL,
     Phone               VARCHAR(15)
 );
 

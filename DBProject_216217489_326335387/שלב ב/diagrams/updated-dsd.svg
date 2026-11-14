@@ -1,0 +1,244 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3630" height="1710" viewBox="0 0 3630 1710">
+<rect width="3630" height="1710" fill="white"/>
+<text x="65" y="55" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#152c45">Hospital Laboratory | Relational Schema</text>
+<text x="65" y="103" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="21" font-weight="400" fill="#152c45">8 tables  |  53 columns  |  7 foreign keys  |  PK = primary key, FK = foreign key, UQ = unique, ? = nullable</text>
+<text x="65" y="143" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#5b7188">Locally rendered from the verified ERDPlus source; UQ flags are cross-checked against createTables.sql.</text>
+<polyline points="660.00,279.50 720.00,279.50 720.00,671.50 780.00,671.50" fill="none" stroke="#5b7188" stroke-width="3"/>
+<polygon points="660,279.5 673.0,273.5 673.0,285.5" fill="#5b7188" stroke="#5b7188" stroke-width="1"/>
+<text x="686" y="262.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">1</text>
+<text x="750" y="655.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">0..N</text>
+<polyline points="660.00,779.50 698.00,779.50 698.00,714.50 780.00,714.50" fill="none" stroke="#5b7188" stroke-width="3"/>
+<polygon points="660,779.5 673.0,773.5 673.0,785.5" fill="#5b7188" stroke="#5b7188" stroke-width="1"/>
+<text x="686" y="762.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">1</text>
+<text x="750" y="698.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">0..N</text>
+<polyline points="1380.00,499.50 1440.00,499.50 1440.00,1087.50 1500.00,1087.50" fill="none" stroke="#5b7188" stroke-width="3"/>
+<polygon points="1380,499.5 1393.0,493.5 1393.0,505.5" fill="#5b7188" stroke="#5b7188" stroke-width="1"/>
+<text x="1406" y="482.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">1</text>
+<text x="1470" y="1071.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">0..N</text>
+<polyline points="1500.00,279.50 1415.00,279.50 1415.00,1130.50 1500.00,1130.50" fill="none" stroke="#5b7188" stroke-width="3"/>
+<polygon points="1500,279.5 1487.0,285.5 1487.0,273.5" fill="#5b7188" stroke="#5b7188" stroke-width="1"/>
+<text x="1472" y="262.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">1</text>
+<text x="1470" y="1114.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">0..N</text>
+<polyline points="1380.00,1329.50 1464.00,1329.50 1464.00,1173.50 1500.00,1173.50" fill="none" stroke="#5b7188" stroke-width="3"/>
+<polygon points="1380,1329.5 1393.0,1323.5 1393.0,1335.5" fill="#5b7188" stroke="#5b7188" stroke-width="1"/>
+<text x="1406" y="1312.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">0..1</text>
+<text x="1470" y="1157.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">0..N</text>
+<polyline points="2100.00,829.50 2160.00,829.50 2160.00,1087.50 2220.00,1087.50" fill="none" stroke="#5b7188" stroke-width="3"/>
+<polygon points="2100,829.5 2113.0,823.5 2113.0,835.5" fill="#5b7188" stroke="#5b7188" stroke-width="1"/>
+<text x="2126" y="812.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">1</text>
+<text x="2190" y="1071.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">0..1</text>
+<polyline points="2820.00,829.50 2880.00,829.50 2880.00,1087.50 2940.00,1087.50" fill="none" stroke="#5b7188" stroke-width="3"/>
+<polygon points="2820,829.5 2833.0,823.5 2833.0,835.5" fill="#5b7188" stroke="#5b7188" stroke-width="1"/>
+<text x="2846" y="812.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">1</text>
+<text x="2910" y="1071.5" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">0..N</text>
+<rect x="60" y="200" width="600" height="359" rx="0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<rect x="60" y="200" width="600" height="58" rx="0" fill="#dce9f5" stroke="#152c45" stroke-width="2"/>
+<text x="80" y="229.0" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#152c45">PATIENT</text>
+<text x="75" y="279.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">PatientID</text>
+<text x="380" y="279.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">INT</text>
+<text x="645" y="279.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">PK</text>
+<rect x="61" y="301" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="75" y="322.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">IDNumber</text>
+<text x="380" y="322.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(9)</text>
+<text x="645" y="322.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">UQ</text>
+<text x="75" y="365.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">FirstName</text>
+<text x="380" y="365.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(50)</text>
+<text x="645" y="365.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<rect x="61" y="387" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="75" y="408.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">LastName</text>
+<text x="380" y="408.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(50)</text>
+<text x="645" y="408.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<rect x="61" y="430" width="598" height="43" rx="0" fill="#e0f1e8" stroke="#e0f1e8" stroke-width="1"/>
+<text x="75" y="451.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#152c45">DateOfBirth</text>
+<text x="380" y="451.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#152c45">DATE</text>
+<text x="645" y="451.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<rect x="61" y="473" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="75" y="494.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">Gender ?</text>
+<text x="380" y="494.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(10)</text>
+<text x="645" y="494.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<text x="75" y="537.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">Phone ?</text>
+<text x="380" y="537.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(15)</text>
+<text x="645" y="537.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<rect x="60" y="700" width="600" height="316" rx="0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<rect x="60" y="700" width="600" height="58" rx="0" fill="#dce9f5" stroke="#152c45" stroke-width="2"/>
+<text x="80" y="729.0" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#152c45">DOCTOR</text>
+<text x="75" y="779.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">DoctorID</text>
+<text x="380" y="779.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">INT</text>
+<text x="645" y="779.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">PK</text>
+<rect x="61" y="801" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="75" y="822.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">LicenseNumber</text>
+<text x="380" y="822.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(20)</text>
+<text x="645" y="822.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">UQ</text>
+<text x="75" y="865.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">FirstName</text>
+<text x="380" y="865.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(50)</text>
+<text x="645" y="865.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<rect x="61" y="887" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="75" y="908.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">LastName</text>
+<text x="380" y="908.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(50)</text>
+<text x="645" y="908.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<text x="75" y="951.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">Specialty</text>
+<text x="380" y="951.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(60)</text>
+<text x="645" y="951.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<rect x="61" y="973" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="75" y="994.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">Phone ?</text>
+<text x="380" y="994.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(15)</text>
+<text x="645" y="994.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<rect x="1500" y="200" width="600" height="273" rx="0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<rect x="1500" y="200" width="600" height="58" rx="0" fill="#dce9f5" stroke="#152c45" stroke-width="2"/>
+<text x="1520" y="229.0" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#152c45">TESTTYPE</text>
+<text x="1515" y="279.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">TestTypeID</text>
+<text x="1820" y="279.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">INT</text>
+<text x="2085" y="279.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">PK</text>
+<rect x="1501" y="301" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="1515" y="322.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">TestCode</text>
+<text x="1820" y="322.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(30)</text>
+<text x="2085" y="322.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">UQ</text>
+<text x="1515" y="365.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">TestName</text>
+<text x="1820" y="365.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(100)</text>
+<text x="2085" y="365.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<rect x="1501" y="387" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="1515" y="408.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">Category ?</text>
+<text x="1820" y="408.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(60)</text>
+<text x="2085" y="408.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<text x="1515" y="451.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">DefaultUnit ?</text>
+<text x="1820" y="451.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(30)</text>
+<text x="2085" y="451.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<rect x="780" y="1250" width="600" height="316" rx="0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<rect x="780" y="1250" width="600" height="58" rx="0" fill="#dce9f5" stroke="#152c45" stroke-width="2"/>
+<text x="800" y="1279.0" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#152c45">LABTECHNICIAN</text>
+<text x="795" y="1329.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">TechnicianID</text>
+<text x="1100" y="1329.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">INT</text>
+<text x="1365" y="1329.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">PK</text>
+<rect x="781" y="1351" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="795" y="1372.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">FirstName</text>
+<text x="1100" y="1372.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(50)</text>
+<text x="1365" y="1372.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<text x="795" y="1415.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">LastName</text>
+<text x="1100" y="1415.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(50)</text>
+<text x="1365" y="1415.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<rect x="781" y="1437" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="795" y="1458.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">CertificationNumber</text>
+<text x="1100" y="1458.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(30)</text>
+<text x="1365" y="1458.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">UQ</text>
+<text x="795" y="1501.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">Phone ?</text>
+<text x="1100" y="1501.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(15)</text>
+<text x="1365" y="1501.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<rect x="781" y="1523" width="598" height="43" rx="0" fill="#e0f1e8" stroke="#e0f1e8" stroke-width="1"/>
+<text x="795" y="1544.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#152c45">CertificationExpiresOn</text>
+<text x="1100" y="1544.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#152c45">DATE</text>
+<text x="1365" y="1544.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<rect x="780" y="420" width="600" height="316" rx="0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<rect x="780" y="420" width="600" height="58" rx="0" fill="#dce9f5" stroke="#152c45" stroke-width="2"/>
+<text x="800" y="449.0" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#152c45">TESTORDER</text>
+<text x="795" y="499.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">OrderID</text>
+<text x="1100" y="499.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">INT</text>
+<text x="1365" y="499.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">PK</text>
+<rect x="781" y="521" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="795" y="542.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">OrderedAt</text>
+<text x="1100" y="542.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">TIMESTAMP</text>
+<text x="1365" y="542.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<text x="795" y="585.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">Priority</text>
+<text x="1100" y="585.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(20)</text>
+<text x="1365" y="585.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<rect x="781" y="607" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="795" y="628.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">Notes ?</text>
+<text x="1100" y="628.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">TEXT</text>
+<text x="1365" y="628.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<text x="795" y="671.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">PatientID</text>
+<text x="1100" y="671.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">INT</text>
+<text x="1365" y="671.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">FK</text>
+<rect x="781" y="693" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="795" y="714.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">DoctorID</text>
+<text x="1100" y="714.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">INT</text>
+<text x="1365" y="714.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">FK</text>
+<rect x="1500" y="750" width="600" height="445" rx="0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<rect x="1500" y="750" width="600" height="58" rx="0" fill="#dce9f5" stroke="#152c45" stroke-width="2"/>
+<text x="1520" y="779.0" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#152c45">LABTEST</text>
+<text x="1515" y="829.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">LabTestID</text>
+<text x="1820" y="829.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">INT</text>
+<text x="2085" y="829.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">PK</text>
+<rect x="1501" y="851" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="1515" y="872.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">Status</text>
+<text x="1820" y="872.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(30)</text>
+<text x="2085" y="872.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<text x="1515" y="915.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">PerformedLocation ?</text>
+<text x="1820" y="915.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(100)</text>
+<text x="2085" y="915.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<rect x="1501" y="937" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="1515" y="958.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">ScheduledAt ?</text>
+<text x="1820" y="958.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">TIMESTAMP</text>
+<text x="2085" y="958.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<text x="1515" y="1001.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">StartedAt ?</text>
+<text x="1820" y="1001.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">TIMESTAMP</text>
+<text x="2085" y="1001.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<rect x="1501" y="1023" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="1515" y="1044.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">CompletedAt ?</text>
+<text x="1820" y="1044.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">TIMESTAMP</text>
+<text x="2085" y="1044.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<text x="1515" y="1087.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">OrderID</text>
+<text x="1820" y="1087.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">INT</text>
+<text x="2085" y="1087.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">FK</text>
+<rect x="1501" y="1109" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="1515" y="1130.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">TestTypeID</text>
+<text x="1820" y="1130.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">INT</text>
+<text x="2085" y="1130.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">FK</text>
+<text x="1515" y="1173.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">TechnicianID ?</text>
+<text x="1820" y="1173.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">INT</text>
+<text x="2085" y="1173.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">FK</text>
+<rect x="2220" y="750" width="600" height="359" rx="0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<rect x="2220" y="750" width="600" height="58" rx="0" fill="#dce9f5" stroke="#152c45" stroke-width="2"/>
+<text x="2240" y="779.0" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#152c45">TESTRESULT</text>
+<text x="2235" y="829.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">ResultID</text>
+<text x="2540" y="829.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">INT</text>
+<text x="2805" y="829.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">PK</text>
+<rect x="2221" y="851" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="2235" y="872.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">NumericValue ?</text>
+<text x="2540" y="872.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">NUMERIC(12,3)</text>
+<text x="2805" y="872.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<text x="2235" y="915.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">TextValue ?</text>
+<text x="2540" y="915.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">TEXT</text>
+<text x="2805" y="915.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<rect x="2221" y="937" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="2235" y="958.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">Unit ?</text>
+<text x="2540" y="958.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(30)</text>
+<text x="2805" y="958.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<text x="2235" y="1001.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">ResultedAt</text>
+<text x="2540" y="1001.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">TIMESTAMP</text>
+<text x="2805" y="1001.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<rect x="2221" y="1023" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="2235" y="1044.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">IsAbnormal</text>
+<text x="2540" y="1044.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">BOOLEAN</text>
+<text x="2805" y="1044.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<text x="2235" y="1087.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">LabTestID</text>
+<text x="2540" y="1087.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">INT</text>
+<text x="2805" y="1087.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">FK/UQ</text>
+<rect x="2940" y="750" width="600" height="359" rx="0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<rect x="2940" y="750" width="600" height="58" rx="0" fill="#dce9f5" stroke="#152c45" stroke-width="2"/>
+<text x="2960" y="779.0" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#152c45">LABALERT</text>
+<text x="2955" y="829.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">AlertID</text>
+<text x="3260" y="829.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">INT</text>
+<text x="3525" y="829.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">PK</text>
+<rect x="2941" y="851" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="2955" y="872.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">Severity</text>
+<text x="3260" y="872.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(20)</text>
+<text x="3525" y="872.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<text x="2955" y="915.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">Message</text>
+<text x="3260" y="915.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">TEXT</text>
+<text x="3525" y="915.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<rect x="2941" y="937" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="2955" y="958.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">CreatedAt</text>
+<text x="3260" y="958.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">TIMESTAMP</text>
+<text x="3525" y="958.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<text x="2955" y="1001.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">Status</text>
+<text x="3260" y="1001.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">VARCHAR(30)</text>
+<text x="3525" y="1001.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<rect x="2941" y="1023" width="598" height="43" rx="0" fill="#f4f7fa" stroke="#f4f7fa" stroke-width="1"/>
+<text x="2955" y="1044.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">AcknowledgedAt ?</text>
+<text x="3260" y="1044.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">TIMESTAMP</text>
+<text x="3525" y="1044.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188"></text>
+<text x="2955" y="1087.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="20" font-weight="400" fill="#152c45">ResultID</text>
+<text x="3260" y="1087.5" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#152c45">INT</text>
+<text x="3525" y="1087.5" text-anchor="end" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#5b7188">FK</text>
+<text x="65" y="1645" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="19" font-weight="400" fill="#5b7188">Arrows point from a foreign-key reference toward its parent primary key. Green rows are DATE fields.</text>
+<text x="65" y="1680" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#5b7188">Historical approved diagrams and all original source files remain unchanged. This image is a local rendering, not a native ERDPlus download.</text>
+</svg>

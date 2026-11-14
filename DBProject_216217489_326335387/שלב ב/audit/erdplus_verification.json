@@ -1,0 +1,48 @@
+{
+  "erd_url": "https://erdplus.com/diagrams/732415",
+  "dsd_url": "https://erdplus.com/diagrams/732507",
+  "upload_authorized": true,
+  "login_required": false,
+  "erd_import_verified": true,
+  "dsd_import_verified": true,
+  "schema_column_type_comparison": "PASS: 53 columns",
+  "type_format": {
+    "varchar": "type=VARCHAR(n), size=n",
+    "numeric": "type=NUMERIC(p s), size=p,s",
+    "custom": "type=Custom, size=PostgreSQL type"
+  },
+  "native_image_export_verified": false,
+  "remaining_dependency": "Native website Download image still fails. Complete PNG/JPEG/SVG artifacts are now provided locally.",
+  "artifacts": [
+    {
+      "file": "DSD-revised.erdplus",
+      "sha256": "f95adbe70a40ec4e9301817bf8dfb99c30bd9e41e067cff966b51082701545fe"
+    },
+    {
+      "file": "DSD-stage-b-verified.erdplus",
+      "sha256": "f95adbe70a40ec4e9301817bf8dfb99c30bd9e41e067cff966b51082701545fe"
+    },
+    {
+      "file": "ERD-revised.erdplus",
+      "sha256": "a709b9d3c3d15b6f0b2ef884f3b5f49193086993abade54eb8dfa006f0bc6e13"
+    },
+    {
+      "file": "erdplus-dsd-date-settings.jpg",
+      "sha256": "422c53deef6585b9e0485daed1f9cc28880e2ca7d1c62bb8498752fd725d573d"
+    },
+    {
+      "file": "erdplus-dsd-verification.jpg",
+      "sha256": "0d06a1af48a7bebf8a3ae7d2d3b4d27b16abaa334c5128e3de143d7ad371a2af"
+    },
+    {
+      "file": "erdplus-erd-verification.jpg",
+      "sha256": "38a41316674f0a238cd6cb79a78a7853e584253d4ee7a849f2b28efd46482b47"
+    },
+    {
+      "file": "README.md",
+      "sha256": "b1d727e48fd0a64518bafe0b8fe2f1493a39380491f347cbfb97418fcabb37cd"
+    }
+  ],
+  "complete_images_available": true,
+  "image_provenance": "local rendering of verified .erdplus models"
+}

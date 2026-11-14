@@ -1,0 +1,269 @@
+- navigation "Main":
+  - button:
+  - link "ERDPlus":
+    - /url: /
+    - generic: ERDPlus
+  - img "moriyakaduri@gmail.com"
+  - generic: M
+- main:
+  - button "PATIENT PatientID IDNumber FirstName LastName DateOfBirth Gender (O) Phone (O)":
+    - table:
+      - rowgroup:
+        - row "PATIENT":
+          - columnheader "PATIENT":
+            - generic: PATIENT
+      - rowgroup:
+        - row "PatientID":
+          - cell "PatientID":
+            - generic: PatientID
+        - row "IDNumber":
+          - cell "IDNumber":
+            - generic: IDNumber
+        - row "FirstName":
+          - cell "FirstName":
+            - generic: FirstName
+        - row "LastName":
+          - cell "LastName":
+            - generic: LastName
+        - row "DateOfBirth":
+          - cell "DateOfBirth":
+            - generic: DateOfBirth
+        - row "Gender (O)":
+          - cell "Gender (O)":
+            - generic: Gender
+            - generic: (O)
+        - row "Phone (O)":
+          - cell "Phone (O)":
+            - generic: Phone
+            - generic: (O)
+  - button "DOCTOR DoctorID LicenseNumber FirstName LastName Specialty Phone (O)":
+    - table:
+      - rowgroup:
+        - row "DOCTOR":
+          - columnheader "DOCTOR":
+            - generic: DOCTOR
+      - rowgroup:
+        - row "DoctorID":
+          - cell "DoctorID":
+            - generic: DoctorID
+        - row "LicenseNumber":
+          - cell "LicenseNumber":
+            - generic: LicenseNumber
+        - row "FirstName":
+          - cell "FirstName":
+            - generic: FirstName
+        - row "LastName":
+          - cell "LastName":
+            - generic: LastName
+        - row "Specialty":
+          - cell "Specialty":
+            - generic: Specialty
+        - row "Phone (O)":
+          - cell "Phone (O)":
+            - generic: Phone
+            - generic: (O)
+  - button "TESTTYPE TestTypeID TestCode TestName Category (O) DefaultUnit (O)":
+    - table:
+      - rowgroup:
+        - row "TESTTYPE":
+          - columnheader "TESTTYPE":
+            - generic: TESTTYPE
+      - rowgroup:
+        - row "TestTypeID":
+          - cell "TestTypeID":
+            - generic: TestTypeID
+        - row "TestCode":
+          - cell "TestCode":
+            - generic: TestCode
+        - row "TestName":
+          - cell "TestName":
+            - generic: TestName
+        - row "Category (O)":
+          - cell "Category (O)":
+            - generic: Category
+            - generic: (O)
+        - row "DefaultUnit (O)":
+          - cell "DefaultUnit (O)":
+            - generic: DefaultUnit
+            - generic: (O)
+  - button "LABTECHNICIAN TechnicianID FirstName LastName CertificationNumber Phone (O) CertificationExpiresOn":
+    - table:
+      - rowgroup:
+        - row "LABTECHNICIAN":
+          - columnheader "LABTECHNICIAN":
+            - generic: LABTECHNICIAN
+      - rowgroup:
+        - row "TechnicianID":
+          - cell "TechnicianID":
+            - generic: TechnicianID
+        - row "FirstName":
+          - cell "FirstName":
+            - generic: FirstName
+        - row "LastName":
+          - cell "LastName":
+            - generic: LastName
+        - row "CertificationNumber":
+          - cell "CertificationNumber":
+            - generic: CertificationNumber
+        - row "Phone (O)":
+          - cell "Phone (O)":
+            - generic: Phone
+            - generic: (O)
+        - row "CertificationExpiresOn":
+          - cell "CertificationExpiresOn":
+            - generic: CertificationExpiresOn
+  - button "TESTORDER OrderID OrderedAt Priority Notes (O) PatientID (FK) DoctorID (FK)":
+    - table:
+      - rowgroup:
+        - row "TESTORDER":
+          - columnheader "TESTORDER":
+            - generic: TESTORDER
+      - rowgroup:
+        - row "OrderID":
+          - cell "OrderID":
+            - generic: OrderID
+        - row "OrderedAt":
+          - cell "OrderedAt":
+            - generic: OrderedAt
+        - row "Priority":
+          - cell "Priority":
+            - generic: Priority
+        - row "Notes (O)":
+          - cell "Notes (O)":
+            - generic: Notes
+            - generic: (O)
+        - row "PatientID (FK)":
+          - cell "PatientID (FK)":
+            - generic: PatientID
+            - generic: (FK)
+        - row "DoctorID (FK)":
+          - cell "DoctorID (FK)":
+            - generic: DoctorID
+            - generic: (FK)
+  - button "LABTEST LabTestID Status PerformedLocation (O) ScheduledAt (O) StartedAt (O) CompletedAt (O) OrderID (FK) TestTypeID (FK) TechnicianID (FK) (O)":
+    - table:
+      - rowgroup:
+        - row "LABTEST":
+          - columnheader "LABTEST":
+            - generic: LABTEST
+      - rowgroup:
+        - row "LabTestID":
+          - cell "LabTestID":
+            - generic: LabTestID
+        - row "Status":
+          - cell "Status":
+            - generic: Status
+        - row "PerformedLocation (O)":
+          - cell "PerformedLocation (O)":
+            - generic: PerformedLocation
+            - generic: (O)
+        - row "ScheduledAt (O)":
+          - cell "ScheduledAt (O)":
+            - generic: ScheduledAt
+            - generic: (O)
+        - row "StartedAt (O)":
+          - cell "StartedAt (O)":
+            - generic: StartedAt
+            - generic: (O)
+        - row "CompletedAt (O)":
+          - cell "CompletedAt (O)":
+            - generic: CompletedAt
+            - generic: (O)
+        - row "OrderID (FK)":
+          - cell "OrderID (FK)":
+            - generic: OrderID
+            - generic: (FK)
+        - row "TestTypeID (FK)":
+          - cell "TestTypeID (FK)":
+            - generic: TestTypeID
+            - generic: (FK)
+        - row "TechnicianID (FK) (O)":
+          - cell "TechnicianID (FK) (O)":
+            - generic: TechnicianID
+            - generic: (FK)
+            - generic: (O)
+  - button "TESTRESULT ResultID NumericValue (O) TextValue (O) Unit (O) ResultedAt IsAbnormal LabTestID (FK)":
+    - table:
+      - rowgroup:
+        - row "TESTRESULT":
+          - columnheader "TESTRESULT":
+            - generic: TESTRESULT
+      - rowgroup:
+        - row "ResultID":
+          - cell "ResultID":
+            - generic: ResultID
+        - row "NumericValue (O)":
+          - cell "NumericValue (O)":
+            - generic: NumericValue
+            - generic: (O)
+        - row "TextValue (O)":
+          - cell "TextValue (O)":
+            - generic: TextValue
+            - generic: (O)
+        - row "Unit (O)":
+          - cell "Unit (O)":
+            - generic: Unit
+            - generic: (O)
+        - row "ResultedAt":
+          - cell "ResultedAt":
+            - generic: ResultedAt
+        - row "IsAbnormal":
+          - cell "IsAbnormal":
+            - generic: IsAbnormal
+        - row "LabTestID (FK)":
+          - cell "LabTestID (FK)":
+            - generic: LabTestID
+            - generic: (FK)
+  - button "LABALERT AlertID Severity Message CreatedAt Status AcknowledgedAt (O) ResultID (FK)":
+    - table:
+      - rowgroup:
+        - row "LABALERT":
+          - columnheader "LABALERT":
+            - generic: LABALERT
+      - rowgroup:
+        - row "AlertID":
+          - cell "AlertID":
+            - generic: AlertID
+        - row "Severity":
+          - cell "Severity":
+            - generic: Severity
+        - row "Message":
+          - cell "Message":
+            - generic: Message
+        - row "CreatedAt":
+          - cell "CreatedAt":
+            - generic: CreatedAt
+        - row "Status":
+          - cell "Status":
+            - generic: Status
+        - row "AcknowledgedAt (O)":
+          - cell "AcknowledgedAt (O)":
+            - generic: AcknowledgedAt
+            - generic: (O)
+        - row "ResultID (FK)":
+          - cell "ResultID (FK)":
+            - generic: ResultID
+            - generic: (FK)
+  - generic "React Flow controls":
+    - button "zoom in":
+    - button "zoom out" [disabled]:
+    - button "fit view":
+    - button "toggle interactivity":
+  - button:
+  - button:
+  - button:
+  - button:
+  - button [disabled]:
+  - button [disabled]:
+  - switch "Connect"
+  - generic: Connect
+  - generic: "Diagram name: DSD-stage-b-verified"
+  - button:
+  - button:
+  - button [active]:
+  - button "Help"
+  - link "React Flow attribution":
+    - /url: https://reactflow.dev
+    - text: React Flow
+- region "Notifications alt+T"
+- alert: ERDPlus — Free Online Database Modeling & ERD Tool

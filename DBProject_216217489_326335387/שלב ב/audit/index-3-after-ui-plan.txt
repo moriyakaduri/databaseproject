@@ -1,0 +1,273 @@
+- button "File":
+  - text: File
+- button "Object":
+  - text: Object
+- button "Tools":
+  - text: Tools
+- button "Help":
+  - text: Help
+- button "Gravatar for admin@local.com admin@local.com (internal)":
+  - img "Gravatar for admin@local.com"
+  - text: admin@local.com (internal)
+- button "Show Object Explorer":
+- button "Query Tool Workspace":
+- generic "Schema Diff Workspace":
+  - button [disabled]:
+- button "Preferences":
+- text: 
+- tablist:
+  - tablist:
+    - tab "Dashboard Close":
+      - tab "Dashboard Close":
+        - generic "Dashboard":
+          - generic: Dashboard
+          - button "Close":
+    - tab "Properties Close":
+      - tab "Properties Close":
+        - generic "Properties":
+          - generic: Properties
+          - button "Close":
+    - tab "SQL Close":
+      - tab "SQL Close":
+        - generic "SQL":
+          - generic: SQL
+          - button "Close":
+    - tab "Statistics Close":
+      - tab "Statistics Close":
+        - generic "Statistics":
+          - generic: Statistics
+          - button "Close":
+    - tab "Dependencies Close":
+      - tab "Dependencies Close":
+        - generic "Dependencies":
+          - generic: Dependencies
+          - button "Close":
+    - tab "Dependents Close":
+      - tab "Dependents Close":
+        - generic "Dependents":
+          - generic: Dependents
+          - button "Close":
+    - tab "Processes Close":
+      - tab "Processes Close":
+        - generic "Processes":
+          - generic: Processes
+          - button "Close":
+    - tab " Hospiatl_Lab_db/postgres_user@Hospital_Lab Close":
+      - tab " Hospiatl_Lab_db/postgres_user@Hospital_Lab Close":
+        - generic "Query Tool - Hospiatl_Lab_db/postgres_user@Hospital_Lab":
+          - generic: 
+          - generic: Hospiatl_Lab_db/postgres_user@Hospital_Lab
+          - button "Close":
+    - tab " Hospiatl_Lab_db/postgres_user@Hospital_Lab* Close":
+      - tab " Hospiatl_Lab_db/postgres_user@Hospital_Lab* Close":
+        - generic "Query Tool - Hospiatl_Lab_db/postgres_user@Hospital_Lab*":
+          - generic: 
+          - generic: Hospiatl_Lab_db/postgres_user@Hospital_Lab*
+          - button "Close":
+    - tab " Hospiatl_Lab_db/postgres_user@Hospital_Lab* Close":
+      - tab " Hospiatl_Lab_db/postgres_user@Hospital_Lab* Close":
+        - generic "Query Tool - Hospiatl_Lab_db/postgres_user@Hospital_Lab*":
+          - generic: 
+          - generic: Hospiatl_Lab_db/postgres_user@Hospital_Lab*
+          - button "Close":
+    - tab " Hospiatl_Lab_db/postgres_user@Hospital_Lab* Close":
+      - tab " Hospiatl_Lab_db/postgres_user@Hospital_Lab* Close":
+        - generic "Query Tool - Hospiatl_Lab_db/postgres_user@Hospital_Lab*":
+          - generic: 
+          - generic: Hospiatl_Lab_db/postgres_user@Hospital_Lab*
+          - button "Close":
+    - tab " Hospiatl_Lab_db/postgres_user@Hospital_Lab* Close":
+      - tab " Hospiatl_Lab_db/postgres_user@Hospital_Lab* Close":
+        - generic "Query Tool - Hospiatl_Lab_db/postgres_user@Hospital_Lab*":
+          - generic: 
+          - generic: Hospiatl_Lab_db/postgres_user@Hospital_Lab*
+          - button "Close":
+    - tab " Hospiatl_Lab_db/postgres_user@Hospital_Lab Close":
+      - tab " Hospiatl_Lab_db/postgres_user@Hospital_Lab Close":
+        - generic "Query Tool - Hospiatl_Lab_db/postgres_user@Hospital_Lab":
+          - generic: 
+          - generic: Hospiatl_Lab_db/postgres_user@Hospital_Lab
+          - button "Close":
+    - tab " Hospiatl_Lab_db/postgres_user@Hospital_Lab* Close":
+      - tab " Hospiatl_Lab_db/postgres_user@Hospital_Lab* Close":
+        - generic "Query Tool - Hospiatl_Lab_db/postgres_user@Hospital_Lab*":
+          - generic: 
+          - generic: Hospiatl_Lab_db/postgres_user@Hospital_Lab*
+          - button "Close":
+    - tab " codex_stage_b_20261112/postgres_user@Hospital_Lab* Close" [selected]:
+      - tab " codex_stage_b_20261112/postgres_user@Hospital_Lab* Close" [selected]:
+        - generic "Query Tool - codex_stage_b_20261112/postgres_user@Hospital_Lab*":
+          - generic: 
+          - generic: codex_stage_b_20261112/postgres_user@Hospital_Lab*
+          - button "Close":
+    - button:
+    - button "More":
+- tabpanel " codex_stage_b_20261112/postgres_user@Hospital_Lab* Close":
+  - tabpanel
+- iframe
+- iframe
+- iframe
+- iframe
+- iframe
+- iframe
+- iframe
+- iframe [active] [id="id-query-tool_9349596"]:
+  - button "The session is idle and there is no current transaction.":
+  - button "codex_stage_b_20261112/postgres_user@Hospital_Lab":
+    - generic: codex_stage_b_20261112/postgres_user@Hospital_Lab
+  - button "New query tool for current connection":
+  - button "Reset layout":
+  - button "Open File":
+  - button "Open in a new tab":
+  - button "Save File":
+  - button "File":
+  - button "Edit":
+  - generic "Sort/Filter":
+    - button [disabled]:
+  - generic "Filter options":
+    - button [disabled]:
+  - combobox [disabled]:
+    - option "No limit" [selected]
+    - option "1000 rows"
+    - option "500 rows"
+    - option "100 rows"
+  - generic "Cancel query":
+    - button [disabled]:
+  - button "Execute script":
+  - button "Execute query":
+  - button "Execute options":
+  - button "Explain":
+  - button "Explain Analyze":
+  - button "Explain Settings":
+  - generic "Commit":
+    - button [disabled]:
+  - generic "Rollback":
+    - button [disabled]:
+  - button "Macros":
+  - button "Help":
+  - generic: ❯
+  - tablist:
+    - tablist:
+      - tab "Query" [selected]:
+        - tab "Query" [selected]:
+          - generic "Query":
+            - generic: Query
+      - tab "Query History":
+        - tab "Query History":
+          - generic "Query History":
+            - generic: Query History
+      - button "Maximise":
+  - tabpanel "Query":
+    - tabpanel:
+      - generic: "1"
+      - generic: "2"
+      - generic: "3"
+      - generic: "4"
+      - generic: "5"
+      - generic: "6"
+      - textbox:
+        - generic: "-- I3 AFTER index: final timing capture"
+        - generic: EXPLAIN (ANALYZE, BUFFERS)
+        - generic: SELECT a.alertid,a.severity,a.createdat,r.isabnormal,l.labtestid
+        - generic: FROM labalert a JOIN testresult r USING(resultid) JOIN labtest l USING(labtestid)
+        - generic: WHERE a.status='Open' AND a.createdat>=TIMESTAMP '2026-06-01'
+        - generic: AND a.createdat<TIMESTAMP '2026-06-08' ORDER BY a.createdat;
+  - tablist:
+    - tablist:
+      - button "Maximise":
+  - tablist:
+    - tablist:
+      - tab "Data Output" [selected]:
+        - tab "Data Output" [selected]:
+          - generic "Data Output":
+            - generic: Data Output
+      - tab "Messages":
+        - tab "Messages":
+          - generic "Messages":
+            - generic: Messages
+      - tab "Notifications":
+        - tab "Notifications":
+          - generic "Notifications":
+            - generic: Notifications
+      - button "Restore":
+  - tabpanel "Data Output":
+    - tabpanel:
+      - generic "Add row":
+        - button [disabled]:
+      - button "Copy":
+      - button "Copy options":
+      - generic "Paste":
+        - button [disabled]:
+      - button "Paste options":
+      - generic "Delete":
+        - button [disabled]:
+      - generic "Save Data Changes":
+        - button [disabled]:
+      - button "Save results to file":
+      - button "Graph Visualiser":
+      - button "SQL query of data":
+      - generic: "Showing rows: 1 to 26"
+      - button "Edit range":
+      - generic "Show entire range":
+        - button [disabled]:
+      - generic: "Page No:"
+      - textbox
+      - generic: of 1
+      - generic "First Page":
+        - button [disabled]:
+      - generic "Previous Page":
+        - button [disabled]:
+      - generic "Next Page":
+        - button [disabled]:
+      - generic "Last Page":
+        - button [disabled]:
+      - grid:
+        - row "QUERY PLAN text":
+          - columnheader
+          - columnheader "QUERY PLAN text":
+            - text: QUERY PLAN
+            - text: text
+        - 'row "17 Index Cond: (resultid = a.resultid)"':
+          - gridcell "17":
+            - generic: "17"
+          - 'gridcell "Index Cond: (resultid = a.resultid)"'
+        - 'row "18 Buffers: shared hit=162"':
+          - gridcell "18":
+            - generic: "18"
+          - 'gridcell "Buffers: shared hit=162"'
+        - row "19 -> Index Only Scan using labtest_pkey on labtest l (cost=0.29..0.38 rows=1 width=4) (actual time=0.381..0.381 rows=1 loops=54)":
+          - gridcell "19":
+            - generic: "19"
+          - gridcell "-> Index Only Scan using labtest_pkey on labtest l (cost=0.29..0.38 rows=1 width=4) (actual time=0.381..0.381 rows=1 loops=54)"
+        - 'row "20 Index Cond: (labtestid = r.labtestid)"':
+          - gridcell "20":
+            - generic: "20"
+          - 'gridcell "Index Cond: (labtestid = r.labtestid)"'
+        - 'row "21 Heap Fetches: 54"':
+          - gridcell "21":
+            - generic: "21"
+          - 'gridcell "Heap Fetches: 54"'
+        - 'row "22 Buffers: shared hit=163"':
+          - gridcell "22":
+            - generic: "22"
+          - 'gridcell "Buffers: shared hit=163"'
+        - row "23 Planning:":
+          - gridcell "23":
+            - generic: "23"
+          - gridcell "Planning:"
+        - 'row "24 Buffers: shared hit=59 dirtied=1"':
+          - gridcell "24":
+            - generic: "24"
+          - 'gridcell "Buffers: shared hit=59 dirtied=1"'
+        - 'row "25 Planning Time: 29.608 ms"':
+          - gridcell "25":
+            - generic: "25"
+          - 'gridcell "Planning Time: 29.608 ms"'
+        - 'row "26 Execution Time: 54.932 ms"':
+          - gridcell "26":
+            - generic: "26"
+          - 'gridcell "Execution Time: 54.932 ms" [active] [selected]'
+  - generic: "Total rows: 26"
+  - generic: Query complete 00:00:00.527
+  - generic "Select EOL Sequence": CRLF
+  - generic: Ln 6, Col 62

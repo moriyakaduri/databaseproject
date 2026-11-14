@@ -1,0 +1,180 @@
+Q1A
+BEGIN
+                                                                   json_build_object                                                                    
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"rows" : 600, "sample" : {"doctorid":2,"firstname":"Roni","lastname":"Harel","order_year":2026,"order_month":1,"test_count":48,"completed_count":48}}
+(1 row)
+
+COMMIT
+
+Q1B
+BEGIN
+                                                                   json_build_object                                                                    
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"rows" : 600, "sample" : {"doctorid":2,"firstname":"Roni","lastname":"Harel","order_year":2026,"order_month":1,"test_count":48,"completed_count":48}}
+(1 row)
+
+COMMIT
+
+Q2A
+BEGIN
+                                                  json_build_object                                                  
+---------------------------------------------------------------------------------------------------------------------
+ {"rows" : 327, "sample" : {"patientid":213,"firstname":"Daniel","lastname":"Erez","open_alerts":7,"high_alerts":4}}
+(1 row)
+
+COMMIT
+
+Q2B
+BEGIN
+                                                  json_build_object                                                  
+---------------------------------------------------------------------------------------------------------------------
+ {"rows" : 327, "sample" : {"patientid":213,"firstname":"Daniel","lastname":"Erez","open_alerts":7,"high_alerts":4}}
+(1 row)
+
+COMMIT
+
+Q3A
+BEGIN
+                                                                                                             json_build_object                                                                                                              
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"rows" : 3000, "sample" : {"patientid":1,"firstname":"Noam","lastname":"Mizrahi","testname":"Synthetic assay variant 133","resultid":22682,"resultedat":"2026-02-24T10:37:00","numericvalue":85.200,"textvalue":null,"isabnormal":false}}
+(1 row)
+
+COMMIT
+
+Q3B
+BEGIN
+                                                                                                             json_build_object                                                                                                              
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"rows" : 3000, "sample" : {"patientid":1,"firstname":"Noam","lastname":"Mizrahi","testname":"Synthetic assay variant 133","resultid":22682,"resultedat":"2026-02-24T10:37:00","numericvalue":85.200,"textvalue":null,"isabnormal":false}}
+(1 row)
+
+COMMIT
+
+Q4A
+BEGIN
+                                                      json_build_object                                                      
+-----------------------------------------------------------------------------------------------------------------------------
+ {"rows" : 20, "sample" : {"testtypeid":1,"testname":"Glucose","category":"Chemistry","test_count":500,"patient_count":300}}
+(1 row)
+
+COMMIT
+
+Q4B
+BEGIN
+                                                      json_build_object                                                      
+-----------------------------------------------------------------------------------------------------------------------------
+ {"rows" : 20, "sample" : {"testtypeid":1,"testname":"Glucose","category":"Chemistry","test_count":500,"patient_count":300}}
+(1 row)
+
+COMMIT
+
+Q5
+BEGIN
+                                                                   json_build_object                                                                   
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"rows" : 588, "sample" : {"order_year":2026,"order_month":1,"order_day":1,"priority":"Routine","order_count":14,"patient_count":9,"doctor_count":2}}
+(1 row)
+
+COMMIT
+
+Q6
+BEGIN
+                                                                                                   json_build_object                                                                                                    
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"rows" : 400, "sample" : {"technicianid":1,"firstname":"Gal","lastname":"Segal","certificationexpireson":"2027-01-02","expiry_year":2027,"expiry_month":1,"days_until_expiry":51,"assigned_tests":125,"patients":75}}
+(1 row)
+
+COMMIT
+
+Q7
+BEGIN
+                                                                                             json_build_object                                                                                             
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"rows" : 1000, "sample" : {"orderid":1,"firstname":"Uri","lastname":"Cohen","doctor_firstname":"Adi","doctor_lastname":"Katz","priority":"Routine","orderedat":"2026-01-01T07:10:00","pending_tests":5}}
+(1 row)
+
+COMMIT
+
+Q8
+BEGIN
+                                                                                 json_build_object                                                                                  
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"rows" : 234, "sample" : {"doctorid":12,"firstname":"Roni","lastname":"Harel","category":"Chemistry","abnormal_results":24,"patients":8,"latest_abnormal":"2026-09-23T10:18:00"}}
+(1 row)
+
+COMMIT
+
+Q1 equivalence
+BEGIN
+  json_build_object  
+---------------------
+ {"differences" : 0}
+(1 row)
+
+COMMIT
+
+Q2 equivalence
+BEGIN
+  json_build_object  
+---------------------
+ {"differences" : 0}
+(1 row)
+
+COMMIT
+
+Q3 equivalence
+BEGIN
+  json_build_object  
+---------------------
+ {"differences" : 0}
+(1 row)
+
+COMMIT
+
+Q4 equivalence
+BEGIN
+  json_build_object  
+---------------------
+ {"differences" : 0}
+(1 row)
+
+COMMIT
+
+BEGIN
+  table_name   | count 
+---------------+-------
+ doctor        |   500
+ labalert      |  3157
+ labtechnician |   500
+ labtest       | 30000
+ patient       |  3000
+ testorder     |  5000
+ testresult    | 24000
+ testtype      |   500
+(8 rows)
+
+  table_name   |      column_name       | data_type | is_nullable 
+---------------+------------------------+-----------+-------------
+ labtechnician | certificationexpireson | date      | NO
+ patient       | dateofbirth            | date      | NO
+(2 rows)
+
+            conname            |                                                                              pg_get_constraintdef                                                                              
+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ chk_doctor_firstname_nonblank | CHECK ((length(btrim((firstname)::text)) > 0))
+ chk_labalert_ack_time         | CHECK (((acknowledgedat IS NULL) OR (acknowledgedat >= createdat)))
+ chk_labtest_time_order        | CHECK ((((startedat IS NULL) OR (scheduledat IS NULL) OR (startedat >= scheduledat)) AND ((completedat IS NULL) OR ((startedat IS NOT NULL) AND (completedat >= startedat)))))
+(3 rows)
+
+         indexname          |                                                        indexdef                                                         
+----------------------------+-------------------------------------------------------------------------------------------------------------------------
+ idx_labalert_open_created  | CREATE INDEX idx_labalert_open_created ON public.labalert USING btree (createdat) WHERE ((status)::text = 'Open'::text)
+ idx_labtest_type_status    | CREATE INDEX idx_labtest_type_status ON public.labtest USING btree (testtypeid, status)
+ idx_testorder_patient_date | CREATE INDEX idx_testorder_patient_date ON public.testorder USING btree (patientid, orderedat)
+(3 rows)
+
+DO
+COMMIT
+NOTICE:  PASS: expected row counts, two DATE columns, three constraints and three indexes

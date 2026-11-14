@@ -1,0 +1,165 @@
+- navigation "Main":
+  - button:
+  - link "ERDPlus":
+    - /url: /
+    - generic: ERDPlus
+  - img "moriyakaduri@gmail.com"
+  - generic: M
+- main:
+  - button "Patient":
+    - generic: Patient
+  - button "Doctor":
+    - generic: Doctor
+  - button "TestType":
+    - generic: TestType
+  - button "LabTechnician":
+    - generic: LabTechnician
+  - button "TestOrder":
+    - generic: TestOrder
+  - button "LabTest":
+    - generic: LabTest
+  - button "TestResult":
+    - generic: TestResult
+  - button "LabAlert":
+    - generic: LabAlert
+  - button "Receives":
+    - generic: Receives
+  - button "Creates":
+    - generic: Creates
+  - button "Contains":
+    - generic: Contains
+  - button "Defines":
+    - generic: Defines
+  - button "Performs":
+    - generic: Performs
+  - button "Produces":
+    - generic: Produces
+  - button "Triggers":
+    - generic: Triggers
+  - button "PatientID":
+    - generic: PatientID
+  - button "IDNumber":
+    - generic: IDNumber
+  - button "FirstName":
+    - generic: FirstName
+  - button "LastName":
+    - generic: LastName
+  - button "DateOfBirth":
+    - generic: DateOfBirth
+  - button "Gender":
+    - generic: Gender
+  - button "Phone":
+    - generic: Phone
+  - button "DoctorID":
+    - generic: DoctorID
+  - button "LicenseNumber":
+    - generic: LicenseNumber
+  - button "FirstName":
+    - generic: FirstName
+  - button "LastName":
+    - generic: LastName
+  - button "Specialty":
+    - generic: Specialty
+  - button "Phone":
+    - generic: Phone
+  - button "OrderID":
+    - generic: OrderID
+  - button "OrderedAt":
+    - generic: OrderedAt
+  - button "Priority":
+    - generic: Priority
+  - button "Notes":
+    - generic: Notes
+  - button "TestTypeID":
+    - generic: TestTypeID
+  - button "TestCode":
+    - generic: TestCode
+  - button "TestName":
+    - generic: TestName
+  - button "Category":
+    - generic: Category
+  - button "DefaultUnit":
+    - generic: DefaultUnit
+  - button "LabTestID":
+    - generic: LabTestID
+  - button "Status":
+    - generic: Status
+  - button "PerformedLocation":
+    - generic: PerformedLocation
+  - button "ScheduledAt":
+    - generic: ScheduledAt
+  - button "StartedAt":
+    - generic: StartedAt
+  - button "CompletedAt":
+    - generic: CompletedAt
+  - button "TechnicianID":
+    - generic: TechnicianID
+  - button "FirstName":
+    - generic: FirstName
+  - button "LastName":
+    - generic: LastName
+  - button "CertificationNumber":
+    - generic: CertificationNumber
+  - button "Phone":
+    - generic: Phone
+  - button "ResultID":
+    - generic: ResultID
+  - button "NumericValue":
+    - generic: NumericValue
+  - button "TextValue":
+    - generic: TextValue
+  - button "Unit":
+    - generic: Unit
+  - button "ResultedAt":
+    - generic: ResultedAt
+  - button "IsAbnormal":
+    - generic: IsAbnormal
+  - button "AlertID":
+    - generic: AlertID
+  - button "Severity":
+    - generic: Severity
+  - button "Message":
+    - generic: Message
+  - button "CreatedAt":
+    - generic: CreatedAt
+  - button "Status":
+    - generic: Status
+  - button "AcknowledgedAt":
+    - generic: AcknowledgedAt
+  - button "CertificationExpiresOn":
+    - generic: CertificationExpiresOn
+  - generic "React Flow controls":
+    - button "zoom in":
+    - button "zoom out" [disabled]:
+    - button "fit view":
+    - button "toggle interactivity":
+  - button:
+  - button:
+  - button:
+  - button:
+  - button [disabled]:
+  - button [disabled]:
+  - switch "Connect"
+  - generic: Connect
+  - generic: "Diagram name: ERD-revised"
+  - button:
+  - button:
+  - button [active]:
+  - button "Help"
+  - link "React Flow attribution":
+    - /url: https://reactflow.dev
+    - text: React Flow
+  - button "Close advertisement":
+  - heading "Advertisement" [level=4]
+  - insertion:
+    - iframe [id="aswift_1"] [name="aswift_1"]:
+      - link "Datingsmatch Build friendship & date online OPEN":
+        - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CqWH14rj1avirMbrMq7YPopnNkAWpyZzxigGZ7cCqjhaxkB8QASDpwO-cAWD52vKDlBCgAcfa2eICyAEBqAMByAPLBKoEkQJP0OKWZLdtUzZsuedgBzACdLXA2Xzp1O8dZDVHuA3-wxwV121W4noHOsHE0mcSWzeNldORMwfo6hwleOuEjnLH4LmnmtcGmxZvGzFqnGvzlXgnkkLCy-SiB_zzxi85lhP82Ct_3PwJ_6AzGctNGNKb_JUitIYu2NTadhZJ5V8uK1_KX3zAoxJ_PScs6JBjN_vpP-GnA4jB5XW84m-e_ob2YlsVFuzXjZNnGjmknoMrUS-7ohCar-xlJmhlf8lZNa8Hync-GS-zkwZVSKY7wIpOhh258okFfs32SdNRRfSRVrxQnh9kmw-T9PhbyA85H4VS-CmJrHg3DLKJrf91PTwqgRqrVmSY4s8DzksvdVckgRrABIzT9YLxBYgFqsb1jluAB--36oYbqAep67ECqAenzLECqAfi2LECqAemvhuoB8zOsQKoB_PRG6gHltgbqAeqm7ECqAf-6LECqAeOzhuoB5PYG6gH8OAbqAfulrECqAf-nrECqAevvrECqAef4bECqAem67ECqAfVyRuoB9m2sQKoB5oGqAf_nrECqAffn7ECqAf4wrECqAf7wrEC2AcB0ggzCIBhEAEYnwMyCIqCgICAgIAIOg-AQIDAgICAgKiAAqiDgBhIvf3BOliJzILjvoKYA2ABsQmpg08aa32WdIAKAZgLAcgLAaIMLCoGCgT28rECYgIKAGoWChRjb20uanVuamEudGFsa3lzcGFjZXgBiAEBkAEBqg0CSUzIDQHqDRMIx6mL476CmAMVOubKAB2iTBNS8A0CiA4J2BMN0BUBmBYByhYCCgD4FgGAFwGyFxAYASoKNjk4MDQ3NTA3OVAGuhcCOAGqGBcJ_____990_0ASCjY5ODA0NzUwNzkYAbIYCRIC_U4YASIBANAYAegYAcIZAggB&ae=1&gclid=EAIaIQobChMI-KSL476CmAMVOubKAB2iTBNSEAEYASAAEgJThPD_BwE&num=1&cid=CAQShwIAogo4dfFiUYDw9tbk5FJozLdfkEKXUHve0u3wdeKECDfUIUxXhf-r1tGxZ7mkM0XyZRGwke33Zeyj8jmfimhGTKbjjOm40zaZS2kbWlfKXadp9K2hW0vgQmx1qkU0vwdiEnib0umugl1oqDR4QX4lTUhJlShDS-0L0CCzMhMlAHbvYf_4_j1tDMQswCPz9icBwQpRDg2Vtndgbq7o4fQuK7dvqZlbVL0rmNdnIDuu9XCFdZtlF3ogXzCcwvtWD6QGxKne5ndQqi0gFQeiaPwXayLMz27AMLe8W9oYVYW95lwXWHPEjsYZp2Bavqe305BfP0rYeMg00qnscOBmiCP9y5iTwngRaBgB&sig=AOD64_3oIwN7v1oSbby7K6R9_pkm5D5BsA&rf=1&nb=2&adurl=https://datingsmatch.com/land/sp/8a259c87%3Fpartner%3Dadw_datingsmatch_ua%26campaignid%3D24458912554%26gclid%3DEAIaIQobChMI-KSL476CmAMVOubKAB2iTBNSEAEYASAAEgJThPD_BwE%26adgroupid%3D202138020236%26targetid%3D%26network%3Dd%26device%3Dc%26devicemodel%3D%26loc_int_ph%3D_1007978%26matchtype%3D%26target%3Dsegment_be_a_6650262986380052229%26keyword%3D%26creative%3D831318402371%26placement%3Derdplus.com%26campaign%3DAW_Datingsmatch_Worldwide_All_Discover_AllPurchase_NewU_munnvic_beGDN_Dating-mess_KW01_f323/22_MaxC_b150_11nov%26group%3Din-market%26banner_type%3DNF_173041_06_Default_AllLanguage_Male_Multi_NoDate_NoALT_AllBrands_GDN_1200x628_Static%26asset_type%3D%26gad_source%3D5%26gad_campaignid%3D24458912554
+        - generic "Datingsmatch"
+        - generic "Datingsmatch":
+          - generic: Build friendship & date online
+        - generic: OPEN
+      - button:
+      - iframe
+- region "Notifications alt+T"
+- alert: ERDPlus — Free Online Database Modeling & ERD Tool

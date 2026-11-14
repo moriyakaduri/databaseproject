@@ -1,0 +1,5 @@
+ERROR:  new row for relation "labalert" violates check constraint "chk_labalert_ack_time"
+Failing row contains (-900001, Low, Invalid demonstration, 2026-02-02 00:00:00, Acknowledged, 2026-02-01 00:00:00, 1). 
+
+SQL state: 23514
+Detail: Failing row contains (-900001, Low, Invalid demonstration, 2026-02-02 00:00:00, Acknowledged, 2026-02-01 00:00:00, 1).

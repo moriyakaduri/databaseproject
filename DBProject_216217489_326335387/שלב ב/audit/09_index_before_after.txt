@@ -1,0 +1,190 @@
+ANALYZE
+DROP INDEX
+                                                                 QUERY PLAN                                                                  
+---------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=160.74..160.74 rows=2 width=33) (actual time=0.297..0.298 rows=2 loops=1)
+   Sort Key: o.orderedat
+   Sort Method: quicksort  Memory: 25kB
+   Buffers: shared hit=75
+   ->  Nested Loop  (cost=144.56..160.73 rows=2 width=33) (actual time=0.292..0.294 rows=2 loops=1)
+         Buffers: shared hit=75
+         ->  Index Scan using patient_pkey on patient p  (cost=0.28..8.30 rows=1 width=14) (actual time=0.007..0.007 rows=1 loops=1)
+               Index Cond: (patientid = 17)
+               Buffers: shared hit=3
+         ->  Merge Join  (cost=144.28..152.41 rows=2 width=27) (actual time=0.284..0.285 rows=2 loops=1)
+               Merge Cond: (d.doctorid = o.doctorid)
+               Buffers: shared hit=72
+               ->  Index Scan using doctor_pkey on doctor d  (cost=0.27..32.77 rows=500 width=15) (actual time=0.003..0.005 rows=14 loops=1)
+                     Buffers: shared hit=3
+               ->  Sort  (cost=144.01..144.01 rows=2 width=20) (actual time=0.276..0.276 rows=2 loops=1)
+                     Sort Key: o.doctorid
+                     Sort Method: quicksort  Memory: 25kB
+                     Buffers: shared hit=69
+                     ->  Seq Scan on testorder o  (cost=0.00..144.00 rows=2 width=20) (actual time=0.161..0.272 rows=2 loops=1)
+                           Filter: ((orderedat >= '2026-01-01 00:00:00'::timestamp without time zone) AND (patientid = 17))
+                           Rows Removed by Filter: 4998
+                           Buffers: shared hit=69
+ Planning:
+   Buffers: shared hit=93
+ Planning Time: 0.331 ms
+ Execution Time: 0.359 ms
+(26 rows)
+
+CREATE INDEX
+ANALYZE
+                                                                        QUERY PLAN                                                                         
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=28.05..28.06 rows=2 width=33) (actual time=3.987..3.988 rows=2 loops=1)
+   Sort Key: o.orderedat
+   Sort Method: quicksort  Memory: 25kB
+   Buffers: shared hit=8 read=2
+   ->  Nested Loop  (cost=11.87..28.04 rows=2 width=33) (actual time=3.980..3.984 rows=2 loops=1)
+         Buffers: shared hit=8 read=2
+         ->  Index Scan using patient_pkey on patient p  (cost=0.28..8.30 rows=1 width=14) (actual time=0.007..0.008 rows=1 loops=1)
+               Index Cond: (patientid = 17)
+               Buffers: shared hit=3
+         ->  Merge Join  (cost=11.59..19.72 rows=2 width=27) (actual time=3.970..3.972 rows=2 loops=1)
+               Merge Cond: (d.doctorid = o.doctorid)
+               Buffers: shared hit=5 read=2
+               ->  Index Scan using doctor_pkey on doctor d  (cost=0.27..32.77 rows=500 width=15) (actual time=0.004..0.007 rows=14 loops=1)
+                     Buffers: shared hit=3
+               ->  Sort  (cost=11.32..11.33 rows=2 width=20) (actual time=3.958..3.959 rows=2 loops=1)
+                     Sort Key: o.doctorid
+                     Sort Method: quicksort  Memory: 25kB
+                     Buffers: shared hit=2 read=2
+                     ->  Bitmap Heap Scan on testorder o  (cost=4.30..11.31 rows=2 width=20) (actual time=3.949..3.953 rows=2 loops=1)
+                           Recheck Cond: ((patientid = 17) AND (orderedat >= '2026-01-01 00:00:00'::timestamp without time zone))
+                           Heap Blocks: exact=2
+                           Buffers: shared hit=2 read=2
+                           ->  Bitmap Index Scan on idx_testorder_patient_date  (cost=0.00..4.30 rows=2 width=0) (actual time=3.940..3.940 rows=2 loops=1)
+                                 Index Cond: ((patientid = 17) AND (orderedat >= '2026-01-01 00:00:00'::timestamp without time zone))
+                                 Buffers: shared read=2
+ Planning:
+   Buffers: shared hit=50 read=1
+ Planning Time: 0.265 ms
+ Execution Time: 4.062 ms
+(29 rows)
+
+DROP INDEX
+                                                               QUERY PLAN                                                               
+----------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=1012.26..1012.34 rows=34 width=53) (actual time=3.922..3.925 rows=42 loops=1)
+   Sort Key: l.labtestid
+   Sort Method: quicksort  Memory: 28kB
+   Buffers: shared hit=455
+   ->  Nested Loop  (cost=833.70..1011.39 rows=34 width=53) (actual time=3.297..3.905 rows=42 loops=1)
+         Buffers: shared hit=455
+         ->  Index Scan using testtype_pkey on testtype tt  (cost=0.27..8.29 rows=1 width=31) (actual time=0.027..0.029 rows=1 loops=1)
+               Index Cond: (testtypeid = 25)
+               Buffers: shared hit=3
+         ->  Hash Join  (cost=833.42..1002.76 rows=34 width=30) (actual time=3.267..3.869 rows=42 loops=1)
+               Hash Cond: (o.orderid = l.orderid)
+               Buffers: shared hit=452
+               ->  Seq Scan on testorder o  (cost=0.00..119.00 rows=5000 width=12) (actual time=0.014..0.344 rows=5000 loops=1)
+                     Buffers: shared hit=69
+               ->  Hash  (cost=833.00..833.00 rows=34 width=22) (actual time=3.242..3.242 rows=42 loops=1)
+                     Buckets: 1024  Batches: 1  Memory Usage: 11kB
+                     Buffers: shared hit=383
+                     ->  Seq Scan on labtest l  (cost=0.00..833.00 rows=34 width=22) (actual time=1.619..3.222 rows=42 loops=1)
+                           Filter: ((testtypeid = 25) AND ((status)::text = 'Completed'::text))
+                           Rows Removed by Filter: 29958
+                           Buffers: shared hit=383
+ Planning:
+   Buffers: shared hit=44
+ Planning Time: 1.427 ms
+ Execution Time: 3.976 ms
+(25 rows)
+
+CREATE INDEX
+ANALYZE
+                                                                           QUERY PLAN                                                                           
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=283.76..283.85 rows=34 width=53) (actual time=0.676..0.679 rows=42 loops=1)
+   Sort Key: l.labtestid
+   Sort Method: quicksort  Memory: 28kB
+   Buffers: shared hit=114 read=2
+   ->  Nested Loop  (cost=105.20..282.90 rows=34 width=53) (actual time=0.110..0.662 rows=42 loops=1)
+         Buffers: shared hit=114 read=2
+         ->  Index Scan using testtype_pkey on testtype tt  (cost=0.27..8.29 rows=1 width=31) (actual time=0.007..0.008 rows=1 loops=1)
+               Index Cond: (testtypeid = 25)
+               Buffers: shared hit=3
+         ->  Hash Join  (cost=104.93..274.27 rows=34 width=30) (actual time=0.102..0.648 rows=42 loops=1)
+               Hash Cond: (o.orderid = l.orderid)
+               Buffers: shared hit=111 read=2
+               ->  Seq Scan on testorder o  (cost=0.00..119.00 rows=5000 width=12) (actual time=0.004..0.301 rows=5000 loops=1)
+                     Buffers: shared hit=69
+               ->  Hash  (cost=104.50..104.50 rows=34 width=22) (actual time=0.090..0.090 rows=42 loops=1)
+                     Buckets: 1024  Batches: 1  Memory Usage: 11kB
+                     Buffers: shared hit=42 read=2
+                     ->  Index Scan using idx_labtest_type_status on labtest l  (cost=0.29..104.50 rows=34 width=22) (actual time=0.026..0.082 rows=42 loops=1)
+                           Index Cond: ((testtypeid = 25) AND ((status)::text = 'Completed'::text))
+                           Buffers: shared hit=42 read=2
+ Planning:
+   Buffers: shared hit=44 read=1
+ Planning Time: 0.308 ms
+ Execution Time: 0.706 ms
+(24 rows)
+
+DROP INDEX
+                                                                                                QUERY PLAN                                                                                                
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=437.27..437.37 rows=42 width=22) (actual time=7.758..7.762 rows=54 loops=1)
+   Sort Key: a.createdat
+   Sort Method: quicksort  Memory: 27kB
+   Buffers: shared hit=393
+   ->  Nested Loop  (cost=0.57..436.14 rows=42 width=22) (actual time=0.021..7.728 rows=54 loops=1)
+         Buffers: shared hit=393
+         ->  Nested Loop  (cost=0.29..420.06 rows=42 width=22) (actual time=0.017..7.498 rows=54 loops=1)
+               Buffers: shared hit=230
+               ->  Seq Scan on labalert a  (cost=0.00..123.25 rows=42 width=21) (actual time=0.013..0.360 rows=54 loops=1)
+                     Filter: ((createdat >= '2026-06-01 00:00:00'::timestamp without time zone) AND (createdat < '2026-06-08 00:00:00'::timestamp without time zone) AND ((status)::text = 'Open'::text))
+                     Rows Removed by Filter: 3103
+                     Buffers: shared hit=68
+               ->  Index Scan using testresult_pkey on testresult r  (cost=0.29..7.07 rows=1 width=9) (actual time=0.131..0.131 rows=1 loops=54)
+                     Index Cond: (resultid = a.resultid)
+                     Buffers: shared hit=162
+         ->  Index Only Scan using labtest_pkey on labtest l  (cost=0.29..0.38 rows=1 width=4) (actual time=0.003..0.003 rows=1 loops=54)
+               Index Cond: (labtestid = r.labtestid)
+               Heap Fetches: 54
+               Buffers: shared hit=163
+ Planning:
+   Buffers: shared hit=56
+ Planning Time: 0.359 ms
+ Execution Time: 7.794 ms
+(23 rows)
+
+CREATE INDEX
+ANALYZE
+                                                                                                   QUERY PLAN                                                                                                   
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=382.50..382.60 rows=42 width=22) (actual time=0.929..0.943 rows=54 loops=1)
+   Sort Key: a.createdat
+   Sort Method: quicksort  Memory: 27kB
+   Buffers: shared hit=355 read=3
+   ->  Nested Loop  (cost=5.28..381.37 rows=42 width=22) (actual time=0.091..0.888 rows=54 loops=1)
+         Buffers: shared hit=355 read=3
+         ->  Nested Loop  (cost=5.00..365.29 rows=42 width=22) (actual time=0.085..0.568 rows=54 loops=1)
+               Buffers: shared hit=192 read=3
+               ->  Bitmap Heap Scan on labalert a  (cost=4.71..68.48 rows=42 width=21) (actual time=0.074..0.231 rows=54 loops=1)
+                     Recheck Cond: ((createdat >= '2026-06-01 00:00:00'::timestamp without time zone) AND (createdat < '2026-06-08 00:00:00'::timestamp without time zone) AND ((status)::text = 'Open'::text))
+                     Heap Blocks: exact=30
+                     Buffers: shared hit=30 read=3
+                     ->  Bitmap Index Scan on idx_labalert_open_created  (cost=0.00..4.70 rows=42 width=0) (actual time=0.066..0.069 rows=54 loops=1)
+                           Index Cond: ((createdat >= '2026-06-01 00:00:00'::timestamp without time zone) AND (createdat < '2026-06-08 00:00:00'::timestamp without time zone))
+                           Buffers: shared read=3
+               ->  Index Scan using testresult_pkey on testresult r  (cost=0.29..7.07 rows=1 width=9) (actual time=0.005..0.005 rows=1 loops=54)
+                     Index Cond: (resultid = a.resultid)
+                     Buffers: shared hit=162
+         ->  Index Only Scan using labtest_pkey on labtest l  (cost=0.29..0.38 rows=1 width=4) (actual time=0.005..0.005 rows=1 loops=54)
+               Index Cond: (labtestid = r.labtestid)
+               Heap Fetches: 54
+               Buffers: shared hit=163
+ Planning:
+   Buffers: shared hit=54 read=1
+ Planning Time: 0.416 ms
+ Execution Time: 0.998 ms
+(26 rows)
+
+NOTICE:  index "idx_testorder_patient_date" does not exist, skipping
+NOTICE:  index "idx_labtest_type_status" does not exist, skipping
+NOTICE:  index "idx_labalert_open_created" does not exist, skipping

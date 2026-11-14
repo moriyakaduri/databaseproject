@@ -1,0 +1,38 @@
+SELECT 1
+      phase      | orderid |                  notes                  
+-----------------+---------+-----------------------------------------
+ before rollback |       1 | Routine laboratory request (demo order)
+(1 row)
+
+BEGIN
+UPDATE 1
+      phase      | orderid |                          notes                          
+-----------------+---------+---------------------------------------------------------
+ inside rollback |       1 | Routine laboratory request (demo order) [ROLLBACK DEMO]
+(1 row)
+
+ROLLBACK
+     phase      | orderid |                  notes                  | restored 
+----------------+---------+-----------------------------------------+----------
+ after rollback |       1 | Routine laboratory request (demo order) | t
+(1 row)
+
+     phase     | orderid |                  notes                  
+---------------+---------+-----------------------------------------
+ before commit |       1 | Routine laboratory request (demo order)
+(1 row)
+
+BEGIN
+UPDATE 1
+     phase     | orderid |                         notes                         
+---------------+---------+-------------------------------------------------------
+ inside commit |       1 | Routine laboratory request (demo order) [COMMIT DEMO]
+(1 row)
+
+COMMIT
+    phase     | orderid |                         notes                         | persisted 
+--------------+---------+-------------------------------------------------------+-----------
+ after commit |       1 | Routine laboratory request (demo order) [COMMIT DEMO] | t
+(1 row)
+
+DROP TABLE

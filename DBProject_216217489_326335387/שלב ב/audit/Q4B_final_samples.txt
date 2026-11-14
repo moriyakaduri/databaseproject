@@ -1,0 +1,14 @@
+ result_count 
+--------------
+           20
+(1 row)
+
+ testtypeid |     testname      |  category  | test_count | patient_count 
+------------+-------------------+------------+------------+---------------
+          1 | Glucose           | Chemistry  |        500 |           300
+          2 | Hemoglobin        | Hematology |        500 |           300
+          3 | White Blood Cells | Hematology |        500 |           300
+          4 | Platelets         | Hematology |        500 |           300
+          5 | Creatinine        | Chemistry  |        500 |           300
+(5 rows)
+

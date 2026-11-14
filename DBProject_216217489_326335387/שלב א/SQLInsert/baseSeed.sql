@@ -60,13 +60,14 @@ INSERT INTO TESTTYPE (TestTypeID, TestCode, TestName, Category, DefaultUnit) VAL
 (20, 'BTYPE', 'Blood Type',            'Immunology',   NULL);
 
 -- 4. LABTECHNICIAN - 80 fictional laboratory workers
-INSERT INTO LABTECHNICIAN (TechnicianID, FirstName, LastName, CertificationNumber, Phone)
+INSERT INTO LABTECHNICIAN (TechnicianID, FirstName, LastName, CertificationNumber, Phone, CertificationExpiresOn)
 SELECT
     i,
     (ARRAY['Gal','Ruth','Niv','Lital','Sivan','Bar','Tali','Yoni'])[((i - 1) % 8) + 1],
     (ARRAY['Levin','Mori','Segal','Oren','Shahaf','Dagan','Raviv','Eyal'])[((i * 3 - 1) % 8) + 1],
     'CERT' || LPAD(i::text, 6, '0'),
-    '054' || LPAD(i::text, 7, '0')
+    '054' || LPAD(i::text, 7, '0'),
+    DATE '2026-01-01' + (365 + i % 730)
 FROM generate_series(1, 80) AS g(i);
 
 -- 5. TESTORDER - 5,000 orders; parent patient and doctor records exist

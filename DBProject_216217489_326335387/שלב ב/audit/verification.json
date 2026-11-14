@@ -1,0 +1,64 @@
+{
+  "database": "codex_stage_b_20261112",
+  "restored_database": "codex_stage_b_20261112_restore",
+  "migration_database": "codex_stage_b_20261112_migration",
+  "backup_sha256": "6fcacd9ef01f0bad38d48ff35348453af207af81723bd78855ac054150ff6a98",
+  "sql_and_restore_checks": "PASS",
+  "original_database_modified": false,
+  "screenshots_complete": true,
+  "erd_exports_updated": true,
+  "index_timings": {
+    "idx_testorder_patient_date": {
+      "median_before_ms": 0.637,
+      "median_after_ms": 0.189
+    },
+    "idx_labtest_type_status": {
+      "median_before_ms": 3.051,
+      "median_after_ms": 0.983
+    },
+    "idx_labalert_open_created": {
+      "median_before_ms": 0.841,
+      "median_after_ms": 0.522
+    }
+  },
+  "query_execution_ms": {
+    "Q1A": 23.784,
+    "Q1B": 5024.153,
+    "Q2A": 11.944,
+    "Q2B": 19496.062,
+    "Q3A": 37.841,
+    "Q3B": 40.125,
+    "Q4A": 30.692,
+    "Q4B": 31.239
+  },
+  "final_q4_equivalence": "PASS",
+  "screenshot_count": 85,
+  "diagram_sources_revised": true,
+  "ui_index_execution_ms": {
+    "index1": {
+      "before": 13.405,
+      "after": 51.333
+    },
+    "index2": {
+      "before": 82.255,
+      "after": 6.719
+    },
+    "index3": {
+      "before": 249.162,
+      "after": 54.932
+    }
+  },
+  "erdplus_upload_authorized": true,
+  "erdplus_login_required": false,
+  "erdplus_files_uploaded": true,
+  "erdplus_imports_verified": true,
+  "erdplus_dsd_type_metadata_verified": true,
+  "erdplus_documents": {
+    "ERD": "https://erdplus.com/diagrams/732415",
+    "DSD": "https://erdplus.com/diagrams/732507"
+  },
+  "diagram_images_complete": true,
+  "diagram_rendering_method": "local render of ERDPlus-verified sources",
+  "native_erdplus_image_download": false,
+  "local_diagram_visual_qa": "PASS"
+}

@@ -1,0 +1,43 @@
+                                                                        QUERY PLAN                                                                         
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=3595.80..3596.22 rows=167 width=58) (actual time=30.839..30.844 rows=20 loops=1)
+   Sort Key: counts.test_count DESC, counts.testtypeid
+   Sort Method: quicksort  Memory: 26kB
+   Buffers: shared hit=464
+   ->  Subquery Scan on counts  (cost=3270.89..3589.64 rows=167 width=58) (actual time=30.734..30.819 rows=20 loops=1)
+         Filter: ((counts.test_count)::numeric > counts.mean_count)
+         Rows Removed by Filter: 480
+         Buffers: shared hit=458
+         ->  WindowAgg  (cost=3270.89..3582.14 rows=500 width=90) (actual time=30.732..30.776 rows=500 loops=1)
+               Buffers: shared hit=458
+               ->  GroupAggregate  (cost=3270.89..3575.89 rows=500 width=58) (actual time=27.521..30.642 rows=500 loops=1)
+                     Group Key: tt.testtypeid
+                     Buffers: shared hit=458
+                     ->  Sort  (cost=3270.89..3345.89 rows=30000 width=50) (actual time=27.440..28.416 rows=30000 loops=1)
+                           Sort Key: tt.testtypeid, o.patientid
+                           Sort Method: quicksort  Memory: 2956kB
+                           Buffers: shared hit=458
+                           ->  Hash Left Join  (cost=198.75..1039.98 rows=30000 width=50) (actual time=1.003..11.968 rows=30000 loops=1)
+                                 Hash Cond: (l.orderid = o.orderid)
+                                 Buffers: shared hit=458
+                                 ->  Hash Right Join  (cost=17.25..779.67 rows=30000 width=50) (actual time=0.138..7.452 rows=30000 loops=1)
+                                       Hash Cond: (l.testtypeid = tt.testtypeid)
+                                       Buffers: shared hit=389
+                                       ->  Seq Scan on labtest l  (cost=0.00..683.00 rows=30000 width=12) (actual time=0.002..2.936 rows=30000 loops=1)
+                                             Buffers: shared hit=383
+                                       ->  Hash  (cost=11.00..11.00 rows=500 width=42) (actual time=0.123..0.124 rows=500 loops=1)
+                                             Buckets: 1024  Batches: 1  Memory Usage: 45kB
+                                             Buffers: shared hit=6
+                                             ->  Seq Scan on testtype tt  (cost=0.00..11.00 rows=500 width=42) (actual time=0.005..0.046 rows=500 loops=1)
+                                                   Buffers: shared hit=6
+                                 ->  Hash  (cost=119.00..119.00 rows=5000 width=8) (actual time=0.838..0.839 rows=5000 loops=1)
+                                       Buckets: 8192  Batches: 1  Memory Usage: 260kB
+                                       Buffers: shared hit=69
+                                       ->  Seq Scan on testorder o  (cost=0.00..119.00 rows=5000 width=8) (actual time=0.003..0.387 rows=5000 loops=1)
+                                             Buffers: shared hit=69
+ Planning:
+   Buffers: shared hit=244
+ Planning Time: 1.077 ms
+ Execution Time: 31.239 ms
+(39 rows)
+

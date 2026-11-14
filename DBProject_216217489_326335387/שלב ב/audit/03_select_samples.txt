@@ -1,0 +1,191 @@
+Q1A
+ result_count 
+--------------
+          600
+(1 row)
+
+ doctorid | firstname | lastname | order_year | order_month | test_count | completed_count 
+----------+-----------+----------+------------+-------------+------------+-----------------
+        2 | Roni      | Harel    |       2026 |           1 |         48 |              48
+        4 | Eitan     | Shani    |       2026 |           1 |         54 |              54
+        5 | Michal    | Shamir   |       2026 |           1 |         48 |              40
+        7 | Hila      | Or       |       2026 |           1 |         54 |              54
+       10 | Yuval     | Peled    |       2026 |           1 |         54 |              45
+(5 rows)
+
+
+Q1B
+ result_count 
+--------------
+          600
+(1 row)
+
+ doctorid | firstname | lastname | order_year | order_month | test_count | completed_count 
+----------+-----------+----------+------------+-------------+------------+-----------------
+        2 | Roni      | Harel    |       2026 |           1 |         48 |              48
+        4 | Eitan     | Shani    |       2026 |           1 |         54 |              54
+        5 | Michal    | Shamir   |       2026 |           1 |         48 |              40
+        7 | Hila      | Or       |       2026 |           1 |         54 |              54
+       10 | Yuval     | Peled    |       2026 |           1 |         54 |              45
+(5 rows)
+
+
+Q2A
+ result_count 
+--------------
+          327
+(1 row)
+
+ patientid | firstname | lastname | open_alerts | high_alerts 
+-----------+-----------+----------+-------------+-------------
+       213 | Daniel    | Erez     |           7 |           4
+        63 | Daniel    | Erez     |           6 |           4
+       138 | Shira     | Barak    |           6 |           4
+       513 | Daniel    | Erez     |           6 |           4
+       663 | Daniel    | Erez     |           6 |           4
+(5 rows)
+
+
+Q2B
+ result_count 
+--------------
+          327
+(1 row)
+
+ patientid | firstname | lastname | open_alerts | high_alerts 
+-----------+-----------+----------+-------------+-------------
+       213 | Daniel    | Erez     |           7 |           4
+        63 | Daniel    | Erez     |           6 |           4
+       138 | Shira     | Barak    |           6 |           4
+       513 | Daniel    | Erez     |           6 |           4
+       663 | Daniel    | Erez     |           6 |           4
+(5 rows)
+
+
+Q3A
+ result_count 
+--------------
+         3000
+(1 row)
+
+ patientid | firstname | lastname |          testname           | resultid |     resultedat      | numericvalue | textvalue | isabnormal 
+-----------+-----------+----------+-----------------------------+----------+---------------------+--------------+-----------+------------
+         1 | Noam      | Mizrahi  | Synthetic assay variant 133 |    22682 | 2026-02-24 10:37:00 |       85.200 |           | f
+         2 | Maya      | Alon     | Triglycerides               |     5929 | 2026-04-17 12:12:00 |      212.000 |           | f
+         3 | Daniel    | Erez     | Synthetic assay variant 439 |    15247 | 2026-06-10 10:53:00 |       35.800 |           | f
+         4 | Lia       | Levi     | Synthetic assay variant 312 |    15529 | 2026-08-02 09:36:00 |       71.100 |           | f
+         5 | Amit      | Shalev   | Synthetic assay variant 185 |    15812 | 2026-09-24 10:49:00 |       26.400 |           | f
+(5 rows)
+
+
+Q3B
+ result_count 
+--------------
+         3000
+(1 row)
+
+ patientid | firstname | lastname |          testname           | resultid |     resultedat      | numericvalue | textvalue | isabnormal 
+-----------+-----------+----------+-----------------------------+----------+---------------------+--------------+-----------+------------
+         1 | Noam      | Mizrahi  | Synthetic assay variant 133 |    22682 | 2026-02-24 10:37:00 |       85.200 |           | f
+         2 | Maya      | Alon     | Triglycerides               |     5929 | 2026-04-17 12:12:00 |      212.000 |           | f
+         3 | Daniel    | Erez     | Synthetic assay variant 439 |    15247 | 2026-06-10 10:53:00 |       35.800 |           | f
+         4 | Lia       | Levi     | Synthetic assay variant 312 |    15529 | 2026-08-02 09:36:00 |       71.100 |           | f
+         5 | Amit      | Shalev   | Synthetic assay variant 185 |    15812 | 2026-09-24 10:49:00 |       26.400 |           | f
+(5 rows)
+
+
+Q4A
+ result_count 
+--------------
+           20
+(1 row)
+
+ testtypeid |     testname      |  category  | test_count 
+------------+-------------------+------------+------------
+          1 | Glucose           | Chemistry  |        500
+          2 | Hemoglobin        | Hematology |        500
+          3 | White Blood Cells | Hematology |        500
+          4 | Platelets         | Hematology |        500
+          5 | Creatinine        | Chemistry  |        500
+(5 rows)
+
+
+Q4B
+ result_count 
+--------------
+           20
+(1 row)
+
+ testtypeid |     testname      |  category  | test_count 
+------------+-------------------+------------+------------
+          1 | Glucose           | Chemistry  |        500
+          2 | Hemoglobin        | Hematology |        500
+          3 | White Blood Cells | Hematology |        500
+          4 | Platelets         | Hematology |        500
+          5 | Creatinine        | Chemistry  |        500
+(5 rows)
+
+
+Q5
+ result_count 
+--------------
+          588
+(1 row)
+
+ order_year | order_month | order_day | priority | order_count | patient_count | doctor_count 
+------------+-------------+-----------+----------+-------------+---------------+--------------
+       2026 |           1 |         1 | Routine  |          14 |             9 |            2
+       2026 |           1 |         1 | Urgent   |           3 |             3 |            2
+       2026 |           1 |         2 | Routine  |          14 |             9 |            2
+       2026 |           1 |         2 | Urgent   |           3 |             3 |            2
+       2026 |           1 |         3 | Routine  |          15 |            10 |            2
+(5 rows)
+
+
+Q6
+ result_count 
+--------------
+          400
+(1 row)
+
+ technicianid | firstname | lastname | certificationexpireson | expiry_year | expiry_month | days_until_expiry | assigned_tests | patients 
+--------------+-----------+----------+------------------------+-------------+--------------+-------------------+----------------+----------
+            1 | Gal       | Segal    | 2027-01-02             |        2027 |            1 |                51 |            125 |       75
+            2 | Ruth      | Dagan    | 2027-01-03             |        2027 |            1 |                52 |            125 |       75
+            3 | Niv       | Levin    | 2027-01-04             |        2027 |            1 |                53 |            125 |       75
+            4 | Lital     | Oren     | 2027-01-05             |        2027 |            1 |                54 |            125 |       75
+            5 | Sivan     | Raviv    | 2027-01-06             |        2027 |            1 |                55 |            125 |       75
+(5 rows)
+
+
+Q7
+ result_count 
+--------------
+         1000
+(1 row)
+
+ orderid | firstname | lastname | doctor_firstname | doctor_lastname | priority |      orderedat      | pending_tests 
+---------+-----------+----------+------------------+-----------------+----------+---------------------+---------------
+       1 | Uri       | Cohen    | Adi              | Katz            | Routine  | 2026-01-01 07:10:00 |             5
+     301 | Uri       | Cohen    | Adi              | Katz            | Urgent   | 2026-01-01 07:10:00 |             5
+     601 | Uri       | Cohen    | Adi              | Katz            | Routine  | 2026-01-01 07:10:00 |             5
+     901 | Uri       | Cohen    | Adi              | Katz            | Routine  | 2026-01-01 07:10:00 |             5
+    1201 | Uri       | Cohen    | Adi              | Katz            | Routine  | 2026-01-01 07:10:00 |             5
+(5 rows)
+
+
+Q8
+ result_count 
+--------------
+          234
+(1 row)
+
+ doctorid | firstname | lastname |  category  | abnormal_results | patients |   latest_abnormal   
+----------+-----------+----------+------------+------------------+----------+---------------------
+       12 | Roni      | Harel    | Chemistry  |               24 |        8 | 2026-09-23 10:18:00
+       56 | Tomer     | Golan    | Chemistry  |               23 |        9 | 2026-06-03 09:16:00
+      116 | Tomer     | Golan    | Chemistry  |               23 |        9 | 2026-09-30 13:54:00
+       41 | Dana      | Koren    | Hematology |               21 |        7 | 2026-05-18 13:24:00
+       72 | Roni      | Harel    | Chemistry  |               20 |        9 | 2026-09-23 10:18:00
+(5 rows)
+

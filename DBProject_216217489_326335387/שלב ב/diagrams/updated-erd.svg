@@ -1,0 +1,225 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="4508" height="1588" viewBox="0 0 4508 1588">
+<rect width="4508" height="1588" fill="white"/>
+<text x="80" y="55" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#152c45">Hospital Laboratory | ER Diagram</text>
+<text x="80" y="102" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="21" font-weight="400" fill="#152c45">8 entities  |  46 attributes  |  7 relationships  |  Green: the two meaningful DATE attributes</text>
+<text x="80" y="140" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#5b7188">Locally rendered from the ERDPlus-verified source. Native website image download failed.</text>
+<polyline points="750.00,488.00 750.00,392.00" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="698.00,488.00 609.75,433.69" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="802.00,488.00 890.25,433.69" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="665.00,520.00 570.00,520.00" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="835.00,520.00 930.00,520.00" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="698.00,552.00 609.75,606.31" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="802.00,552.00 890.25,606.31" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="1550.00,488.00 1550.00,392.00" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="1498.00,488.00 1409.75,433.69" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="1602.00,488.00 1690.25,433.69" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="1465.00,520.00 1370.00,520.00" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="1635.00,520.00 1730.00,520.00" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="1600.95,552.00 1688.99,607.29" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="743.18,1181.38 654.92,1235.61" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="710.27,1127.42 622.74,1104.80" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="710.27,1168.02 620.50,1187.69" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="795.27,1181.38 795.27,1277.38" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="2350.00,488.00 2350.00,392.00" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="2298.00,488.00 2209.75,433.69" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="2402.00,488.00 2490.25,433.69" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="2265.00,520.00 2170.00,520.00" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="2435.00,520.00 2530.00,520.00" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="1850.43,1114.74 1850.43,1018.74" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="1792.30,1114.74 1703.67,1065.95" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="1771.02,1178.74 1693.71,1209.90" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="1765.43,1132.62 1673.29,1117.32" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="1935.43,1167.05 2024.12,1188.24" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="1850.43,1178.74 1850.43,1274.74" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="3150.00,488.00 3150.00,392.00" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="3098.00,488.00 3009.75,433.69" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="3202.00,488.00 3290.25,433.69" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="3065.00,520.00 2993.50,520.00" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="3235.00,520.00 3330.00,520.00" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="2946.04,1170.28 2946.04,1074.28" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="2868.04,1170.28 2785.55,1136.44" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="3024.04,1170.28 3106.52,1136.44" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="2861.04,1225.17 2752.40,1254.42" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="3016.39,1234.28 3102.29,1273.36" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="2946.04,1234.28 2946.04,1330.28" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="4057.21,1183.51 4057.21,1087.51" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="3979.21,1183.51 3896.72,1149.67" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="4135.21,1183.51 4217.69,1149.67" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="3972.21,1246.35 3892.49,1275.27" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="4142.21,1215.51 4237.21,1215.51" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="4057.21,1247.51 4057.21,1343.51" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="759.13,800.64 751.04,552.00" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="763.68,864.70 791.72,1117.38" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="1369.40,750.26 1524.90,552.00" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="1320.02,795.23 842.68,1117.38" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="1122.10,1171.34 880.27,1155.09" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="1259.29,1172.74 1765.43,1150.48" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="2169.40,750.26 2324.90,552.00" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="2130.20,799.57 1876.21,1114.74" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="2588.79,758.52 3074.71,552.00" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="2515.52,793.32 1910.65,1114.74" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="2303.64,1183.75 1935.43,1153.68" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="2442.21,1190.74 2861.04,1200.34" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="3330.40,1215.66 3031.04,1205.24" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="3478.82,1217.84 3972.21,1215.85" fill="none" stroke="#5b7188" stroke-width="2"/>
+<polyline points="3150.00,552.00 3150.00,648.00" fill="none" stroke="#5b7188" stroke-width="2"/>
+<rect x="665.0" y="488.0" width="170.0" height="64.0" rx="0" fill="#dce9f5" stroke="#152c45" stroke-width="2"/>
+<text x="750" y="520.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#152c45">Patient</text>
+<rect x="1465.0" y="488.0" width="170.0" height="64.0" rx="0" fill="#dce9f5" stroke="#152c45" stroke-width="2"/>
+<text x="1550" y="520.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#152c45">Doctor</text>
+<rect x="2265.0" y="488.0" width="170.0" height="64.0" rx="0" fill="#dce9f5" stroke="#152c45" stroke-width="2"/>
+<text x="2350" y="520.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#152c45">TestType</text>
+<rect x="3065.0" y="488.0" width="170.0" height="64.0" rx="0" fill="#dce9f5" stroke="#152c45" stroke-width="2"/>
+<text x="3150" y="520.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#152c45">LabTechnician</text>
+<rect x="710.2659574468086" y="1117.3843085106382" width="170.0" height="64.0" rx="0" fill="#dce9f5" stroke="#152c45" stroke-width="2"/>
+<text x="795.2659574468086" y="1149.3843085106382" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#152c45">TestOrder</text>
+<rect x="1765.4255319148938" y="1114.7393617021278" width="170.0" height="64.0" rx="0" fill="#dce9f5" stroke="#152c45" stroke-width="2"/>
+<text x="1850.4255319148938" y="1146.7393617021278" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#152c45">LabTest</text>
+<rect x="2861.037234042553" y="1170.2832446808509" width="170.0" height="64.0" rx="0" fill="#dce9f5" stroke="#152c45" stroke-width="2"/>
+<text x="2946.037234042553" y="1202.2832446808509" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#152c45">TestResult</text>
+<rect x="3972.2074468085107" y="1183.5079787234042" width="169.99999999999955" height="64.0" rx="0" fill="#dce9f5" stroke="#152c45" stroke-width="2"/>
+<text x="4057.2074468085107" y="1215.5079787234042" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#152c45">LabAlert</text>
+<polygon points="760.186170212766,800.188829787234 837.686170212766,833.188829787234 760.186170212766,866.188829787234 682.686170212766,833.188829787234" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="760.186170212766" y="833.188829787234" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Receives</text>
+<polygon points="1350,742.0 1427.5,775.0 1350,808.0 1272.5,775.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="1350" y="775.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Creates</text>
+<polygon points="1189.0425531914893,1142.8337765957447 1266.5425531914893,1175.8337765957447 1189.0425531914893,1208.8337765957447 1111.5425531914893,1175.8337765957447" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="1189.0425531914893" y="1175.8337765957447" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Contains</text>
+<polygon points="2150,742.0 2227.5,775.0 2150,808.0 2072.5,775.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="2150" y="775.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Defines</text>
+<polygon points="2550,742.0 2627.5,775.0 2550,808.0 2472.5,775.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="2550" y="775.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Performs</text>
+<polygon points="2368.670212765958,1156.0585106382978 2446.170212765958,1189.0585106382978 2368.670212765958,1222.0585106382978 2291.170212765958,1189.0585106382978" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="2368.670212765958" y="1189.0585106382978" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Produces</text>
+<polygon points="3402.047872340426,1185.1529255319147 3479.547872340426,1218.1529255319147 3402.047872340426,1251.1529255319147 3324.547872340426,1218.1529255319147" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="3402.047872340426" y="1218.1529255319147" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Triggers</text>
+<ellipse cx="750.0" cy="360.0" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="750.0" y="360.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45" text-decoration="underline">PatientID</text>
+<polyline points="712.33,369.90 787.67,369.90" fill="none" stroke="#152c45" stroke-width="1"/>
+<ellipse cx="566.1522368914976" cy="406.8629150101524" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="566.1522368914976" y="406.8629150101524" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">IDNumber</text>
+<ellipse cx="933.8477631085024" cy="406.8629150101524" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="933.8477631085024" y="406.8629150101524" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">FirstName</text>
+<ellipse cx="490.0" cy="520.0" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="490.0" y="520.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">LastName</text>
+<ellipse cx="1010.0" cy="520.0" rx="80.0" ry="32.0" fill="#e0f1e8" stroke="#152c45" stroke-width="2"/>
+<text x="1010.0" y="520.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#152c45">DateOfBirth</text>
+<ellipse cx="566.1522368914976" cy="633.1370849898476" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="566.1522368914976" y="633.1370849898476" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Gender</text>
+<ellipse cx="933.8477631085024" cy="633.1370849898476" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="933.8477631085024" y="633.1370849898476" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Phone</text>
+<ellipse cx="1550.0" cy="360.0" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="1550.0" y="360.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45" text-decoration="underline">DoctorID</text>
+<polyline points="1513.67,369.90 1586.33,369.90" fill="none" stroke="#152c45" stroke-width="1"/>
+<ellipse cx="1366.1522368914975" cy="406.8629150101524" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="1366.1522368914975" y="406.8629150101524" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">LicenseNumber</text>
+<ellipse cx="1733.8477631085025" cy="406.8629150101524" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="1733.8477631085025" y="406.8629150101524" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">FirstName</text>
+<ellipse cx="1290.0" cy="520.0" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="1290.0" y="520.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">LastName</text>
+<ellipse cx="1810.0" cy="520.0" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="1810.0" y="520.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Specialty</text>
+<ellipse cx="1731.9719107776264" cy="634.279795644174" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="1731.9719107776264" y="634.279795644174" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Phone</text>
+<ellipse cx="611.2650772670979" cy="1262.427089069315" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="611.2650772670979" y="1262.427089069315" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45" text-decoration="underline">OrderID</text>
+<polyline points="578.93,1272.33 643.60,1272.33" fill="none" stroke="#152c45" stroke-width="1"/>
+<ellipse cx="555.5494190654778" cy="1087.4288559854663" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="555.5494190654778" y="1087.4288559854663" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">OrderedAt</text>
+<ellipse cx="550.3386606681702" cy="1203.069762929631" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="550.3386606681702" y="1203.069762929631" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Priority</text>
+<ellipse cx="795.2659574468086" cy="1309.3843085106382" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="795.2659574468086" y="1309.3843085106382" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Notes</text>
+<ellipse cx="2350.0" cy="360.0" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="2350.0" y="360.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45" text-decoration="underline">TestTypeID</text>
+<polyline points="2302.35,369.90 2397.65,369.90" fill="none" stroke="#152c45" stroke-width="1"/>
+<ellipse cx="2166.1522368914975" cy="406.8629150101524" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="2166.1522368914975" y="406.8629150101524" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">TestCode</text>
+<ellipse cx="2533.8477631085025" cy="406.8629150101524" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="2533.8477631085025" y="406.8629150101524" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">TestName</text>
+<ellipse cx="2090.0" cy="520.0" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="2090.0" y="520.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Category</text>
+<ellipse cx="2610.0" cy="520.0" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="2610.0" y="520.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">DefaultUnit</text>
+<ellipse cx="1850.4255319148938" cy="986.7393617021278" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="1850.4255319148938" y="986.7393617021278" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45" text-decoration="underline">LabTestID</text>
+<polyline points="1808.11,996.64 1892.74,996.64" fill="none" stroke="#152c45" stroke-width="1"/>
+<ellipse cx="1656.647390375586" cy="1040.0627770046156" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="1656.647390375586" y="1040.0627770046156" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Status</text>
+<ellipse cx="1632.9169047848561" cy="1234.3965684401637" rx="94.5" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="1632.9169047848561" y="1234.3965684401637" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">PerformedLocation</text>
+<ellipse cx="1599.4041387245563" cy="1105.0552402882413" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="1599.4041387245563" y="1105.0552402882413" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">ScheduledAt</text>
+<ellipse cx="2092.794832073455" cy="1204.6546145091515" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="2092.794832073455" y="1204.6546145091515" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">StartedAt</text>
+<ellipse cx="1850.4255319148938" cy="1306.7393617021278" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="1850.4255319148938" y="1306.7393617021278" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">CompletedAt</text>
+<ellipse cx="3150.0" cy="360.0" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="3150.0" y="360.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45" text-decoration="underline">TechnicianID</text>
+<polyline points="3096.68,369.90 3203.32,369.90" fill="none" stroke="#152c45" stroke-width="1"/>
+<ellipse cx="2966.1522368914975" cy="406.8629150101524" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="2966.1522368914975" y="406.8629150101524" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">FirstName</text>
+<ellipse cx="3333.8477631085025" cy="406.8629150101524" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="3333.8477631085025" y="406.8629150101524" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">LastName</text>
+<ellipse cx="2890.0" cy="520.0" rx="103.5" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="2890.0" y="520.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">CertificationNumber</text>
+<ellipse cx="3410.0" cy="520.0" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="3410.0" y="520.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Phone</text>
+<ellipse cx="2946.037234042553" cy="1042.2832446808509" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="2946.037234042553" y="1042.2832446808509" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45" text-decoration="underline">ResultID</text>
+<polyline points="2910.70,1052.18 2981.37,1052.18" fill="none" stroke="#152c45" stroke-width="1"/>
+<ellipse cx="2729.7041575147136" cy="1113.5312132848142" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="2729.7041575147136" y="1113.5312132848142" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">NumericValue</text>
+<ellipse cx="3162.370310570392" cy="1113.5312132848142" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="3162.370310570392" y="1113.5312132848142" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">TextValue</text>
+<ellipse cx="2686.037234042553" cy="1272.2832446808509" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="2686.037234042553" y="1272.2832446808509" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Unit</text>
+<ellipse cx="3155.1215334767244" cy="1297.3870611016318" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="3155.1215334767244" y="1297.3870611016318" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">ResultedAt</text>
+<ellipse cx="2946.037234042553" cy="1362.2832446808509" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="2946.037234042553" y="1362.2832446808509" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">IsAbnormal</text>
+<ellipse cx="4057.20744680851" cy="1055.5079787234042" rx="79.99999999999977" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="4057.2074468085107" y="1055.5079787234042" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45" text-decoration="underline">AlertID</text>
+<polyline points="4029.21,1065.41 4085.21,1065.41" fill="none" stroke="#152c45" stroke-width="1"/>
+<ellipse cx="3840.8743702806714" cy="1126.7559473273675" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="3840.8743702806714" y="1126.7559473273675" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Severity</text>
+<ellipse cx="4273.54052333635" cy="1126.7559473273675" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="4273.54052333635" y="1126.7559473273675" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Message</text>
+<ellipse cx="3833.2388586305224" cy="1296.771542056016" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="3833.2388586305224" y="1296.771542056016" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">CreatedAt</text>
+<ellipse cx="4317.20744680851" cy="1215.5079787234042" rx="80.0" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="4317.20744680851" y="1215.5079787234042" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">Status</text>
+<ellipse cx="4057.20744680851" cy="1375.5079787234042" rx="80.99999999999977" ry="32.0" fill="#ffffff" stroke="#152c45" stroke-width="2"/>
+<text x="4057.2074468085107" y="1375.5079787234042" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="400" fill="#152c45">AcknowledgedAt</text>
+<ellipse cx="3150.0" cy="680.0" rx="117.0" ry="32.0" fill="#e0f1e8" stroke="#152c45" stroke-width="2"/>
+<text x="3150" y="680.0" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#152c45">CertificationExpiresOn</text>
+<rect x="744.8103458213377" y="594.1155889761595" width="52.0" height="24.0" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+<text x="770.8103458213377" y="606.1155889761595" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#5b7188">1..1</text>
+<rect x="741.6581371761428" y="1051.7786117204655" width="52.0" height="24.0" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+<text x="767.6581371761428" y="1063.7786117204655" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#5b7188">0..N</text>
+<rect x="1478.8554542243132" y="594.7261006255785" width="52.0" height="24.0" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+<text x="1504.8554542243132" y="606.7261006255785" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#5b7188">1..1</text>
+<rect x="911.6260596848196" y="1019.5911765545934" width="52.0" height="24.0" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+<text x="937.6260596848196" y="1031.5911765545934" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#5b7188">0..N</text>
+<rect x="908.6762190737086" y="1128.7077576641739" width="52.0" height="24.0" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+<text x="934.6762190737086" y="1140.7077576641739" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#5b7188">1..1</text>
+<rect x="1628.8658286964603" y="1161.3594934536054" width="52.0" height="24.0" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+<text x="1654.8658286964603" y="1173.3594934536054" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#5b7188">0..N</text>
+<rect x="2278.8554542243137" y="594.7261006255785" width="52.0" height="24.0" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+<text x="2304.8554542243137" y="606.7261006255785" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#5b7188">1..1</text>
+<rect x="1892.0751686556016" y="1022.1072998233878" width="52.0" height="24.0" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+<text x="1918.0751686556016" y="1034.1072998233878" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#5b7188">0..N</text>
+<rect x="2948.8442003302216" y="601.9993972905464" width="52.0" height="24.0" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+<text x="2974.8442003302216" y="613.9993972905464" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#5b7188">0..1</text>
+<rect x="2009.2728841396479" y="1016.1318413923016" width="52.0" height="24.0" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+<text x="2035.2728841396479" y="1028.1318413923016" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#5b7188">0..N</text>
+<rect x="1991.8979376018956" y="1130.3550148916722" width="52.0" height="24.0" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+<text x="2017.8979376018956" y="1142.3550148916722" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#5b7188">1..1</text>
+<rect x="2742.4839569807878" y="1204.221064306107" width="52.0" height="24.0" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+<text x="2768.4839569807878" y="1216.221064306107" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#5b7188">0..1</text>
+<rect x="3071.5238252281392" y="1177.5442509248592" width="52.0" height="24.0" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+<text x="3097.5238252281392" y="1189.5442509248592" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#5b7188">1..1</text>
+<rect x="3837.7348735940222" y="1222.2891941492658" width="52.0" height="24.0" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1"/>
+<text x="3863.7348735940222" y="1234.2891941492658" text-anchor="middle" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#5b7188">0..N</text>
+<text x="80" y="1546" text-anchor="start" dominant-baseline="middle" font-family="Arial,sans-serif" font-size="17" font-weight="400" fill="#5b7188">Underlined attributes: keys in the ERD source. Endpoint labels retain the original ERDPlus multiplicities.</text>
+</svg>

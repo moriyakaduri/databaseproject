@@ -1,0 +1,30 @@
+BEGIN
+SAVEPOINT
+ROLLBACK
+ROLLBACK
+BEGIN
+SAVEPOINT
+ROLLBACK
+ROLLBACK
+BEGIN
+SAVEPOINT
+ROLLBACK
+ROLLBACK
+ERROR:  23514: new row for relation "doctor" violates check constraint "chk_doctor_firstname_nonblank"
+DETAIL:  Failing row contains (-900001, DEMO-BAD-NAME,    , Demo, Demo, null).
+SCHEMA NAME:  public
+TABLE NAME:  doctor
+CONSTRAINT NAME:  chk_doctor_firstname_nonblank
+LOCATION:  ExecConstraints, execMain.c:2109
+ERROR:  23514: new row for relation "labtest" violates check constraint "chk_labtest_time_order"
+DETAIL:  Failing row contains (-900001, Completed, null, 2026-01-02 00:00:00, 2026-01-01 00:00:00, 2026-01-03 00:00:00, 1, 1, null).
+SCHEMA NAME:  public
+TABLE NAME:  labtest
+CONSTRAINT NAME:  chk_labtest_time_order
+LOCATION:  ExecConstraints, execMain.c:2109
+ERROR:  23514: new row for relation "labalert" violates check constraint "chk_labalert_ack_time"
+DETAIL:  Failing row contains (-900001, Low, Invalid demonstration, 2026-02-02 00:00:00, Acknowledged, 2026-02-01 00:00:00, 1).
+SCHEMA NAME:  public
+TABLE NAME:  labalert
+CONSTRAINT NAME:  chk_labalert_ack_time
+LOCATION:  ExecConstraints, execMain.c:2109

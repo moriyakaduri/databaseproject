@@ -1,0 +1,29 @@
+--- 
+
++++ 
+
+@@ -18,16 +18,16 @@
+
+  testtype      | testtype_testcode_key                 | CREATE UNIQUE INDEX testtype_testcode_key ON public.testtype USING btree (testcode)
+ (16 rows)
+ 
+-                conname                |                                                                               pg_get_constraintdef                                                                                
+----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
++                conname                |                                                                                          pg_get_constraintdef                                                                                           
++---------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  chk_doctor_firstname_nonblank         | CHECK ((length(btrim((firstname)::text)) > 0))
+  chk_labalert_ack_time                 | CHECK (((acknowledgedat IS NULL) OR (acknowledgedat >= createdat)))
+- chk_labalert_severity                 | CHECK (((severity)::text = ANY ((ARRAY['Low'::character varying, 'Medium'::character varying, 'High'::character varying, 'Critical'::character varying])::text[])))
+- chk_labalert_status                   | CHECK (((status)::text = ANY ((ARRAY['Open'::character varying, 'Acknowledged'::character varying, 'Resolved'::character varying])::text[])))
+- chk_labtest_status                    | CHECK (((status)::text = ANY ((ARRAY['Scheduled'::character varying, 'InProgress'::character varying, 'Completed'::character varying, 'Cancelled'::character varying])::text[])))
++ chk_labalert_severity                 | CHECK (((severity)::text = ANY (ARRAY[('Low'::character varying)::text, ('Medium'::character varying)::text, ('High'::character varying)::text, ('Critical'::character varying)::text])))
++ chk_labalert_status                   | CHECK (((status)::text = ANY (ARRAY[('Open'::character varying)::text, ('Acknowledged'::character varying)::text, ('Resolved'::character varying)::text])))
++ chk_labtest_status                    | CHECK (((status)::text = ANY (ARRAY[('Scheduled'::character varying)::text, ('InProgress'::character varying)::text, ('Completed'::character varying)::text, ('Cancelled'::character varying)::text])))
+  chk_labtest_time_order                | CHECK ((((startedat IS NULL) OR (scheduledat IS NULL) OR (startedat >= scheduledat)) AND ((completedat IS NULL) OR ((startedat IS NOT NULL) AND (completedat >= startedat)))))
+- chk_patient_gender                    | CHECK (((gender)::text = ANY ((ARRAY['M'::character varying, 'F'::character varying, 'other'::character varying])::text[])))
+- chk_testorder_priority                | CHECK (((priority)::text = ANY ((ARRAY['Routine'::character varying, 'Urgent'::character varying, 'STAT'::character varying])::text[])))
++ chk_patient_gender                    | CHECK (((gender)::text = ANY (ARRAY[('M'::character varying)::text, ('F'::character varying)::text, ('other'::character varying)::text])))
++ chk_testorder_priority                | CHECK (((priority)::text = ANY (ARRAY[('Routine'::character varying)::text, ('Urgent'::character varying)::text, ('STAT'::character varying)::text])))
+  chk_testresult_has_value              | CHECK (((numericvalue IS NOT NULL) OR (textvalue IS NOT NULL)))
+  doctor_licensenumber_key              | UNIQUE (licensenumber)
+  doctor_pkey                           | PRIMARY KEY (doctorid)

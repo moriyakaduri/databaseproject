@@ -1,0 +1,123 @@
+                                                                                       QUERY PLAN                                                                                       
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=4452920.06..4452922.56 rows=1000 width=30) (actual time=19471.942..19472.069 rows=327 loops=1)
+   Sort Key: ((SubPlan 1)) DESC, p.patientid
+   Sort Method: quicksort  Memory: 42kB
+   Buffers: shared hit=2385853 read=14
+   ->  Seq Scan on patient p  (cost=0.00..4452870.23 rows=1000 width=30) (actual time=566.836..19469.419 rows=327 loops=1)
+         Filter: ((SubPlan 3) >= 2)
+         Rows Removed by Filter: 2673
+         Buffers: shared hit=2385847 read=14
+         SubPlan 1
+           ->  Aggregate  (cost=889.74..889.75 rows=1 width=8) (actual time=5.354..5.355 rows=1 loops=327)
+                 Buffers: shared hit=159569
+                 ->  Hash Join  (cost=777.35..889.74 rows=1 width=0) (actual time=5.043..5.327 rows=3 loops=327)
+                       Hash Cond: (a.resultid = r.resultid)
+                       Buffers: shared hit=159569
+                       ->  Seq Scan on labalert a  (cost=0.00..107.46 rows=1311 width=4) (actual time=0.008..0.334 rows=1311 loops=327)
+                             Filter: ((status)::text = 'Open'::text)
+                             Rows Removed by Filter: 1846
+                             Buffers: shared hit=22236
+                       ->  Hash  (cost=777.22..777.22 rows=10 width=4) (actual time=4.882..4.882 rows=11 loops=327)
+                             Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                             Buffers: shared hit=137333
+                             ->  Nested Loop  (cost=11.61..777.22 rows=10 width=4) (actual time=0.440..4.869 rows=11 loops=327)
+                                   Buffers: shared hit=137333
+                                   ->  Hash Join  (cost=11.33..773.14 rows=12 width=4) (actual time=0.421..4.780 rows=11 loops=327)
+                                         Hash Cond: (l.orderid = o.orderid)
+                                         Buffers: shared hit=126497
+                                         ->  Seq Scan on labtest l  (cost=0.00..683.00 rows=30000 width=8) (actual time=0.005..2.550 rows=30000 loops=327)
+                                               Buffers: shared hit=125241
+                                         ->  Hash  (cost=11.30..11.30 rows=2 width=4) (actual time=0.027..0.027 rows=2 loops=327)
+                                               Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                                               Buffers: shared hit=1256
+                                               ->  Bitmap Heap Scan on testorder o  (cost=4.30..11.30 rows=2 width=4) (actual time=0.018..0.020 rows=2 loops=327)
+                                                     Recheck Cond: (patientid = p.patientid)
+                                                     Heap Blocks: exact=602
+                                                     Buffers: shared hit=1256
+                                                     ->  Bitmap Index Scan on idx_testorder_patient_date  (cost=0.00..4.30 rows=2 width=0) (actual time=0.011..0.011 rows=2 loops=327)
+                                                           Index Cond: (patientid = p.patientid)
+                                                           Buffers: shared hit=654
+                                   ->  Index Scan using testresult_labtestid_key on testresult r  (cost=0.29..0.34 rows=1 width=8) (actual time=0.005..0.005 rows=1 loops=3612)
+                                         Index Cond: (labtestid = l.labtestid)
+                                         Buffers: shared hit=10836
+         SubPlan 2
+           ->  Aggregate  (cost=893.79..893.80 rows=1 width=8) (actual time=4.925..4.925 rows=1 loops=327)
+                 Buffers: shared hit=778263
+                 ->  Hash Join  (cost=129.83..893.79 rows=1 width=0) (actual time=2.533..4.896 rows=2 loops=327)
+                       Hash Cond: (l_1.orderid = o_1.orderid)
+                       Buffers: shared hit=778263
+                       ->  Nested Loop  (cost=118.50..880.88 rows=605 width=4) (actual time=0.022..4.780 rows=727 loops=327)
+                             Buffers: shared hit=777007
+                             ->  Hash Join  (cost=118.21..649.26 rows=605 width=4) (actual time=0.011..3.349 rows=727 loops=327)
+                                   Hash Cond: (r_1.resultid = a_1.resultid)
+                                   Buffers: shared hit=63820
+                                   ->  Seq Scan on testresult r_1  (cost=0.00..435.00 rows=24000 width=8) (actual time=0.002..1.409 rows=24000 loops=327)
+                                         Buffers: shared hit=63765
+                                   ->  Hash  (cost=110.65..110.65 rows=605 width=4) (actual time=0.292..0.294 rows=727 loops=1)
+                                         Buckets: 1024  Batches: 1  Memory Usage: 34kB
+                                         Buffers: shared hit=55
+                                         ->  Bitmap Heap Scan on labalert a_1  (cost=22.98..110.65 rows=605 width=4) (actual time=0.056..0.235 rows=727 loops=1)
+                                               Recheck Cond: ((status)::text = 'Open'::text)
+                                               Filter: ((severity)::text = ANY ('{High,Critical}'::text[]))
+                                               Rows Removed by Filter: 584
+                                               Heap Blocks: exact=52
+                                               Buffers: shared hit=55
+                                               ->  Bitmap Index Scan on idx_labalert_open_created  (cost=0.00..22.83 rows=1311 width=0) (actual time=0.040..0.040 rows=1311 loops=1)
+                                                     Buffers: shared hit=3
+                             ->  Index Scan using labtest_pkey on labtest l_1  (cost=0.29..0.38 rows=1 width=8) (actual time=0.002..0.002 rows=1 loops=237729)
+                                   Index Cond: (labtestid = r_1.labtestid)
+                                   Buffers: shared hit=713187
+                       ->  Hash  (cost=11.30..11.30 rows=2 width=4) (actual time=0.034..0.034 rows=2 loops=327)
+                             Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                             Buffers: shared hit=1256
+                             ->  Bitmap Heap Scan on testorder o_1  (cost=4.30..11.30 rows=2 width=4) (actual time=0.023..0.025 rows=2 loops=327)
+                                   Recheck Cond: (patientid = p.patientid)
+                                   Heap Blocks: exact=602
+                                   Buffers: shared hit=1256
+                                   ->  Bitmap Index Scan on idx_testorder_patient_date  (cost=0.00..4.30 rows=2 width=0) (actual time=0.014..0.014 rows=2 loops=327)
+                                         Index Cond: (patientid = p.patientid)
+                                         Buffers: shared hit=654
+         SubPlan 3
+           ->  Aggregate  (cost=889.74..889.75 rows=1 width=8) (actual time=5.187..5.188 rows=1 loops=3000)
+                 Buffers: shared hit=1447986 read=14
+                 ->  Hash Join  (cost=777.35..889.74 rows=1 width=0) (actual time=5.101..5.167 rows=0 loops=3000)
+                       Hash Cond: (a_2.resultid = r_2.resultid)
+                       Buffers: shared hit=1447986 read=14
+                       ->  Seq Scan on labalert a_2  (cost=0.00..107.46 rows=1311 width=4) (actual time=0.007..0.312 rows=1311 loops=3000)
+                             Filter: ((status)::text = 'Open'::text)
+                             Rows Removed by Filter: 1846
+                             Buffers: shared hit=204000
+                       ->  Hash  (cost=777.22..777.22 rows=10 width=4) (actual time=4.752..4.752 rows=8 loops=3000)
+                             Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                             Buffers: shared hit=1243986 read=14
+                             ->  Nested Loop  (cost=11.61..777.22 rows=10 width=4) (actual time=0.505..4.739 rows=8 loops=3000)
+                                   Buffers: shared hit=1243986 read=14
+                                   ->  Hash Join  (cost=11.33..773.14 rows=12 width=4) (actual time=0.491..4.664 rows=10 loops=3000)
+                                         Hash Cond: (l_2.orderid = o_2.orderid)
+                                         Buffers: shared hit=1159986 read=14
+                                         ->  Seq Scan on labtest l_2  (cost=0.00..683.00 rows=30000 width=8) (actual time=0.003..2.439 rows=30000 loops=3000)
+                                               Buffers: shared hit=1149000
+                                         ->  Hash  (cost=11.30..11.30 rows=2 width=4) (actual time=0.027..0.027 rows=2 loops=3000)
+                                               Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                                               Buffers: shared hit=10986 read=14
+                                               ->  Bitmap Heap Scan on testorder o_2  (cost=4.30..11.30 rows=2 width=4) (actual time=0.018..0.020 rows=2 loops=3000)
+                                                     Recheck Cond: (patientid = p.patientid)
+                                                     Heap Blocks: exact=5000
+                                                     Buffers: shared hit=10986 read=14
+                                                     ->  Bitmap Index Scan on idx_testorder_patient_date  (cost=0.00..4.30 rows=2 width=0) (actual time=0.011..0.011 rows=2 loops=3000)
+                                                           Index Cond: (patientid = p.patientid)
+                                                           Buffers: shared hit=5986 read=14
+                                   ->  Index Scan using testresult_labtestid_key on testresult r_2  (cost=0.29..0.34 rows=1 width=8) (actual time=0.005..0.005 rows=1 loops=30000)
+                                         Index Cond: (labtestid = l_2.labtestid)
+                                         Buffers: shared hit=84000
+ Planning:
+   Buffers: shared hit=436
+ Planning Time: 2.542 ms
+ JIT:
+   Functions: 99
+   Options: Inlining true, Optimization true, Expressions true, Deforming true
+   Timing: Generation 3.245 ms, Inlining 93.429 ms, Optimization 254.524 ms, Emission 168.932 ms, Total 520.130 ms
+ Execution Time: 19496.062 ms
+(119 rows)
+

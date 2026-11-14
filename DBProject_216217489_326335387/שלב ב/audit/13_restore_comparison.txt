@@ -1,0 +1,180 @@
+Probe 0 PASS
+                                                                                                                                                           row_to_json                                                                                                                                                            
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"table_name":"doctor","column_name":"doctorid","ordinal_position":1,"data_type":"integer","udt_name":"int4","is_nullable":"NO","character_maximum_length":null,"numeric_precision":32,"numeric_scale":0,"column_default":null,"is_identity":"YES","identity_generation":"BY DEFAULT"}
+ {"table_name":"doctor","column_name":"licensenumber","ordinal_position":2,"data_type":"character varying","udt_name":"varchar","is_nullable":"NO","character_maximum_length":20,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"doctor","column_name":"firstname","ordinal_position":3,"data_type":"character varying","udt_name":"varchar","is_nullable":"NO","character_maximum_length":50,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"doctor","column_name":"lastname","ordinal_position":4,"data_type":"character varying","udt_name":"varchar","is_nullable":"NO","character_maximum_length":50,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"doctor","column_name":"specialty","ordinal_position":5,"data_type":"character varying","udt_name":"varchar","is_nullable":"NO","character_maximum_length":60,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"doctor","column_name":"phone","ordinal_position":6,"data_type":"character varying","udt_name":"varchar","is_nullable":"YES","character_maximum_length":15,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"labalert","column_name":"alertid","ordinal_position":1,"data_type":"integer","udt_name":"int4","is_nullable":"NO","character_maximum_length":null,"numeric_precision":32,"numeric_scale":0,"column_default":null,"is_identity":"YES","identity_generation":"BY DEFAULT"}
+ {"table_name":"labalert","column_name":"severity","ordinal_position":2,"data_type":"character varying","udt_name":"varchar","is_nullable":"NO","character_maximum_length":20,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"labalert","column_name":"message","ordinal_position":3,"data_type":"text","udt_name":"text","is_nullable":"NO","character_maximum_length":null,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"labalert","column_name":"createdat","ordinal_position":4,"data_type":"timestamp without time zone","udt_name":"timestamp","is_nullable":"NO","character_maximum_length":null,"numeric_precision":null,"numeric_scale":null,"column_default":"CURRENT_TIMESTAMP","is_identity":"NO","identity_generation":null}
+ {"table_name":"labalert","column_name":"status","ordinal_position":5,"data_type":"character varying","udt_name":"varchar","is_nullable":"NO","character_maximum_length":30,"numeric_precision":null,"numeric_scale":null,"column_default":"'Open'::character varying","is_identity":"NO","identity_generation":null}
+ {"table_name":"labalert","column_name":"acknowledgedat","ordinal_position":6,"data_type":"timestamp without time zone","udt_name":"timestamp","is_nullable":"YES","character_maximum_length":null,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"labalert","column_name":"resultid","ordinal_position":7,"data_type":"integer","udt_name":"int4","is_nullable":"NO","character_maximum_length":null,"numeric_precision":32,"numeric_scale":0,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"labtechnician","column_name":"technicianid","ordinal_position":1,"data_type":"integer","udt_name":"int4","is_nullable":"NO","character_maximum_length":null,"numeric_precision":32,"numeric_scale":0,"column_default":null,"is_identity":"YES","identity_generation":"BY DEFAULT"}
+ {"table_name":"labtechnician","column_name":"firstname","ordinal_position":2,"data_type":"character varying","udt_name":"varchar","is_nullable":"NO","character_maximum_length":50,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"labtechnician","column_name":"lastname","ordinal_position":3,"data_type":"character varying","udt_name":"varchar","is_nullable":"NO","character_maximum_length":50,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"labtechnician","column_name":"certificationnumber","ordinal_position":4,"data_type":"character varying","udt_name":"varchar","is_nullable":"NO","character_maximum_length":30,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"labtechnician","column_name":"certificationexpireson","ordinal_position":5,"data_type":"date","udt_name":"date","is_nullable":"NO","character_maximum_length":null,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"labtechnician","column_name":"phone","ordinal_position":6,"data_type":"character varying","udt_name":"varchar","is_nullable":"YES","character_maximum_length":15,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"labtest","column_name":"labtestid","ordinal_position":1,"data_type":"integer","udt_name":"int4","is_nullable":"NO","character_maximum_length":null,"numeric_precision":32,"numeric_scale":0,"column_default":null,"is_identity":"YES","identity_generation":"BY DEFAULT"}
+ {"table_name":"labtest","column_name":"status","ordinal_position":2,"data_type":"character varying","udt_name":"varchar","is_nullable":"NO","character_maximum_length":30,"numeric_precision":null,"numeric_scale":null,"column_default":"'Scheduled'::character varying","is_identity":"NO","identity_generation":null}
+ {"table_name":"labtest","column_name":"performedlocation","ordinal_position":3,"data_type":"character varying","udt_name":"varchar","is_nullable":"YES","character_maximum_length":100,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"labtest","column_name":"scheduledat","ordinal_position":4,"data_type":"timestamp without time zone","udt_name":"timestamp","is_nullable":"YES","character_maximum_length":null,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"labtest","column_name":"startedat","ordinal_position":5,"data_type":"timestamp without time zone","udt_name":"timestamp","is_nullable":"YES","character_maximum_length":null,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"labtest","column_name":"completedat","ordinal_position":6,"data_type":"timestamp without time zone","udt_name":"timestamp","is_nullable":"YES","character_maximum_length":null,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"labtest","column_name":"orderid","ordinal_position":7,"data_type":"integer","udt_name":"int4","is_nullable":"NO","character_maximum_length":null,"numeric_precision":32,"numeric_scale":0,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"labtest","column_name":"testtypeid","ordinal_position":8,"data_type":"integer","udt_name":"int4","is_nullable":"NO","character_maximum_length":null,"numeric_precision":32,"numeric_scale":0,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"labtest","column_name":"technicianid","ordinal_position":9,"data_type":"integer","udt_name":"int4","is_nullable":"YES","character_maximum_length":null,"numeric_precision":32,"numeric_scale":0,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"patient","column_name":"patientid","ordinal_position":1,"data_type":"integer","udt_name":"int4","is_nullable":"NO","character_maximum_length":null,"numeric_precision":32,"numeric_scale":0,"column_default":null,"is_identity":"YES","identity_generation":"BY DEFAULT"}
+ {"table_name":"patient","column_name":"idnumber","ordinal_position":2,"data_type":"character varying","udt_name":"varchar","is_nullable":"NO","character_maximum_length":9,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"patient","column_name":"firstname","ordinal_position":3,"data_type":"character varying","udt_name":"varchar","is_nullable":"NO","character_maximum_length":50,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"patient","column_name":"lastname","ordinal_position":4,"data_type":"character varying","udt_name":"varchar","is_nullable":"NO","character_maximum_length":50,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"patient","column_name":"dateofbirth","ordinal_position":5,"data_type":"date","udt_name":"date","is_nullable":"NO","character_maximum_length":null,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"patient","column_name":"gender","ordinal_position":6,"data_type":"character varying","udt_name":"varchar","is_nullable":"YES","character_maximum_length":10,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"patient","column_name":"phone","ordinal_position":7,"data_type":"character varying","udt_name":"varchar","is_nullable":"YES","character_maximum_length":15,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"testorder","column_name":"orderid","ordinal_position":1,"data_type":"integer","udt_name":"int4","is_nullable":"NO","character_maximum_length":null,"numeric_precision":32,"numeric_scale":0,"column_default":null,"is_identity":"YES","identity_generation":"BY DEFAULT"}
+ {"table_name":"testorder","column_name":"orderedat","ordinal_position":2,"data_type":"timestamp without time zone","udt_name":"timestamp","is_nullable":"NO","character_maximum_length":null,"numeric_precision":null,"numeric_scale":null,"column_default":"CURRENT_TIMESTAMP","is_identity":"NO","identity_generation":null}
+ {"table_name":"testorder","column_name":"priority","ordinal_position":3,"data_type":"character varying","udt_name":"varchar","is_nullable":"NO","character_maximum_length":20,"numeric_precision":null,"numeric_scale":null,"column_default":"'Routine'::character varying","is_identity":"NO","identity_generation":null}
+ {"table_name":"testorder","column_name":"notes","ordinal_position":4,"data_type":"text","udt_name":"text","is_nullable":"YES","character_maximum_length":null,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"testorder","column_name":"patientid","ordinal_position":5,"data_type":"integer","udt_name":"int4","is_nullable":"NO","character_maximum_length":null,"numeric_precision":32,"numeric_scale":0,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"testorder","column_name":"doctorid","ordinal_position":6,"data_type":"integer","udt_name":"int4","is_nullable":"NO","character_maximum_length":null,"numeric_precision":32,"numeric_scale":0,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"testresult","column_name":"resultid","ordinal_position":1,"data_type":"integer","udt_name":"int4","is_nullable":"NO","character_maximum_length":null,"numeric_precision":32,"numeric_scale":0,"column_default":null,"is_identity":"YES","identity_generation":"BY DEFAULT"}
+ {"table_name":"testresult","column_name":"numericvalue","ordinal_position":2,"data_type":"numeric","udt_name":"numeric","is_nullable":"YES","character_maximum_length":null,"numeric_precision":12,"numeric_scale":3,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"testresult","column_name":"textvalue","ordinal_position":3,"data_type":"text","udt_name":"text","is_nullable":"YES","character_maximum_length":null,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"testresult","column_name":"unit","ordinal_position":4,"data_type":"character varying","udt_name":"varchar","is_nullable":"YES","character_maximum_length":30,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"testresult","column_name":"resultedat","ordinal_position":5,"data_type":"timestamp without time zone","udt_name":"timestamp","is_nullable":"NO","character_maximum_length":null,"numeric_precision":null,"numeric_scale":null,"column_default":"CURRENT_TIMESTAMP","is_identity":"NO","identity_generation":null}
+ {"table_name":"testresult","column_name":"isabnormal","ordinal_position":6,"data_type":"boolean","udt_name":"bool","is_nullable":"NO","character_maximum_length":null,"numeric_precision":null,"numeric_scale":null,"column_default":"false","is_identity":"NO","identity_generation":null}
+ {"table_name":"testresult","column_name":"labtestid","ordinal_position":7,"data_type":"integer","udt_name":"int4","is_nullable":"NO","character_maximum_length":null,"numeric_precision":32,"numeric_scale":0,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"testtype","column_name":"testtypeid","ordinal_position":1,"data_type":"integer","udt_name":"int4","is_nullable":"NO","character_maximum_length":null,"numeric_precision":32,"numeric_scale":0,"column_default":null,"is_identity":"YES","identity_generation":"BY DEFAULT"}
+ {"table_name":"testtype","column_name":"testcode","ordinal_position":2,"data_type":"character varying","udt_name":"varchar","is_nullable":"NO","character_maximum_length":30,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"testtype","column_name":"testname","ordinal_position":3,"data_type":"character varying","udt_name":"varchar","is_nullable":"NO","character_maximum_length":100,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"testtype","column_name":"category","ordinal_position":4,"data_type":"character varying","udt_name":"varchar","is_nullable":"YES","character_maximum_length":60,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+ {"table_name":"testtype","column_name":"defaultunit","ordinal_position":5,"data_type":"character varying","udt_name":"varchar","is_nullable":"YES","character_maximum_length":30,"numeric_precision":null,"numeric_scale":null,"column_default":null,"is_identity":"NO","identity_generation":null}
+(53 rows)
+
+
+Probe 1 PASS
+                                                                                                    row_to_json                                                                                                     
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"tablename":"doctor","indexname":"doctor_licensenumber_key","indexdef":"CREATE UNIQUE INDEX doctor_licensenumber_key ON public.doctor USING btree (licensenumber)"}
+ {"tablename":"doctor","indexname":"doctor_pkey","indexdef":"CREATE UNIQUE INDEX doctor_pkey ON public.doctor USING btree (doctorid)"}
+ {"tablename":"labalert","indexname":"idx_labalert_open_created","indexdef":"CREATE INDEX idx_labalert_open_created ON public.labalert USING btree (createdat) WHERE ((status)::text = 'Open'::text)"}
+ {"tablename":"labtest","indexname":"idx_labtest_type_status","indexdef":"CREATE INDEX idx_labtest_type_status ON public.labtest USING btree (testtypeid, status)"}
+ {"tablename":"testorder","indexname":"idx_testorder_patient_date","indexdef":"CREATE INDEX idx_testorder_patient_date ON public.testorder USING btree (patientid, orderedat)"}
+ {"tablename":"labalert","indexname":"labalert_pkey","indexdef":"CREATE UNIQUE INDEX labalert_pkey ON public.labalert USING btree (alertid)"}
+ {"tablename":"labtechnician","indexname":"labtechnician_certificationnumber_key","indexdef":"CREATE UNIQUE INDEX labtechnician_certificationnumber_key ON public.labtechnician USING btree (certificationnumber)"}
+ {"tablename":"labtechnician","indexname":"labtechnician_pkey","indexdef":"CREATE UNIQUE INDEX labtechnician_pkey ON public.labtechnician USING btree (technicianid)"}
+ {"tablename":"labtest","indexname":"labtest_pkey","indexdef":"CREATE UNIQUE INDEX labtest_pkey ON public.labtest USING btree (labtestid)"}
+ {"tablename":"patient","indexname":"patient_idnumber_key","indexdef":"CREATE UNIQUE INDEX patient_idnumber_key ON public.patient USING btree (idnumber)"}
+ {"tablename":"patient","indexname":"patient_pkey","indexdef":"CREATE UNIQUE INDEX patient_pkey ON public.patient USING btree (patientid)"}
+ {"tablename":"testorder","indexname":"testorder_pkey","indexdef":"CREATE UNIQUE INDEX testorder_pkey ON public.testorder USING btree (orderid)"}
+ {"tablename":"testresult","indexname":"testresult_labtestid_key","indexdef":"CREATE UNIQUE INDEX testresult_labtestid_key ON public.testresult USING btree (labtestid)"}
+ {"tablename":"testresult","indexname":"testresult_pkey","indexdef":"CREATE UNIQUE INDEX testresult_pkey ON public.testresult USING btree (resultid)"}
+ {"tablename":"testtype","indexname":"testtype_pkey","indexdef":"CREATE UNIQUE INDEX testtype_pkey ON public.testtype USING btree (testtypeid)"}
+ {"tablename":"testtype","indexname":"testtype_testcode_key","indexdef":"CREATE UNIQUE INDEX testtype_testcode_key ON public.testtype USING btree (testcode)"}
+(16 rows)
+
+
+Probe 2 PASS
+                                                                                        row_to_json                                                                                        
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"tab":"doctor","conname":"chk_doctor_firstname_nonblank","contype":"c","convalidated":true,"conkey":[3],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"labalert","conname":"chk_labalert_ack_time","contype":"c","convalidated":true,"conkey":[6,4],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"labalert","conname":"chk_labalert_severity","contype":"c","convalidated":true,"conkey":[2],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"labalert","conname":"chk_labalert_status","contype":"c","convalidated":true,"conkey":[5],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"labtest","conname":"chk_labtest_status","contype":"c","convalidated":true,"conkey":[2],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"labtest","conname":"chk_labtest_time_order","contype":"c","convalidated":true,"conkey":[5,4,6],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"patient","conname":"chk_patient_gender","contype":"c","convalidated":true,"conkey":[6],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"testorder","conname":"chk_testorder_priority","contype":"c","convalidated":true,"conkey":[3],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"testresult","conname":"chk_testresult_has_value","contype":"c","convalidated":true,"conkey":[2,3],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"doctor","conname":"doctor_licensenumber_key","contype":"u","convalidated":true,"conkey":[2],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"doctor","conname":"doctor_pkey","contype":"p","convalidated":true,"conkey":[1],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"labalert","conname":"fk_labalert_result","contype":"f","convalidated":true,"conkey":[7],"confkey":[1],"parent":"testresult","confupdtype":"a","confdeltype":"a"}
+ {"tab":"labtest","conname":"fk_labtest_order","contype":"f","convalidated":true,"conkey":[7],"confkey":[1],"parent":"testorder","confupdtype":"a","confdeltype":"a"}
+ {"tab":"labtest","conname":"fk_labtest_technician","contype":"f","convalidated":true,"conkey":[9],"confkey":[1],"parent":"labtechnician","confupdtype":"a","confdeltype":"a"}
+ {"tab":"labtest","conname":"fk_labtest_type","contype":"f","convalidated":true,"conkey":[8],"confkey":[1],"parent":"testtype","confupdtype":"a","confdeltype":"a"}
+ {"tab":"testorder","conname":"fk_testorder_doctor","contype":"f","convalidated":true,"conkey":[6],"confkey":[1],"parent":"doctor","confupdtype":"a","confdeltype":"a"}
+ {"tab":"testorder","conname":"fk_testorder_patient","contype":"f","convalidated":true,"conkey":[5],"confkey":[1],"parent":"patient","confupdtype":"a","confdeltype":"a"}
+ {"tab":"testresult","conname":"fk_testresult_labtest","contype":"f","convalidated":true,"conkey":[7],"confkey":[1],"parent":"labtest","confupdtype":"a","confdeltype":"a"}
+ {"tab":"labalert","conname":"labalert_pkey","contype":"p","convalidated":true,"conkey":[1],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"labtechnician","conname":"labtechnician_certificationnumber_key","contype":"u","convalidated":true,"conkey":[4],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"labtechnician","conname":"labtechnician_pkey","contype":"p","convalidated":true,"conkey":[1],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"labtest","conname":"labtest_pkey","contype":"p","convalidated":true,"conkey":[1],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"patient","conname":"patient_idnumber_key","contype":"u","convalidated":true,"conkey":[2],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"patient","conname":"patient_pkey","contype":"p","convalidated":true,"conkey":[1],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"testorder","conname":"testorder_pkey","contype":"p","convalidated":true,"conkey":[1],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"testresult","conname":"testresult_labtestid_key","contype":"u","convalidated":true,"conkey":[7],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"testresult","conname":"testresult_pkey","contype":"p","convalidated":true,"conkey":[1],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"testtype","conname":"testtype_pkey","contype":"p","convalidated":true,"conkey":[1],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+ {"tab":"testtype","conname":"testtype_testcode_key","contype":"u","convalidated":true,"conkey":[2],"confkey":null,"parent":null,"confupdtype":" ","confdeltype":" "}
+(29 rows)
+
+
+Probe 3 PASS
+                                                                                                                 row_to_json                                                                                                                  
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"conname":"chk_doctor_firstname_nonblank","pg_get_constraintdef":"CHECK ((length(btrim((firstname)::text)) > 0))"}
+ {"conname":"chk_labalert_ack_time","pg_get_constraintdef":"CHECK (((acknowledgedat IS NULL) OR (acknowledgedat >= createdat)))"}
+ {"conname":"chk_labtest_time_order","pg_get_constraintdef":"CHECK ((((startedat IS NULL) OR (scheduledat IS NULL) OR (startedat >= scheduledat)) AND ((completedat IS NULL) OR ((startedat IS NOT NULL) AND (completedat >= startedat)))))"}
+(3 rows)
+
+
+Probe 4 PASS
+   tab   | count |           fingerprint            
+---------+-------+----------------------------------
+ patient |  3000 | 085fe0dd9c112887c0bfd07902eced74
+(1 row)
+
+
+Probe 5 PASS
+  tab   | count |           fingerprint            
+--------+-------+----------------------------------
+ doctor |   500 | 53522fa9286f5057a75b6120f8564d14
+(1 row)
+
+
+Probe 6 PASS
+   tab    | count |           fingerprint            
+----------+-------+----------------------------------
+ testtype |   500 | 3f8127e12e530d3b7f6be2f855abee73
+(1 row)
+
+
+Probe 7 PASS
+      tab      | count |           fingerprint            
+---------------+-------+----------------------------------
+ labtechnician |   500 | 23043a15b3748a8eb500be28ec834524
+(1 row)
+
+
+Probe 8 PASS
+    tab    | count |           fingerprint            
+-----------+-------+----------------------------------
+ testorder |  5000 | 7afa40be6c8cae37a565a3438ddc4996
+(1 row)
+
+
+Probe 9 PASS
+   tab   | count |           fingerprint            
+---------+-------+----------------------------------
+ labtest | 30000 | 9a3a8a339f8c5373f1dcbbd2a50cb424
+(1 row)
+
+
+Probe 10 PASS
+    tab     | count |           fingerprint            
+------------+-------+----------------------------------
+ testresult | 24000 | ea563b23120ad2ed7dfb6aac99c8327c
+(1 row)
+
+
+Probe 11 PASS
+   tab    | count |           fingerprint            
+----------+-------+----------------------------------
+ labalert |  3157 | 814ac6d648e511c0b35a18649e3049e6
+(1 row)
+

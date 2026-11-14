@@ -1,0 +1,72 @@
+                                                                                           QUERY PLAN                                                                                            
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sort  (cost=59882892.14..59882967.14 rows=30000 width=48) (actual time=4930.671..4930.703 rows=600 loops=1)
+   Sort Key: m.order_year, m.order_month, m.doctorid
+   Sort Method: quicksort  Memory: 63kB
+   Buffers: shared hit=542861
+   ->  Subquery Scan on m  (cost=1714.98..59880661.23 rows=30000 width=48) (actual time=379.903..4929.008 rows=600 loops=1)
+         Buffers: shared hit=542858
+         ->  HashAggregate  (cost=1714.98..2314.98 rows=30000 width=32) (actual time=372.540..374.177 rows=600 loops=1)
+               Group Key: d.doctorid, d.firstname, d.lastname, (EXTRACT(year FROM o.orderedat))::integer, (EXTRACT(month FROM o.orderedat))::integer
+               Batches: 1  Memory Usage: 1617kB
+               Buffers: shared hit=458
+               ->  Hash Join  (cost=198.75..1339.98 rows=30000 width=32) (actual time=351.524..366.956 rows=30000 loops=1)
+                     Hash Cond: (o.doctorid = d.doctorid)
+                     Buffers: shared hit=458
+                     ->  Hash Join  (cost=181.50..943.32 rows=30000 width=12) (actual time=0.854..6.710 rows=30000 loops=1)
+                           Hash Cond: (l.orderid = o.orderid)
+                           Buffers: shared hit=452
+                           ->  Seq Scan on labtest l  (cost=0.00..683.00 rows=30000 width=4) (actual time=0.012..2.085 rows=30000 loops=1)
+                                 Buffers: shared hit=383
+                           ->  Hash  (cost=119.00..119.00 rows=5000 width=16) (actual time=0.817..0.818 rows=5000 loops=1)
+                                 Buckets: 8192  Batches: 1  Memory Usage: 299kB
+                                 Buffers: shared hit=69
+                                 ->  Seq Scan on testorder o  (cost=0.00..119.00 rows=5000 width=16) (actual time=0.007..0.378 rows=5000 loops=1)
+                                       Buffers: shared hit=69
+                     ->  Hash  (cost=11.00..11.00 rows=500 width=24) (actual time=350.641..350.642 rows=500 loops=1)
+                           Buckets: 1024  Batches: 1  Memory Usage: 36kB
+                           Buffers: shared hit=6
+                           ->  Seq Scan on doctor d  (cost=0.00..11.00 rows=500 width=24) (actual time=350.497..350.555 rows=500 loops=1)
+                                 Buffers: shared hit=6
+         SubPlan 1
+           ->  Aggregate  (cost=968.34..968.35 rows=1 width=8) (actual time=3.851..3.851 rows=1 loops=600)
+                 Buffers: shared hit=271200
+                 ->  Hash Join  (cost=206.51..968.33 rows=6 width=0) (actual time=0.272..3.840 rows=50 loops=600)
+                       Hash Cond: (l_1.orderid = o_1.orderid)
+                       Buffers: shared hit=271200
+                       ->  Seq Scan on labtest l_1  (cost=0.00..683.00 rows=30000 width=4) (actual time=0.001..1.677 rows=30000 loops=600)
+                             Buffers: shared hit=229800
+                       ->  Hash  (cost=206.50..206.50 rows=1 width=4) (actual time=0.193..0.193 rows=8 loops=600)
+                             Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                             Buffers: shared hit=41400
+                             ->  Seq Scan on testorder o_1  (cost=0.00..206.50 rows=1 width=4) (actual time=0.015..0.190 rows=8 loops=600)
+                                   Filter: ((doctorid = m.doctorid) AND (EXTRACT(year FROM orderedat) = (m.order_year)::numeric) AND (EXTRACT(month FROM orderedat) = (m.order_month)::numeric))
+                                   Rows Removed by Filter: 4992
+                                   Buffers: shared hit=41400
+         SubPlan 2
+           ->  Aggregate  (cost=1027.58..1027.59 rows=1 width=8) (actual time=3.732..3.732 rows=1 loops=600)
+                 Buffers: shared hit=271200
+                 ->  Hash Join  (cost=206.51..1027.57 rows=5 width=0) (actual time=0.274..3.722 rows=40 loops=600)
+                       Hash Cond: (l_2.orderid = o_2.orderid)
+                       Buffers: shared hit=271200
+                       ->  Seq Scan on labtest l_2  (cost=0.00..758.00 rows=24000 width=4) (actual time=0.002..2.080 rows=24000 loops=600)
+                             Filter: ((status)::text = 'Completed'::text)
+                             Rows Removed by Filter: 6000
+                             Buffers: shared hit=229800
+                       ->  Hash  (cost=206.50..206.50 rows=1 width=4) (actual time=0.195..0.195 rows=8 loops=600)
+                             Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                             Buffers: shared hit=41400
+                             ->  Seq Scan on testorder o_2  (cost=0.00..206.50 rows=1 width=4) (actual time=0.015..0.192 rows=8 loops=600)
+                                   Filter: ((doctorid = m.doctorid) AND (EXTRACT(year FROM orderedat) = (m.order_year)::numeric) AND (EXTRACT(month FROM orderedat) = (m.order_month)::numeric))
+                                   Rows Removed by Filter: 4992
+                                   Buffers: shared hit=41400
+ Planning:
+   Buffers: shared hit=243
+ Planning Time: 0.839 ms
+ JIT:
+   Functions: 57
+   Options: Inlining true, Optimization true, Expressions true, Deforming true
+   Timing: Generation 2.342 ms, Inlining 74.751 ms, Optimization 149.424 ms, Emission 126.399 ms, Total 352.917 ms
+ Execution Time: 5024.153 ms
+(68 rows)
+

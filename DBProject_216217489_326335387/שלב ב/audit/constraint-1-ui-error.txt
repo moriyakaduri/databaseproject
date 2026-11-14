@@ -1,0 +1,5 @@
+ERROR:  new row for relation "doctor" violates check constraint "chk_doctor_firstname_nonblank"
+Failing row contains (-900001, DEMO-BAD-NAME,    , Demo, Demo, null). 
+
+SQL state: 23514
+Detail: Failing row contains (-900001, DEMO-BAD-NAME,    , Demo, Demo, null).

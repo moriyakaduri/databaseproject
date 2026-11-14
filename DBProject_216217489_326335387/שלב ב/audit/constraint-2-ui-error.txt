@@ -1,0 +1,5 @@
+ERROR:  new row for relation "labtest" violates check constraint "chk_labtest_time_order"
+Failing row contains (-900001, Completed, null, 2026-01-02 00:00:00, 2026-01-01 00:00:00, 2026-01-03 00:00:00, 1, 1, null). 
+
+SQL state: 23514
+Detail: Failing row contains (-900001, Completed, null, 2026-01-02 00:00:00, 2026-01-01 00:00:00, 2026-01-03 00:00:00, 1, 1, null).

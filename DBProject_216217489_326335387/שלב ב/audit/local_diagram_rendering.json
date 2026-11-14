@@ -1,0 +1,309 @@
+{
+  "provenance": "Local rendering of the verified ERDPlus source files; website image export failed even manually.",
+  "erd": {
+    "entity_count": 8,
+    "attribute_count": 46,
+    "relationship_count": 7,
+    "rendered_node_count": 61,
+    "rendered_edge_count": 60
+  },
+  "dsd": {
+    "table_count": 8,
+    "column_count": 53,
+    "foreign_key_count": 7,
+    "columns": [
+      [
+        "PATIENT",
+        "PatientID",
+        "INT"
+      ],
+      [
+        "PATIENT",
+        "IDNumber",
+        "VARCHAR(9)"
+      ],
+      [
+        "PATIENT",
+        "FirstName",
+        "VARCHAR(50)"
+      ],
+      [
+        "PATIENT",
+        "LastName",
+        "VARCHAR(50)"
+      ],
+      [
+        "PATIENT",
+        "DateOfBirth",
+        "DATE"
+      ],
+      [
+        "PATIENT",
+        "Gender",
+        "VARCHAR(10)"
+      ],
+      [
+        "PATIENT",
+        "Phone",
+        "VARCHAR(15)"
+      ],
+      [
+        "DOCTOR",
+        "DoctorID",
+        "INT"
+      ],
+      [
+        "DOCTOR",
+        "LicenseNumber",
+        "VARCHAR(20)"
+      ],
+      [
+        "DOCTOR",
+        "FirstName",
+        "VARCHAR(50)"
+      ],
+      [
+        "DOCTOR",
+        "LastName",
+        "VARCHAR(50)"
+      ],
+      [
+        "DOCTOR",
+        "Specialty",
+        "VARCHAR(60)"
+      ],
+      [
+        "DOCTOR",
+        "Phone",
+        "VARCHAR(15)"
+      ],
+      [
+        "TESTTYPE",
+        "TestTypeID",
+        "INT"
+      ],
+      [
+        "TESTTYPE",
+        "TestCode",
+        "VARCHAR(30)"
+      ],
+      [
+        "TESTTYPE",
+        "TestName",
+        "VARCHAR(100)"
+      ],
+      [
+        "TESTTYPE",
+        "Category",
+        "VARCHAR(60)"
+      ],
+      [
+        "TESTTYPE",
+        "DefaultUnit",
+        "VARCHAR(30)"
+      ],
+      [
+        "LABTECHNICIAN",
+        "TechnicianID",
+        "INT"
+      ],
+      [
+        "LABTECHNICIAN",
+        "FirstName",
+        "VARCHAR(50)"
+      ],
+      [
+        "LABTECHNICIAN",
+        "LastName",
+        "VARCHAR(50)"
+      ],
+      [
+        "LABTECHNICIAN",
+        "CertificationNumber",
+        "VARCHAR(30)"
+      ],
+      [
+        "LABTECHNICIAN",
+        "Phone",
+        "VARCHAR(15)"
+      ],
+      [
+        "LABTECHNICIAN",
+        "CertificationExpiresOn",
+        "DATE"
+      ],
+      [
+        "TESTORDER",
+        "OrderID",
+        "INT"
+      ],
+      [
+        "TESTORDER",
+        "OrderedAt",
+        "TIMESTAMP"
+      ],
+      [
+        "TESTORDER",
+        "Priority",
+        "VARCHAR(20)"
+      ],
+      [
+        "TESTORDER",
+        "Notes",
+        "TEXT"
+      ],
+      [
+        "TESTORDER",
+        "PatientID",
+        "INT"
+      ],
+      [
+        "TESTORDER",
+        "DoctorID",
+        "INT"
+      ],
+      [
+        "LABTEST",
+        "LabTestID",
+        "INT"
+      ],
+      [
+        "LABTEST",
+        "Status",
+        "VARCHAR(30)"
+      ],
+      [
+        "LABTEST",
+        "PerformedLocation",
+        "VARCHAR(100)"
+      ],
+      [
+        "LABTEST",
+        "ScheduledAt",
+        "TIMESTAMP"
+      ],
+      [
+        "LABTEST",
+        "StartedAt",
+        "TIMESTAMP"
+      ],
+      [
+        "LABTEST",
+        "CompletedAt",
+        "TIMESTAMP"
+      ],
+      [
+        "LABTEST",
+        "OrderID",
+        "INT"
+      ],
+      [
+        "LABTEST",
+        "TestTypeID",
+        "INT"
+      ],
+      [
+        "LABTEST",
+        "TechnicianID",
+        "INT"
+      ],
+      [
+        "TESTRESULT",
+        "ResultID",
+        "INT"
+      ],
+      [
+        "TESTRESULT",
+        "NumericValue",
+        "NUMERIC(12,3)"
+      ],
+      [
+        "TESTRESULT",
+        "TextValue",
+        "TEXT"
+      ],
+      [
+        "TESTRESULT",
+        "Unit",
+        "VARCHAR(30)"
+      ],
+      [
+        "TESTRESULT",
+        "ResultedAt",
+        "TIMESTAMP"
+      ],
+      [
+        "TESTRESULT",
+        "IsAbnormal",
+        "BOOLEAN"
+      ],
+      [
+        "TESTRESULT",
+        "LabTestID",
+        "INT"
+      ],
+      [
+        "LABALERT",
+        "AlertID",
+        "INT"
+      ],
+      [
+        "LABALERT",
+        "Severity",
+        "VARCHAR(20)"
+      ],
+      [
+        "LABALERT",
+        "Message",
+        "TEXT"
+      ],
+      [
+        "LABALERT",
+        "CreatedAt",
+        "TIMESTAMP"
+      ],
+      [
+        "LABALERT",
+        "Status",
+        "VARCHAR(30)"
+      ],
+      [
+        "LABALERT",
+        "AcknowledgedAt",
+        "TIMESTAMP"
+      ],
+      [
+        "LABALERT",
+        "ResultID",
+        "INT"
+      ]
+    ]
+  },
+  "files": [
+    {
+      "name": "updated-dsd.png",
+      "sha256": "763a557aca5e3485a42f0366e288e2888160a9f0a9adb01eb633cd6621a1fea5",
+      "bytes": 386598
+    },
+    {
+      "name": "updated-dsd.svg",
+      "sha256": "20368e06a42e6d0efed444f95c4cfa386d5559c85b73f4b1d91cd65a4ef54c10",
+      "bytes": 37327
+    },
+    {
+      "name": "updated-erd.jpeg",
+      "sha256": "a0b3bd248ffdf46e649bfd796f52b9392304808e14c0283b32bc303311d8c2d7",
+      "bytes": 1348847
+    },
+    {
+      "name": "updated-erd.png",
+      "sha256": "a517a46002b85f5ef8df6c783c21b8982078a64b6021b61689a3c2248a3855eb",
+      "bytes": 271271
+    },
+    {
+      "name": "updated-erd.svg",
+      "sha256": "d7477a9cf8ba5d49aba41108d7ce436a9fa052949e07656d5926abd63e694dbc",
+      "bytes": 31906
+    }
+  ]
+}

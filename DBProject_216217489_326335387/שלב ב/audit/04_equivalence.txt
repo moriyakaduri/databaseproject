@@ -1,0 +1,27 @@
+Q1 A/B multiset equivalence
+ differences 
+-------------
+           0
+(1 row)
+
+
+Q2 A/B multiset equivalence
+ differences 
+-------------
+           0
+(1 row)
+
+
+Q3 A/B multiset equivalence
+ differences 
+-------------
+           0
+(1 row)
+
+
+Q4 A/B multiset equivalence
+ differences 
+-------------
+           0
+(1 row)
+
