@@ -1,71 +1,103 @@
-# דוח הפרויקט — שלב ב׳: מערכת מעבדת בית חולים
+# דוח הפרויקט — שלב ב׳: שאילתות ואילוצים
 
-מגישות: נועה מנוסה ומוריה כדורי (לפי דוח שלב א׳).
+## שער
 
-**בדיקת הגשה: 14.11.2026.** [מפת דרישות וראיות](SubmissionAudit.md) · [נספח כל 85 צילומי pgAdmin](screenshots/README.md) · [משיכה ושחזור אצל השותפה](PullAndRestore.md). תג ההגשה: `stage-b-2026-11-14`.
+**מיני פרויקט בבסיסי נתונים — שלב ב׳**
 
-## סדר עבודה ותיקון שלב א׳
+| מגישה | תעודת זהות |
+|---|---|
+| נועה מנוסה | 216217489 |
+| מוריה כדורי | 326335387 |
 
-הקבצים מיועדים ל-PostgreSQL. שמונת הישויות והמפתחות נשמרו. אין טבלת DAT או Date. קיימת patient.dateofbirth מסוג DATE ונוספה labtechnician.certificationexpireson מסוג DATE NOT NULL, המייצגת תוקף ההסמכה ולא נגזרת משדה אחר. מועדי הזמנות, ביצוע ותוצאות נשארו TIMESTAMP משום ששעת האירוע משמעותית.
+- **המערכת:** מערכת לניהול מעבדה בבית חולים (Hospital Laboratory Information System)
+- **היחידה הנבחרת:** מחלקת בדיקות ומעבדה בבית חולים
+- **מסד הנתונים:** PostgreSQL 16, ניהול ב־pgAdmin 4
+- **תג ההגשה בגיט:** `stage-b-final`
+- **דוח שלב א׳:** [README הראשי של המאגר](../../README.md)
 
-בבסיס ריק מריצים את createTables.sql ואת insertTables.sql המעודכנים משלב א׳ באמצעות psql מתוך תיקיית שלב א׳. בבסיס קיים מריצים פעם אחת את StageA_Migration.sql בלבד, לאחר גיבוי. תאריכי התוקף הסינתטיים זהים במיגרציה ובאכלוס. שלוש שיטות האכלוס ומספר הרשומות נשמרו; המחולל בפייתון יוצר בדיקות/תוצאות/התראות בלבד ואינו דורש שינוי.
+## תוכן עניינים
 
-לאחר מכן מריצים את הוספת האילוצים (החלק הראשון של Constraints.sql), כל SELECT בנפרד, הדגמות השינוי בנפרד, RollbackCommit.sql ואז Index.sql. ההכנסות השגויות דורשות טיפול בטרנזקציה אחרי השגיאה, כמוסבר בקובץ. אין להריץ את כל Constraints.sql עם ON_ERROR_STOP=on משום שהכישלונות מכוונים.
+1. [מבוא וקובצי ההגשה](#1-מבוא-וקובצי-ההגשה)
+2. [שינויים בבסיס הנתונים ותרשימים מעודכנים](#2-שינויים-בבסיס-הנתונים-ותרשימים-מעודכנים)
+3. [שאילתות SELECT בשתי צורות (Q1–Q4)](#3-שאילתות-select-בשתי-צורות-q1q4)
+4. [שאילתות SELECT נוספות (Q5–Q8)](#4-שאילתות-select-נוספות-q5q8)
+5. [שאילתות DELETE](#5-שאילתות-delete)
+6. [שאילתות UPDATE](#6-שאילתות-update)
+7. [ROLLBACK ו־COMMIT](#7-rollback-וcommit)
+8. [אילוצים](#8-אילוצים)
+9. [אינדקסים](#9-אינדקסים)
+10. [גיבוי backup2 ושחזור](#10-גיבוי-backup2-ושחזור)
+11. [סדר הרצת הקבצים](#11-סדר-הרצת-הקבצים)
 
-השינויים ב-Queries.sql מתבטלים ב-ROLLBACK כדי לא להפחית את כמויות האכלוס. RollbackCommit.sql משאיר שינוי מסומן בשדה Notes במכוון. השאילתות הן הדגמות ניהוליות על נתוני דמה; כללי ההסלמה והארכוב אינם מדיניות רפואית.
+## 1. מבוא וקובצי ההגשה
 
-## 3NF, מילון נתונים ותרשימים
+בשלב זה תשאלנו את בסיס הנתונים שנבנה ואוכלס בשלב א׳: שמונה טבלאות ו־66,657 רשומות. כתבנו שאילתות SELECT, DELETE ו־UPDATE, הדגמנו ROLLBACK ו־COMMIT, הוספנו שלושה אילוצים ושלושה אינדקסים, ויצרנו גיבוי מעודכן.
 
-המפתחות הראשיים קובעים את מאפייני הישויות. מספר זיהוי מטופל, מספר רישיון רופא, קוד בדיקה ומספר הסמכה הם מפתחות חלופיים ייחודיים. פרטי מטופל ורופא אינם משוכפלים בהזמנה; פרטי סוג בדיקה נשמרים בקטלוג; הזמנה מקשרת מטופל ורופא, בדיקה מקשרת הזמנה/סוג/טכנאי, תוצאה שייכת לבדיקה אחת, והתראה לתוצאה. אין מפתח מורכב היוצר תלות חלקית. אין תלות טרנזיטיבית מוכרת בין מאפיינים שאינם מפתח במסגרת ההנחות האלה. certificationexpireson תלוי בטכנאי/הסמכתו היחידה; אם תידרש היסטוריית הסמכות מרובות, יהיה צורך בישות נפרדת. יחידת תוצאה היא יחידת המדידה בפועל, ועשויה להיות שונה מברירת המחדל בקטלוג, לכן אינה העתק נגזר שלו. isabnormal הוא סימון נתון דמה לפי הקשר הבדיקה, ואינו נגזר מ-numericvalue לבדו.
+| קובץ | תוכן |
+|---|---|
+| [Queries.sql](Queries.sql) | 8 שאילתות SELECT (ארבע מהן בשתי צורות, ובסך הכול 12 מימושים), 3 שאילתות DELETE ו־3 שאילתות UPDATE |
+| [Constraints.sql](Constraints.sql) | שלושה אילוצים חדשים ב־ALTER TABLE, ושלוש הכנסות שסותרות אותם |
+| [RollbackCommit.sql](RollbackCommit.sql) | הדגמת ROLLBACK והדגמת COMMIT |
+| [Index.sql](Index.sql) | שלושה אינדקסים, עם מדידת זמן ריצה לפני ואחרי כל אחד |
+| [backup2.dump](backup2.dump) | גיבוי מעודכן של בסיס הנתונים |
+| [StageA_Migration.sql](StageA_Migration.sql) | שינוי מבנה הטבלה LABTECHNICIAN באמצעות ALTER TABLE (סעיף 2) |
+| [PartnerValidation.sql](PartnerValidation.sql) | בדיקת תקינות אחרי שחזור הגיבוי |
+| [screenshots](screenshots/) | צילומי המסך מ־pgAdmin ([נספח כל הצילומים](screenshots/README.md)) |
+| [diagrams](diagrams/) | ERD ו־DSD מעודכנים וקובצי המקור של ERDPlus |
+| [audit](audit/) | יומני הרצה, תוכניות ביצוע (EXPLAIN) ומדידות זמנים |
 
-תוספת למילון: `labtechnician.certificationexpireson | DATE | NOT NULL | תאריך אחרון לתוקף ההסמכה | ללא DEFAULT`.
+### התאמת השאילתות למסכי המערכת
 
-התרשימים המעודכנים יובאו לחשבון ERDPlus באישור המשתמשת, כגרסאות נפרדות. [פתיחת ERD מעודכן](https://erdplus.com/diagrams/732415), [פתיחת DSD סופי](https://erdplus.com/diagrams/732507). ה-ERD מכיל שמונה ישויות ושבעה קשרים ואת המאפיין החדש CertificationExpiresOn. ב-DSD נבדקו תאריך חובה והפורמט של אורכי VARCHAR; טיפוסי כל 53 העמודות במקור הסופי הושוו ל-createTables.sql. קובצי המקור הישנים נשמרו.
+השאילתות נכתבו עבור ארבעת המסכים שהוגדרו בשלב א׳, כדי שאפשר יהיה לחבר אותן לממשק בשלב הסופי. כל שאילתה מחזירה יותר משתי עמודות, ובהן שמות ולא רק מזהים.
 
-הקובץ הסופי לייבוא הוא [DSD-stage-b-verified.erdplus](diagrams/DSD-stage-b-verified.erdplus). ERDPlus שומר VARCHAR(n) עם size נפרד, NUMERIC(p s) עם size כגון 12,3, וטיפוסים כמו TIMESTAMP/TEXT/BOOLEAN כ-Custom עם שם הטיפוס ב-size. הפורמט אומת באמצעות שינוי בממשק וייצוא קובצי דוגמה מהאתר. גרסת DSD-revised הראשונית בחשבון היא גרסת ביניים; השתמשו ב-DSD-stage-b-verified.
+| מסך | שאילתות |
+|---|---|
+| ניהול מטופלים | Q3 — התוצאה האחרונה של כל מטופל |
+| הזמנת בדיקות | Q1 — עומס חודשי לרופא · Q5 — פילוח הזמנות לפי תאריך ועדיפות · D3 · U1 |
+| ניהול בדיקות מעבדה | Q4 — סוגי בדיקות עמוסים · Q6 — תוקף הסמכת טכנאים · Q7 — תור הזמנות ממתינות · D2 · U3 |
+| תוצאות והתראות | Q2 — מטופלים עם התראות פתוחות · Q8 — חריגות לפי רופא וקטגוריה · D1 · U2 |
 
-פקודת Download image נכשלה דרך כלי השליטה וגם בלחיצה ידנית של המשתמשת. לכן נוצרו תמונות מלאות מקומית מקובצי המקור שאומתו באתר; הן מוצגות בסעיף התרשימים המלאים להלן, עם ציון אופן הפקתן. הצילומים הבאים נשמרו כראיות לבדיקה באתר בלבד.
+## 2. שינויים בבסיס הנתונים ותרשימים מעודכנים
 
-![ERD מיובא — תיעוד ממשק חלקי](diagrams/erdplus-erd-verification.jpg)
+בעקבות דרישת המרצה לשני מאפיינים משמעותיים מסוג DATE, הוספנו לטבלה LABTECHNICIAN את העמודה **CertificationExpiresOn** — תאריך תוקף ההסמכה של עובד המעבדה. השדה השני מסוג DATE הוא PATIENT.DateOfBirth. השינוי בוצע בפקודת ALTER TABLE:
 
-![DSD מיובא — תיעוד ממשק חלקי](diagrams/erdplus-dsd-verification.jpg)
+```sql
+BEGIN;
+ALTER TABLE labtechnician ADD COLUMN certificationexpireson DATE;
+UPDATE labtechnician
+SET certificationexpireson = DATE '2026-01-01' + (365 + technicianid % 730);
+ALTER TABLE labtechnician ALTER COLUMN certificationexpireson SET NOT NULL;
+COMMIT;
+```
 
-![הגדרות DATE ו-VARCHAR ב-DSD הסופי](diagrams/erdplus-dsd-date-settings.jpg)
+העמודה החדשה משמשת בשאילתה Q6 ובעדכון U3. גם קובצי האכלוס של שלב א׳ עודכנו כך שיכניסו אותה; הפירוט נמצא ב־[StageAChanges.md](StageAChanges.md). השינוי שומר על 3NF, כי תאריך התוקף תלוי רק במפתח הטכנאי.
 
-ראו את שני התרשימים המלאים בסעיף הבא.
-
-## התרשימים המלאים המעודכנים
-
-קובצי המקור יובאו ונבדקו ב-ERDPlus. לאחר שגם המשתמשת דיווחה שהורדה ידנית באמצעות Download image נכשלת, נוצרו התמונות הבאות מקובצי המקור המאומתים באמצעות מחולל מקומי. **אלה תמונות מלאות של המודל המעודכן, ולא צילומי מסך או הורדות PNG מקוריות מהאתר.** פריסת הרכיבים הורחבה לשיפור הקריאות; הישויות, השדות, המפתחות והקשרים נשמרו. התמונות הישנות של שלב א׳ נשמרו ללא שינוי ואינן מייצגות את העמודה החדשה.
+תרשימי ה־ERD וה־DSD עודכנו בהתאם (השדות מסוג DATE מסומנים בירוק). התמונות הופקו מקובצי המקור של ERDPlus שבתיקייה [diagrams](diagrams/): [ERD-revised.erdplus](diagrams/ERD-revised.erdplus) ו־[DSD-stage-b-verified.erdplus](diagrams/DSD-stage-b-verified.erdplus).
 
 ### ERD מעודכן
 
-התרשים כולל שמונה ישויות, 46 מאפיינים ושבעה קשרים. שני מאפייני DATE משמעותיים מודגשים בירוק. קו תוקף ההסמכה מחובר ישירות לטכנאי, ומיקומו שונה בתצוגה המקומית כדי שלא יחצה את מאפיין המפתח. ריבוי הקשרים נשמר מהמקור שנבדק באתר.
-
-![ERD מלא מעודכן](diagrams/updated-erd.png)
-
-[PNG ברזולוציה מלאה](diagrams/updated-erd.png) · [JPEG](diagrams/updated-erd.jpeg) · [SVG וקטורי](diagrams/updated-erd.svg) · [מקור ERDPlus](diagrams/ERD-revised.erdplus)
+![ERD מעודכן](diagrams/updated-erd.png)
 
 ### DSD מעודכן
 
-התרשים מציג את כל שמונה הטבלאות, 53 העמודות ושבעת המפתחות הזרים, לרבות טיפוסים, אורכי מחרוזות, אפשרות NULL, מפתחות ראשיים וייחודיות. TechnicianID בבדיקה הוא אופציונלי, ולכן מסומן 0..1 בצד הטכנאי; LabTestID בתוצאה ייחודי, ולכן נשמר הקשר 1 מול 0..1 בין בדיקה לתוצאה. UQ נבדק מול createTables.sql. התמונות נבדקו חזותית לאחר יצירתן.
+![DSD מעודכן](diagrams/updated-dsd.png)
 
-![DSD מלא מעודכן](diagrams/updated-dsd.png)
+## 3. שאילתות SELECT בשתי צורות (Q1–Q4)
 
-[PNG ברזולוציה מלאה](diagrams/updated-dsd.png) · [SVG וקטורי](diagrams/updated-dsd.svg) · [מקור ERDPlus סופי](diagrams/DSD-stage-b-verified.erdplus)
+כל שאילתה נכתבה בשתי צורות שמחזירות בדיוק אותה תוצאה. השוויון נבדק ב־EXCEPT ALL בשני הכיוונים ([יומן הבדיקה](audit/04_equivalence.txt)). זמני הריצה נמדדו ב־EXPLAIN ANALYZE על אותו בסיס נתונים, ותוכניות הביצוע המלאות שמורות בתיקייה [audit](audit/) (Q1A_plan.txt וכן הלאה). בצילומי התוצאה מוצגות עד חמש שורות.
 
-יצירה חוזרת: `python audit/render_verified_diagrams.py`. רישום תכולה, ספירות ו-SHA-256 נמצא ב-[local_diagram_rendering.json](audit/local_diagram_rendering.json). אין צורך להמשיך לנסות את כפתור ההורדה לצורך צפייה בתמונות האלה. אם תידרש דווקא הורדה מקורית מהאתר, התקלה בכפתור נותרה פתוחה ויש לבדוק אותה בדפדפן אחר או מול האתר.
+| זוג | צורה A (ms) | צורה B (ms) | היעילה יותר |
+|---|---:|---:|---|
+| Q1 | 23.784 | 5,024.153 | A — פי 200 בערך |
+| Q2 | 11.944 | 19,496.062 | A — פי 1,600 בערך |
+| Q3 | 37.841 | 40.125 | A — מעט |
+| Q4 | 30.692 | 31.239 | שקולות בפועל |
 
+### Q1 — עומס בדיקות חודשי לכל רופא
 
-## SELECT — 8 צרכים עסקיים, 12 מימושים
+**תיאור:** לכל רופא ולכל חודש (שנה וחודש מתוך מועד ההזמנה) מוצג מספר הבדיקות שהרופא הזמין, וכמה מהן הושלמו. השאילתה מצרפת את DOCTOR, ‏TESTORDER ו־LABTEST, מפרקת את התאריך לשנה ולחודש, מקבצת ב־GROUP BY וממיינת ב־ORDER BY. 600 שורות. המסך: הזמנת בדיקות.
 
-מיפוי GUI מוצע לצורך השלב הסופי: דשבורד מנהל — Q1/Q4/Q5/Q8; תיק מטופל — Q2/Q3; צוות והסמכות — Q6; תור הזמנות — Q7. זהו מיפוי מוצע ולא הוכחה שקיימים מסכי אב־טיפוס.
-
-כל שאילתה מחזירה יותר משתי עמודות וכוללת מזהים ושמות/מידע תפעולי. Q5 מפרקת יום, חודש ושנה; Q1 ו-Q6 משתמשות גם בחלקי תאריך. אין LIMIT בקוד העסקי; בצילום מציגים עד חמש שורות בלבד.
-
-### Q1A
-
-עומס חודשי לרופא — צבירה אחת לאחר צירוף.
+**צורה A** — צירוף שלוש הטבלאות וקיבוץ אחד ב־GROUP BY.
 
 ```sql
 SELECT d.doctorid, d.firstname, d.lastname,
@@ -78,13 +110,11 @@ GROUP BY d.doctorid, EXTRACT(YEAR FROM o.orderedat), EXTRACT(MONTH FROM o.ordere
 ORDER BY order_year, order_month, d.doctorid;
 ```
 
-![Q1A — הרצה ב-pgAdmin](screenshots/Q1A-run.jpg)
+| צילום הרצה | צילום תוצאה |
+|---|---|
+| ![צילום הרצה](screenshots/Q1A-run.jpg) | ![צילום תוצאה](screenshots/Q1A-result.jpg) |
 
-![Q1A — חמש שורות תוצאה](screenshots/Q1A-result.jpg)
-
-### Q1B
-
-אותו פלט באמצעות תתי־שאילתות מתואמות לכל רופא וחודש.
+**צורה B** — CTE שמחשב את צירופי רופא־חודש, ושתי תתי־שאילתות מתואמות שסופרות לכל שורה.
 
 ```sql
 WITH months AS (
@@ -104,15 +134,17 @@ SELECT m.*,
 FROM months m ORDER BY order_year, order_month, doctorid;
 ```
 
-A צפויה להיות יעילה יותר: צבירה לאחר מעבר משותף לעומת שתי ספירות חוזרות לכל רופא וחודש ב-B. יש למדוד; אינדקסים ותוכנית המתכנן יכולים לשנות זאת.
+| צילום הרצה | צילום תוצאה |
+|---|---|
+| ![צילום הרצה](screenshots/Q1B-run.jpg) | ![צילום תוצאה](screenshots/Q1B-result.jpg) |
 
-![Q1B — הרצה ב-pgAdmin](screenshots/Q1B-run.jpg)
+**ההבדל ביעילות:** **צורה A יעילה יותר בהרבה** (23.8 ms לעומת 5,024 ms). צורה A עוברת פעם אחת על 30,000 הבדיקות ומקבצת אותן. בצורה B כל אחת משתי תתי־השאילתות רצה 600 פעמים, פעם לכל שורת רופא־חודש. בכל ריצה היא סורקת מחדש את LABTEST ואת TESTORDER ומחשבת EXTRACT על כל שורה, ולכן אי אפשר להיעזר באינדקס. בתוכנית הביצוע זה נראה כ־SubPlan עם ‎loops=600.
 
-![Q1B — חמש שורות תוצאה](screenshots/Q1B-result.jpg)
+### Q2 — מטופלים עם שתי התראות פתוחות או יותר
 
-### Q2A
+**תיאור:** לכל מטופל מוצג מספר ההתראות הפתוחות שלו, וכמה מהן בחומרה High או Critical. מוצגים רק מטופלים עם שתי התראות פתוחות לפחות, ממוינים מהרב אל המעט. השאילתה מצרפת חמש טבלאות: PATIENT, ‏TESTORDER, ‏LABTEST, ‏TESTRESULT ו־LABALERT. 327 שורות. המסך: תוצאות והתראות.
 
-התראות פתוחות למטופל — צבירה ו-HAVING.
+**צורה A** — סינון ההתראות הפתוחות, צירוף, GROUP BY ו־HAVING.
 
 ```sql
 SELECT p.patientid, p.firstname, p.lastname, COUNT(*) AS open_alerts,
@@ -124,13 +156,11 @@ GROUP BY p.patientid HAVING COUNT(*)>=2
 ORDER BY open_alerts DESC, p.patientid;
 ```
 
-![Q2A — הרצה ב-pgAdmin](screenshots/Q2A-run.jpg)
+| צילום הרצה | צילום תוצאה |
+|---|---|
+| ![צילום הרצה](screenshots/Q2A-run.jpg) | ![צילום תוצאה](screenshots/Q2A-result.jpg) |
 
-![Q2A — חמש שורות תוצאה](screenshots/Q2A-result.jpg)
-
-### Q2B
-
-אותו פלט באמצעות חישוב מתואם לכל מטופל וסינון חיצוני.
+**צורה B** — לכל מטופל תתי־שאילתות מתואמות שסופרות את ההתראות, וסינון בשאילתה החיצונית.
 
 ```sql
 WITH totals AS (
@@ -147,15 +177,17 @@ WITH totals AS (
 SELECT * FROM totals WHERE open_alerts>=2 ORDER BY open_alerts DESC, patientid;
 ```
 
-A צפויה להיות יעילה יותר באכלוס הנוכחי: מסננים התראות ומקבצים פעם אחת. B עשויה לבצע שתי ספירות לכל מטופל, כולל מטופלים ללא התראות. יש לאמת ב-EXPLAIN ANALYZE.
+| צילום הרצה | צילום תוצאה |
+|---|---|
+| ![צילום הרצה](screenshots/Q2B-run.jpg) | ![צילום תוצאה](screenshots/Q2B-result.jpg) |
 
-![Q2B — הרצה ב-pgAdmin](screenshots/Q2B-run.jpg)
+**ההבדל ביעילות:** **צורה A יעילה יותר בהרבה** (11.9 ms לעומת 19,496 ms). צורה A מסננת קודם את ההתראות הפתוחות, שהן קבוצה קטנה, ומקבצת פעם אחת. צורה B מריצה את תתי־השאילתות לכל אחד מ־3,000 המטופלים, גם למטופלים שאין להם התראות כלל, וכל הרצה מצרפת מחדש ארבע טבלאות (‎loops=3000 בתוכנית). תת־השאילתה הראשונה מחושבת פעם נוספת גם לצורך הסינון.
 
-![Q2B — חמש שורות תוצאה](screenshots/Q2B-result.jpg)
+### Q3 — התוצאה האחרונה של כל מטופל
 
-### Q3A
+**תיאור:** לכל מטופל מוצגת תוצאת הבדיקה האחרונה שלו: שם הבדיקה, הערך, המועד וסימון החריגה. אם יש שתי תוצאות באותו מועד, נבחרת זו עם ResultID הגבוה יותר. השאילתה מצרפת חמש טבלאות. 3,000 שורות. המסך: ניהול מטופלים (תיק מטופל).
 
-התוצאה האחרונה לכל מטופל — פונקציית חלון ושובר שוויון ResultID.
+**צורה A** — פונקציית חלון ROW_NUMBER לפי מטופל, ובחירת השורה הראשונה.
 
 ```sql
 WITH ranked AS (
@@ -171,13 +203,11 @@ SELECT patientid, firstname, lastname, testname, resultid, resultedat,
 FROM ranked WHERE rn=1 ORDER BY patientid;
 ```
 
-![Q3A — הרצה ב-pgAdmin](screenshots/Q3A-run.jpg)
+| צילום הרצה | צילום תוצאה |
+|---|---|
+| ![צילום הרצה](screenshots/Q3A-run.jpg) | ![צילום תוצאה](screenshots/Q3A-result.jpg) |
 
-![Q3A — חמש שורות תוצאה](screenshots/Q3A-result.jpg)
-
-### Q3B
-
-אותו פלט באמצעות NOT EXISTS של תוצאה מאוחרת יותר, כולל שובר שוויון.
+**צורה B** — NOT EXISTS: נבחרת תוצאה רק אם לאותו מטופל אין תוצאה מאוחרת ממנה.
 
 ```sql
 SELECT p.patientid, p.firstname, p.lastname, tt.testname,
@@ -193,15 +223,17 @@ WHERE NOT EXISTS (
 ORDER BY p.patientid;
 ```
 
-A ממיינת את קבוצות המטופלים פעם אחת. B בודקת היעדר תוצאה מאוחרת לכל מועמד; המתכנן עשוי להפוך זאת ל-Anti Join. A אינה תמיד מהירה יותר: יש להשוות בפועל ולשמור על שובר השוויון.
+| צילום הרצה | צילום תוצאה |
+|---|---|
+| ![צילום הרצה](screenshots/Q3B-run.jpg) | ![צילום תוצאה](screenshots/Q3B-result.jpg) |
 
-![Q3B — הרצה ב-pgAdmin](screenshots/Q3B-run.jpg)
+**ההבדל ביעילות:** **צורה A יעילה מעט יותר** (37.8 ms לעומת 40.1 ms). צורה A ממיינת את התוצאות לפי מטופל ומועד, ועוברת עליהן פעם אחת (WindowAgg). בצורה B המתכנן הופך את NOT EXISTS ל־Hash Anti Join, ולכן ההפרש קטן. ובכל זאת, B משווה כל תוצאה לכל שאר התוצאות של אותו מטופל, כך שהעבודה גדלה בריבוע מספר התוצאות למטופל. לכן A עדיפה, וככל שיצטברו תוצאות היתרון שלה יגדל.
 
-![Q3B — חמש שורות תוצאה](screenshots/Q3B-result.jpg)
+### Q4 — סוגי בדיקות שעומסם מעל הממוצע
 
-### Q4A
+**תיאור:** לכל סוג בדיקה מוצג מספר הבדיקות שבוצעו ממנו ומספר המטופלים השונים. מוצגים רק סוגים שמספר הבדיקות שלהם גבוה מהממוצע בקטלוג. LEFT JOIN מבטיח שגם סוגים ללא בדיקות ייכללו בחישוב הממוצע. 20 שורות. המסך: ניהול בדיקות מעבדה (תכנון משאבים).
 
-סוגי בדיקות שעומסם מעל ממוצע הקטלוג — CTE ותת־שאילתה.
+**צורה A** — CTE ותת־שאילתה שמחשבת את הממוצע.
 
 ```sql
 WITH counts AS (
@@ -215,13 +247,11 @@ SELECT * FROM counts WHERE test_count>(SELECT AVG(test_count) FROM counts)
 ORDER BY test_count DESC, testtypeid;
 ```
 
-![Q4A — הרצה ב-pgAdmin](screenshots/Q4A-run.jpg)
+| צילום הרצה | צילום תוצאה |
+|---|---|
+| ![צילום הרצה](screenshots/Q4A-run.jpg) | ![צילום תוצאה](screenshots/Q4A-result.jpg) |
 
-![Q4A — חמש שורות תוצאה](screenshots/Q4A-result.jpg)
-
-### Q4B
-
-אותו פלט באמצעות AVG בחלון; הממוצע כולל גם סוגים ללא בדיקות.
+**צורה B** — פונקציית חלון AVG(COUNT(...)) OVER ()‎ באותו מעבר.
 
 ```sql
 WITH counts AS (
@@ -236,15 +266,17 @@ SELECT testtypeid,testname,category,test_count,patient_count FROM counts
 WHERE test_count>mean_count ORDER BY test_count DESC,testtypeid;
 ```
 
-שתי הדרכים צוברות פעם אחת. A עשויה לממש CTE ולסרוק אותו שוב לחישוב ממוצע; B מוסיפה WindowAgg ללא סריקה חוזרת מפורשת. B צפויה לחסוך מעט עבודה, אך בקטלוג קטן ההפרש עשוי להיות זניח או הפוך.
+| צילום הרצה | צילום תוצאה |
+|---|---|
+| ![צילום הרצה](screenshots/Q4B-run.jpg) | ![צילום תוצאה](screenshots/Q4B-result.jpg) |
 
-![Q4B — הרצה ב-pgAdmin](screenshots/Q4B-run.jpg)
+**ההבדל ביעילות:** **שתי הצורות שקולות בפועל** (30.7 ms לעומת 31.2 ms). בשתיהן אותן סריקות, אותו מיון ואותם 464 Buffers, והפרש של פחות מ־2% הוא בתחום רעש המדידה. מבחינה תאורטית B יעילה מעט יותר: היא מחשבת את הממוצע ב־WindowAgg באותו מעבר, בעוד A סורקת את ה־CTE פעמיים, פעם לחישוב הממוצע ופעם לסינון. לכן העלות המוערכת של B נמוכה במעט.
 
-![Q4B — חמש שורות תוצאה](screenshots/Q4B-result.jpg)
+## 4. שאילתות SELECT נוספות (Q5–Q8)
 
-### Q5
+### Q5 — פילוח הזמנות לפי יום, חודש, שנה ועדיפות
 
-פילוח הזמנות לפי יום, חודש, שנה ועדיפות, כולל מטופלים ורופאים ייחודיים.
+**תיאור:** לכל יום (שנה, חודש ויום מתוך מועד ההזמנה) ולכל רמת עדיפות מוצגים מספר ההזמנות, מספר המטופלים השונים ומספר הרופאים השונים. השאילתה מפרקת את התאריך ליום, חודש ושנה. 588 שורות. המסך: הזמנת בדיקות (תמונת עומס).
 
 ```sql
 SELECT EXTRACT(YEAR FROM o.orderedat)::int AS order_year,
@@ -257,13 +289,13 @@ FROM testorder o JOIN patient p USING(patientid) JOIN doctor d USING(doctorid)
 GROUP BY 1,2,3,o.priority ORDER BY 1,2,3,o.priority;
 ```
 
-![Q5 — הרצה ב-pgAdmin](screenshots/Q5-run.jpg)
+| צילום הרצה | צילום תוצאה |
+|---|---|
+| ![צילום הרצה](screenshots/Q5-run.jpg) | ![צילום תוצאה](screenshots/Q5-result.jpg) |
 
-![Q5 — חמש שורות תוצאה](screenshots/Q5-result.jpg)
+### Q6 — תוקף הסמכת טכנאים ועומס עבודה
 
-### Q6
-
-תוקף הסמכת טכנאים ועומס — תאריך ייחוס קבוע שניתן להחליף במסך.
+**תיאור:** מוצגים הטכנאים שתוקף ההסמכה שלהם מסתיים עד 450 יום אחרי תאריך הייחוס 12.11.2026, כולל הסמכות שכבר פגו. לכל טכנאי מוצגים תאריך התוקף, השנה והחודש שלו, מספר הימים שנותרו, מספר הבדיקות שהוקצו לו ומספר המטופלים. השאילתה משתמשת בשדה ה־DATE החדש ובחשבון תאריכים. 400 שורות. המסך: ניהול בדיקות מעבדה (שיוך טכנאים).
 
 ```sql
 SELECT t.technicianid,t.firstname,t.lastname,t.certificationexpireson,
@@ -278,13 +310,13 @@ WHERE t.certificationexpireson<=DATE '2026-11-12'+450
 GROUP BY t.technicianid ORDER BY t.certificationexpireson,t.technicianid;
 ```
 
-![Q6 — הרצה ב-pgAdmin](screenshots/Q6-run.jpg)
+| צילום הרצה | צילום תוצאה |
+|---|---|
+| ![צילום הרצה](screenshots/Q6-run.jpg) | ![צילום תוצאה](screenshots/Q6-result.jpg) |
 
-![Q6 — חמש שורות תוצאה](screenshots/Q6-result.jpg)
+### Q7 — תור הזמנות עם בדיקות ממתינות
 
-### Q7
-
-תור הזמנות עם בדיקות ממתינות; סינון הזמנות שעומסן מעל הממוצע.
+**תיאור:** מוצגות ההזמנות שיש בהן בדיקות במצב Scheduled או InProgress, ושמספר הבדיקות הממתינות בהן גבוה מהממוצע או שווה לו. לכל הזמנה מוצגים שם המטופל, שם הרופא, העדיפות ומועד ההזמנה. השאילתה משתמשת ב־CTE ובתת־שאילתה עם AVG. 1,000 שורות. המסך: ניהול בדיקות מעבדה (תור עבודה).
 
 ```sql
 WITH pending AS (
@@ -300,13 +332,13 @@ SELECT * FROM pending WHERE pending_tests>=(SELECT AVG(pending_tests) FROM pendi
 ORDER BY pending_tests DESC,orderedat,orderid;
 ```
 
-![Q7 — הרצה ב-pgAdmin](screenshots/Q7-run.jpg)
+| צילום הרצה | צילום תוצאה |
+|---|---|
+| ![צילום הרצה](screenshots/Q7-run.jpg) | ![צילום תוצאה](screenshots/Q7-result.jpg) |
 
-![Q7 — חמש שורות תוצאה](screenshots/Q7-result.jpg)
+### Q8 — תוצאות חריגות לפי רופא וקטגוריית בדיקה
 
-### Q8
-
-דוח חריגות לפי רופא וקטגוריה; EXISTS מונע הכפלת תוצאות עם כמה התראות.
+**תיאור:** לכל רופא ולכל קטגוריית בדיקה מוצגים מספר התוצאות החריגות שיש להן התראה פתוחה, מספר המטופלים השונים ומועד התוצאה החריגה האחרונה. מוצגים רק צירופים עם שתי תוצאות כאלה לפחות. EXISTS מונע ספירה כפולה של תוצאה שיש לה כמה התראות. 234 שורות. המסך: תוצאות והתראות.
 
 ```sql
 SELECT d.doctorid,d.firstname,d.lastname,tt.category,
@@ -322,17 +354,23 @@ GROUP BY d.doctorid,tt.category HAVING COUNT(*)>=2
 ORDER BY abnormal_results DESC,d.doctorid,tt.category;
 ```
 
-![Q8 — הרצה ב-pgAdmin](screenshots/Q8-run.jpg)
+| צילום הרצה | צילום תוצאה |
+|---|---|
+| ![צילום הרצה](screenshots/Q8-run.jpg) | ![צילום תוצאה](screenshots/Q8-result.jpg) |
 
-![Q8 — חמש שורות תוצאה](screenshots/Q8-result.jpg)
+## 5. שאילתות DELETE
 
-## DELETE ו-UPDATE
+כל פקודת שינוי הורצה בתוך טרנזקציה (BEGIN, הפקודה ואז ROLLBACK), כדי שמספר הרשומות באכלוס לא ירד. כך גם מופיע בקובץ Queries.sql. עבור כל פקודה צולמו שלושה שלבים:
 
-לכל הדגמה יש לצלם לפני הפעולה, להריץ BEGIN ואת הפעולה, לצלם RETURNING ואת הטבלה באותה טרנזקציה, ואז ROLLBACK. לכל פעולה יש פלט RETURNING לזיהוי הרשומות שנפגעו.
+- **לפני** — הרשומות שעומדות להימחק או להתעדכן;
+- **הרצה** — הפקודה עם RETURNING, שמציג את הרשומות שהושפעו;
+- **אחרי** — אותן רשומות, עוד באותה טרנזקציה ולפני ה־ROLLBACK.
 
-### D1
+בצילומי ה"אחרי" של המחיקות, הערך NULL בעמודות מראה שהרשומה כבר אינה קיימת בטבלה.
 
-ניקוי התראות שטופלו לפני מועד הארכוב, רק אם הבדיקה הושלמה והתוצאה קיימת.
+### D1 — מחיקת התראות ישנות שכבר טופלו
+
+**תיאור:** נמחקות התראות במצב Acknowledged או Resolved שאושרו לפני 1.7.2026, ורק אם הבדיקה הושלמה ויש לה תוצאה. השאילתה מצרפת את LABALERT, ‏TESTRESULT ו־LABTEST. נמחקו 1,152 שורות. המסך: תוצאות והתראות.
 
 ```sql
 DELETE FROM labalert a USING testresult r,labtest l
@@ -342,15 +380,13 @@ WHERE a.resultid=r.resultid AND r.labtestid=l.labtestid
 RETURNING a.alertid,a.resultid,a.status,a.acknowledgedat;
 ```
 
-![D1 — מצב לפני](screenshots/D1-before-result.jpg)
+| לפני | הרצה | אחרי |
+|---|---|---|
+| ![לפני](screenshots/D1-before-result.jpg) | ![הרצה](screenshots/D1-after-run.jpg) | ![אחרי](screenshots/D1-after-result.jpg) |
 
-![D1 — הרצת השינוי](screenshots/D1-after-run.jpg)
+### D2 — מחיקת בדיקות מתוכננות ישנות שאין להן תוצאה
 
-![D1 — מצב אחרי, לפני ביטול](screenshots/D1-after-result.jpg)
-
-### D2
-
-ניקוי בדיקות מתוכננות ישנות ללא תוצאה, רק בהזמנה המכילה בדיקה נוספת.
+**תיאור:** נמחקות בדיקות במצב Scheduled, מהזמנות שנפתחו לפני 1.4.2026, שאין להן תוצאה. נמחקת רק בדיקה שיש בהזמנה שלה בדיקה נוספת שאינה מתוכננת, כדי שההזמנה לא תישאר ריקה. השאילתה משתמשת ב־NOT EXISTS וב־EXISTS. נמחקו 918 שורות. המסך: ניהול בדיקות מעבדה.
 
 ```sql
 DELETE FROM labtest l USING testorder o
@@ -363,15 +399,13 @@ WHERE l.orderid=o.orderid AND l.status='Scheduled'
 RETURNING l.labtestid,l.orderid,l.status,l.scheduledat;
 ```
 
-![D2 — מצב לפני](screenshots/D2-before-result.jpg)
+| לפני | הרצה | אחרי |
+|---|---|---|
+| ![לפני](screenshots/D2-before-result.jpg) | ![הרצה](screenshots/D2-after-run.jpg) | ![אחרי](screenshots/D2-after-result.jpg) |
 
-![D2 — הרצת השינוי](screenshots/D2-after-run.jpg)
+### D3 — מחיקת רופאי הדגמה שאין להם הזמנות
 
-![D2 — מצב אחרי, לפני ביטול](screenshots/D2-after-result.jpg)
-
-### D3
-
-ניקוי רופאי הדגמה ללא הזמנות, כשההתמחות עדיין מיוצגת בידי רופא אחר.
+**תיאור:** נמחקים רופאים שמספר הרישיון שלהם מתחיל ב־DEMO-LIC-, שאין להם אף הזמנה, ורק אם ההתמחות שלהם ממשיכה להיות מיוצגת בידי רופא פעיל אחר. נמחקו 76 שורות. המסך: הזמנת בדיקות (רשימת רופאים).
 
 ```sql
 DELETE FROM doctor d
@@ -382,15 +416,17 @@ WHERE d.licensenumber LIKE 'DEMO-LIC-%'
 RETURNING d.doctorid,d.firstname,d.lastname,d.specialty;
 ```
 
-![D3 — מצב לפני](screenshots/D3-before-result.jpg)
+| לפני | הרצה | אחרי |
+|---|---|---|
+| ![לפני](screenshots/D3-before-result.jpg) | ![הרצה](screenshots/D3-after-run.jpg) | ![אחרי](screenshots/D3-after-result.jpg) |
 
-![D3 — הרצת השינוי](screenshots/D3-after-run.jpg)
+## 6. שאילתות UPDATE
 
-![D3 — מצב אחרי, לפני ביטול](screenshots/D3-after-result.jpg)
+השאילתות הורצו ותועדו באותה שיטה כמו המחיקות: לפני, הרצה ואחרי, ובסוף ROLLBACK. בצילומי ה"אחרי" רואים את אותן רשומות עם הערך החדש.
 
-### U1
+### U1 — הסלמת עדיפות הזמנות ל־STAT
 
-הסלמת עדיפות הזמנות עם התראות חמורות פתוחות; כלל הדגמה מנהלי.
+**תיאור:** עדיפות ההזמנה משתנה ל־STAT בהזמנות שיש בהן תוצאה חריגה עם התראה פתוחה בחומרה High או Critical. השאילתה משתמשת ב־EXISTS על צירוף של שלוש טבלאות. עודכנו 582 שורות. המסך: הזמנת בדיקות.
 
 ```sql
 UPDATE testorder o SET priority='STAT'
@@ -403,15 +439,13 @@ WHERE o.priority<>'STAT' AND EXISTS (
 RETURNING o.orderid,o.patientid,o.doctorid,o.priority;
 ```
 
-![U1 — מצב לפני](screenshots/U1-before-result.jpg)
+| לפני | הרצה | אחרי |
+|---|---|---|
+| ![לפני](screenshots/U1-before-result.jpg) | ![הרצה](screenshots/U1-after-run.jpg) | ![אחרי](screenshots/U1-after-result.jpg) |
 
-![U1 — הרצת השינוי](screenshots/U1-after-run.jpg)
+### U2 — סגירת התראות שאושרו
 
-![U1 — מצב אחרי, לפני ביטול](screenshots/U1-after-result.jpg)
-
-### U2
-
-סגירת התראות מאושרות ישנות של בדיקות שהושלמו; הדגמת מדיניות ארכוב בלבד.
+**תיאור:** התראות במצב Acknowledged שאושרו לפני 1.7.2026, בבדיקות שהושלמו, עוברות למצב Resolved. השאילתה מצרפת את LABALERT, ‏TESTRESULT, ‏LABTEST ו־TESTORDER. עודכנו 914 שורות. המסך: תוצאות והתראות.
 
 ```sql
 UPDATE labalert a SET status='Resolved'
@@ -422,15 +456,13 @@ WHERE a.resultid=r.resultid AND a.status='Acknowledged'
 RETURNING a.alertid,a.resultid,a.status,a.acknowledgedat;
 ```
 
-![U2 — מצב לפני](screenshots/U2-before-result.jpg)
+| לפני | הרצה | אחרי |
+|---|---|---|
+| ![לפני](screenshots/U2-before-result.jpg) | ![הרצה](screenshots/U2-after-run.jpg) | ![אחרי](screenshots/U2-after-result.jpg) |
 
-![U2 — הרצת השינוי](screenshots/U2-after-run.jpg)
+### U3 — שיוך טכנאי לבדיקות דחופות
 
-![U2 — מצב אחרי, לפני ביטול](screenshots/U2-after-result.jpg)
-
-### U3
-
-שיוך בדיקות מתוכננות לטכנאי בעל הסמכה בתוקף והעומס הנמוך ביותר.
+**תיאור:** נבחר הטכנאי שההסמכה שלו בתוקף בתאריך 12.11.2026 ושיש לו הכי מעט בדיקות ממתינות. הוא משויך לכל הבדיקות המתוכננות שאין להן טכנאי, בהזמנות בעדיפות Urgent או STAT. השאילתה משתמשת ב־CTE, ב־GROUP BY ובשדה ה־DATE של תוקף ההסמכה. עודכנו 602 שורות. המסך: ניהול בדיקות מעבדה.
 
 ```sql
 WITH candidate AS (
@@ -447,79 +479,16 @@ WHERE l.orderid=o.orderid AND l.status='Scheduled' AND l.technicianid IS NULL
 RETURNING l.labtestid,l.orderid,l.status,l.technicianid;
 ```
 
-![U3 — מצב לפני](screenshots/U3-before-result.jpg)
+| לפני | הרצה | אחרי |
+|---|---|---|
+| ![לפני](screenshots/U3-before-result.jpg) | ![הרצה](screenshots/U3-after-run.jpg) | ![אחרי](screenshots/U3-after-result.jpg) |
 
-![U3 — הרצת השינוי](screenshots/U3-after-run.jpg)
+## 7. ROLLBACK ו־COMMIT
 
-![U3 — מצב אחרי, לפני ביטול](screenshots/U3-after-result.jpg)
+ההדגמה מתבצעת על הזמנה אחת, בעמודה Notes. טבלה זמנית שומרת את הערך המקורי, כדי שנוכל להוכיח את מצב הבסיס בכל שלב:
 
-## אילוצים חדשים
-
-שם לא ריק לרופא מונע ערך המכיל רווחים בלבד; סדר מועדי בדיקה מונע התחלה לפני התכנון והשלמה ללא התחלה או לפני ההתחלה; מועד אישור התראה אינו יכול להקדים את יצירתה. NULL במועד התחלה/תכנון מותר בהתאם לשלבי חיי הבדיקה, כפי שמפורט בביטוי CHECK. כל האילוצים נבדקים גם כנגד הרשומות הקיימות ב-ALTER TABLE.
-
-```sql
--- הרצה פעם אחת לאחר שלב א׳ המעודכן/המיגרציה. שלושה אילוצים חדשים.
-BEGIN;
-ALTER TABLE doctor ADD CONSTRAINT chk_doctor_firstname_nonblank
- CHECK (length(btrim(firstname))>0);
-ALTER TABLE labtest ADD CONSTRAINT chk_labtest_time_order
- CHECK ((startedat IS NULL OR scheduledat IS NULL OR startedat>=scheduledat)
-    AND (completedat IS NULL OR (startedat IS NOT NULL AND completedat>=startedat)));
-ALTER TABLE labalert ADD CONSTRAINT chk_labalert_ack_time
- CHECK (acknowledgedat IS NULL OR acknowledgedat>=createdat);
-COMMIT;
-
--- שלוש ההכנסות הבאות נועדו להיכשל ב-23514 על שם האילוץ המתאים.
--- ב-pgAdmin: הריצו BEGIN+SAVEPOINT+INSERT עד לקבלת השגיאה,
--- ואז הריצו ROLLBACK TO SAVEPOINT ואחריו ROLLBACK בנפרד.
--- psql: לשם הרצת כל הקובץ השתמשו ב-ON_ERROR_STOP=off בחלק ההדגמות בלבד.
-BEGIN;
-SAVEPOINT invalid_doctor;
-INSERT INTO doctor(doctorid,licensenumber,firstname,lastname,specialty)
-VALUES(-900001,'DEMO-BAD-NAME','   ','Demo','Demo');
-ROLLBACK TO SAVEPOINT invalid_doctor;
-ROLLBACK;
-
-BEGIN;
-SAVEPOINT invalid_test;
-INSERT INTO labtest(labtestid,status,scheduledat,startedat,completedat,orderid,testtypeid)
-SELECT -900001,'Completed',TIMESTAMP '2026-01-02',TIMESTAMP '2026-01-01',
-       TIMESTAMP '2026-01-03',o.orderid,tt.testtypeid
-FROM testorder o CROSS JOIN testtype tt ORDER BY o.orderid,tt.testtypeid LIMIT 1;
-ROLLBACK TO SAVEPOINT invalid_test;
-ROLLBACK;
-
-BEGIN;
-SAVEPOINT invalid_alert;
-INSERT INTO labalert(alertid,severity,message,createdat,status,acknowledgedat,resultid)
-SELECT -900001,'Low','Invalid demonstration',TIMESTAMP '2026-02-02',
-       'Acknowledged',TIMESTAMP '2026-02-01',resultid
-FROM testresult ORDER BY resultid LIMIT 1;
-ROLLBACK TO SAVEPOINT invalid_alert;
-ROLLBACK;
-```
-
-![הוספת האילוצים ב-ALTER TABLE](screenshots/constraints-alter-run.jpg)
-
-![שלושת האילוצים מאומתים בקטלוג](screenshots/constraints-alter-result.jpg)
-
-![23514 — chk_doctor_firstname_nonblank](screenshots/constraint-1-error.jpg)
-
-![הוספת האילוצים ב-ALTER TABLE](screenshots/constraints-alter-run.jpg)
-
-![שלושת האילוצים מאומתים בקטלוג](screenshots/constraints-alter-result.jpg)
-
-![23514 — chk_labtest_time_order](screenshots/constraint-2-error.jpg)
-
-![הוספת האילוצים ב-ALTER TABLE](screenshots/constraints-alter-run.jpg)
-
-![שלושת האילוצים מאומתים בקטלוג](screenshots/constraints-alter-result.jpg)
-
-![23514 — chk_labalert_ack_time](screenshots/constraint-3-error.jpg)
-
-## ROLLBACK ו-COMMIT
-
-הטבלה הזמנית שומרת את ערך Notes המקורי. restored בודק שוויון כולל NULL אחרי ביטול; persisted בודק שהסימון המדויק נשמר אחרי COMMIT. יש לוודא ששתי עמודות ההוכחה מחזירות true.
+1. **ROLLBACK** — מוסיפים לשדה את הסימון [ROLLBACK DEMO] ומציגים אותו בתוך הטרנזקציה. אחרי ROLLBACK הערך חוזר למקורו, והעמודה restored מחזירה true.
+2. **COMMIT** — מוסיפים לשדה את הסימון [COMMIT DEMO]. אחרי COMMIT השינוי נשמר, והעמודה persisted מחזירה true.
 
 ```sql
 -- PostgreSQL / pgAdmin: הרצה על עותק ההדגמה בלבד.
@@ -549,209 +518,239 @@ FROM testorder o JOIN transaction_demo t USING(orderid);
 DROP TABLE transaction_demo;
 ```
 
-![ROLLBACK — לפני](screenshots/tx-rollback-before-result.jpg)
+**הדגמת ROLLBACK:**
 
-![ROLLBACK — בתוך הטרנזקציה](screenshots/tx-rollback-inside-result.jpg)
+| לפני | בתוך הטרנזקציה | אחרי ROLLBACK |
+|---|---|---|
+| ![לפני](screenshots/tx-rollback-before-result.jpg) | ![בתוך הטרנזקציה](screenshots/tx-rollback-inside-result.jpg) | ![אחרי ROLLBACK](screenshots/tx-rollback-after-result.jpg) |
 
-![ROLLBACK — אחרי](screenshots/tx-rollback-after-result.jpg)
+**הדגמת COMMIT:**
 
-![COMMIT — לפני](screenshots/tx-commit-before-result.jpg)
+| לפני | בתוך הטרנזקציה | אחרי COMMIT |
+|---|---|---|
+| ![לפני](screenshots/tx-commit-before-result.jpg) | ![בתוך הטרנזקציה](screenshots/tx-commit-inside-result.jpg) | ![אחרי COMMIT](screenshots/tx-commit-after-result.jpg) |
 
-![COMMIT — בתוך הטרנזקציה](screenshots/tx-commit-inside-result.jpg)
+## 8. אילוצים
 
-![COMMIT — אחרי](screenshots/tx-commit-after-result.jpg)
+הוספנו שלושה אילוצי CHECK שלא היו בשלב א׳. אילוץ בבסיס הנתונים מגן על הנתונים מכל מקור, בין אם מהממשק, מסקריפט או מייבוא, ולא רק מבדיקות בצד האפליקציה. כל אילוץ נבדק בעת ההוספה גם מול הרשומות הקיימות, וכל הרשומות עמדו בו. לכל אילוץ ניסינו להכניס שורה שסותרת אותו, וקיבלנו שגיאה עם קוד 23514 (check_violation) ועם שם האילוץ.
 
-## אינדקסים וזמני ריצה
+הוספת האילוצים ב־ALTER TABLE, ורשימת האילוצים בקטלוג אחרי ההוספה:
 
-אינדקסים צורכים מקום ומייקרים INSERT/UPDATE/DELETE. PK/UNIQUE קיימים כבר יוצרים אינדקסים; שלושת האינדקסים החדשים מתמקדים בדפוסי סינון אחרים. פקודת ANALYZE מעדכנת סטטיסטיקות. ההשוואה מתבצעת על אותה שאילתה ובאותו אכלוס, ללא כפיית שימוש באינדקס. מדידה בודדת מושפעת מהמטמון; יש לחזור על הבדיקה ולהשוות חציונים.
+| הרצת ALTER TABLE | האילוצים בקטלוג |
+|---|---|
+| ![הרצת ALTER TABLE](screenshots/constraints-alter-run.jpg) | ![האילוצים בקטלוג](screenshots/constraints-alter-result.jpg) |
+### 1. chk_doctor_firstname_nonblank — שם רופא לא ריק
+
+**הטבלה:** DOCTOR. **המטרה והתועלת:** האילוץ NOT NULL מתיר שם שמכיל רווחים בלבד. רופא כזה יופיע ללא שם במסכים ובדוחות. האילוץ מחייב שאחרי הסרת הרווחים יישאר לפחות תו אחד.
+
+**השינוי:**
 
 ```sql
--- על עותק בדיקה בלבד: DROP מסיר רק את שלושת האינדקסים בשמות של שלב ב׳.
--- אין לשנות enable_seqscan: המתכנן רשאי לבחור סריקה סדרתית.
--- יש להריץ מספר פעמים, להשוות חציון ו-BUFFERS, ולהביא בחשבון מטמון ועלות כתיבה.
-ANALYZE;
-
--- idx_testorder_patient_date: חיפוש היסטוריית מטופל: מפתח מורכב לפי שוויון במטופל ואז טווח תאריכים ומיון.
-DROP INDEX IF EXISTS idx_testorder_patient_date;
--- לפני
-EXPLAIN (ANALYZE, BUFFERS)
-SELECT o.orderid,o.orderedat,p.firstname,p.lastname,d.firstname AS doctor_firstname
-FROM testorder o JOIN patient p USING(patientid) JOIN doctor d USING(doctorid)
-WHERE o.patientid=17 AND o.orderedat>=TIMESTAMP '2026-01-01'
-ORDER BY o.orderedat;
--- מדידה חוזרת בפועל, חציון 5 הרצות: לפני 0.637 ms; אחרי 0.189 ms.
-CREATE INDEX idx_testorder_patient_date ON testorder(patientid,orderedat);
-ANALYZE;
--- אחרי
-EXPLAIN (ANALYZE, BUFFERS)
-SELECT o.orderid,o.orderedat,p.firstname,p.lastname,d.firstname AS doctor_firstname
-FROM testorder o JOIN patient p USING(patientid) JOIN doctor d USING(doctorid)
-WHERE o.patientid=17 AND o.orderedat>=TIMESTAMP '2026-01-01'
-ORDER BY o.orderedat;
--- אין הבטחה לשיפור: התוצאה נקבעת רק לפי המדידה בפועל.
-
--- idx_labtest_type_status: סינון לפי סוג בדיקה וסטטוס. הצירוף סלקטיבי יותר מכל סטטוס בפני עצמו.
-DROP INDEX IF EXISTS idx_labtest_type_status;
--- לפני
-EXPLAIN (ANALYZE, BUFFERS)
-SELECT l.labtestid,tt.testname,l.status,o.orderid,o.orderedat
-FROM labtest l JOIN testtype tt USING(testtypeid) JOIN testorder o USING(orderid)
-WHERE l.testtypeid=25 AND l.status='Completed' ORDER BY l.labtestid;
--- מדידה חוזרת בפועל, חציון 5 הרצות: לפני 3.051 ms; אחרי 0.983 ms.
-CREATE INDEX idx_labtest_type_status ON labtest(testtypeid,status);
-ANALYZE;
--- אחרי
-EXPLAIN (ANALYZE, BUFFERS)
-SELECT l.labtestid,tt.testname,l.status,o.orderid,o.orderedat
-FROM labtest l JOIN testtype tt USING(testtypeid) JOIN testorder o USING(orderid)
-WHERE l.testtypeid=25 AND l.status='Completed' ORDER BY l.labtestid;
--- אין הבטחה לשיפור: התוצאה נקבעת רק לפי המדידה בפועל.
-
--- idx_labalert_open_created: אינדקס חלקי לתור התראות פתוחות בטווח תאריכים; קטן מאינדקס כל ההתראות.
-DROP INDEX IF EXISTS idx_labalert_open_created;
--- לפני
-EXPLAIN (ANALYZE, BUFFERS)
-SELECT a.alertid,a.severity,a.createdat,r.isabnormal,l.labtestid
-FROM labalert a JOIN testresult r USING(resultid) JOIN labtest l USING(labtestid)
-WHERE a.status='Open' AND a.createdat>=TIMESTAMP '2026-06-01'
- AND a.createdat<TIMESTAMP '2026-06-08' ORDER BY a.createdat;
--- מדידה חוזרת בפועל, חציון 5 הרצות: לפני 0.841 ms; אחרי 0.522 ms.
-CREATE INDEX idx_labalert_open_created ON labalert(createdat) WHERE status='Open';
-ANALYZE;
--- אחרי
-EXPLAIN (ANALYZE, BUFFERS)
-SELECT a.alertid,a.severity,a.createdat,r.isabnormal,l.labtestid
-FROM labalert a JOIN testresult r USING(resultid) JOIN labtest l USING(labtestid)
-WHERE a.status='Open' AND a.createdat>=TIMESTAMP '2026-06-01'
- AND a.createdat<TIMESTAMP '2026-06-08' ORDER BY a.createdat;
--- אין הבטחה לשיפור: התוצאה נקבעת רק לפי המדידה בפועל.
+ALTER TABLE doctor ADD CONSTRAINT chk_doctor_firstname_nonblank
+ CHECK (length(btrim(firstname))>0);
 ```
 
-### idx_testorder_patient_date
+**ניסיון הכנסה שסותר את האילוץ:**
 
-חיפוש היסטוריית מטופל: מפתח מורכב לפי שוויון במטופל ואז טווח תאריכים ומיון.
+```sql
+INSERT INTO doctor(doctorid,licensenumber,firstname,lastname,specialty)
+VALUES(-900001,'DEMO-BAD-NAME','   ','Demo','Demo');
+```
 
-![idx_testorder_patient_date — לפני — תוכנית](screenshots/index-1-before-plan.jpg)
+**התוצאה:** שגיאת הרצה, `violates check constraint "chk_doctor_firstname_nonblank"` (SQL state 23514).
 
-![idx_testorder_patient_date — לפני — זמן ריצה](screenshots/index-1-before-time.jpg)
+![שגיאת האילוץ](screenshots/constraint-1-error.jpg)
 
-![idx_testorder_patient_date — אחרי — תוכנית](screenshots/index-1-after-plan.jpg)
+### 2. chk_labtest_time_order — סדר מועדי הבדיקה
 
-![idx_testorder_patient_date — אחרי — זמן ריצה](screenshots/index-1-after-time.jpg)
+**הטבלה:** LABTEST. **המטרה והתועלת:** מועדי הבדיקה חייבים להיות בסדר הגיוני: ההתחלה לא לפני התכנון, וסיום מחייב התחלה ולא יכול להקדים אותה. בלי האילוץ, חישובי משך הבדיקה יכולים להחזיר זמנים שליליים. ערכי NULL מותרים, כי בדיקה שעוד לא התחילה או לא הסתיימה עדיין אין לה מועדים.
 
-בצילומי pgAdmin: Execution Time לפני **13.405 ms**, ואחרי **51.333 ms**. במדידה זו זמן הריצה דווקא גדל למרות שינוי תוכנית הסריקה. האינדקס אינו מבטיח האצה; ההבדל מהמדידות החוזרות ממחיש השפעת מטמון ועומס.
+**השינוי:**
 
-### idx_labtest_type_status
+```sql
+ALTER TABLE labtest ADD CONSTRAINT chk_labtest_time_order
+ CHECK ((startedat IS NULL OR scheduledat IS NULL OR startedat>=scheduledat)
+    AND (completedat IS NULL OR (startedat IS NOT NULL AND completedat>=startedat)));
+```
 
-סינון לפי סוג בדיקה וסטטוס. הצירוף סלקטיבי יותר מכל סטטוס בפני עצמו.
+**ניסיון הכנסה שסותר את האילוץ:**
 
-![idx_labtest_type_status — לפני — תוכנית](screenshots/index-2-before-plan.jpg)
+```sql
+INSERT INTO labtest(labtestid,status,scheduledat,startedat,completedat,orderid,testtypeid)
+SELECT -900001,'Completed',TIMESTAMP '2026-01-02',TIMESTAMP '2026-01-01',
+       TIMESTAMP '2026-01-03',o.orderid,tt.testtypeid
+FROM testorder o CROSS JOIN testtype tt ORDER BY o.orderid,tt.testtypeid LIMIT 1;
+```
 
-![idx_labtest_type_status — לפני — זמן ריצה](screenshots/index-2-before-time.jpg)
+**התוצאה:** שגיאת הרצה, `violates check constraint "chk_labtest_time_order"` (SQL state 23514).
 
-![idx_labtest_type_status — אחרי — תוכנית](screenshots/index-2-after-plan.jpg)
+![שגיאת האילוץ](screenshots/constraint-2-error.jpg)
 
-![idx_labtest_type_status — אחרי — זמן ריצה](screenshots/index-2-after-time.jpg)
+### 3. chk_labalert_ack_time — אישור התראה אחרי יצירתה
 
-בצילומי pgAdmin: Execution Time לפני **82.255 ms**, ואחרי **6.719 ms**. במדידה זו זמן הריצה ירד. יש לקרוא זאת לצד סוג הסריקה ו-BUFFERS בצילום ותוצאות החזרות המופיעות בהמשך, ולא להסיק מכך יחס האצה קבוע.
+**הטבלה:** LABALERT. **המטרה והתועלת:** אי אפשר לאשר התראה לפני שנוצרה. האילוץ שומר על נכונות דוחות זמני התגובה להתראות. NULL מותר להתראה שעוד לא אושרה.
 
-### idx_labalert_open_created
+**השינוי:**
 
-אינדקס חלקי לתור התראות פתוחות בטווח תאריכים; קטן מאינדקס כל ההתראות.
+```sql
+ALTER TABLE labalert ADD CONSTRAINT chk_labalert_ack_time
+ CHECK (acknowledgedat IS NULL OR acknowledgedat>=createdat);
+```
 
-![idx_labalert_open_created — לפני — תוכנית](screenshots/index-3-before-plan.jpg)
+**ניסיון הכנסה שסותר את האילוץ:**
 
-![idx_labalert_open_created — לפני — זמן ריצה](screenshots/index-3-before-time.jpg)
+```sql
+INSERT INTO labalert(alertid,severity,message,createdat,status,acknowledgedat,resultid)
+SELECT -900001,'Low','Invalid demonstration',TIMESTAMP '2026-02-02',
+       'Acknowledged',TIMESTAMP '2026-02-01',resultid
+FROM testresult ORDER BY resultid LIMIT 1;
+```
 
-![idx_labalert_open_created — אחרי — תוכנית](screenshots/index-3-after-plan.jpg)
+**התוצאה:** שגיאת הרצה, `violates check constraint "chk_labalert_ack_time"` (SQL state 23514).
 
-![idx_labalert_open_created — אחרי — זמן ריצה](screenshots/index-3-after-time.jpg)
+![שגיאת האילוץ](screenshots/constraint-3-error.jpg)
 
-בצילומי pgAdmin: Execution Time לפני **249.162 ms**, ואחרי **54.932 ms**. במדידה זו זמן הריצה ירד. יש לקרוא זאת לצד סוג הסריקה ו-BUFFERS בצילום ותוצאות החזרות המופיעות בהמשך, ולא להסיק מכך יחס האצה קבוע.
+## 9. אינדקסים
 
-## השלמת ההגשה
+אינדקסים כבר קיימים אוטומטית על המפתחות הראשיים ועל עמודות UNIQUE. לכן בחרנו שלושה אינדקסים חדשים לדפוסי חיפוש שחוזרים במסכי המערכת. מנגד, כל אינדקס תופס מקום ומאט מעט INSERT, ‏UPDATE ו־DELETE. במעבדה רוב העבודה במסכים היא קריאה, ולכן המחיר הזה כדאי.
 
-- [x] צילומי pgAdmin אמיתיים ל-SELECT, שינויים, אילוצים, טרנזקציות ואינדקסים; תוצאות SELECT הוגבלו לחמש שורות.
-- [x] בדיקת שקילות ותוכניות ארבעת זוגות ה-SELECT, מדידה לכל דרך והסבר; חמש חזרות לפני ואחרי כל אינדקס.
-- [x] יבוא ובדיקת התרשימים ב-ERDPlus, והפקת תמונות מלאות מהמקורות המאומתים. Download image באתר נכשל גם ידנית; אופן ההפקה המקומית מתועד.
-- [x] גיבוי מעודכן בשם backup2 באמצעות pg_dump ובדיקת שחזור בעותק נפרד באותו מחשב.
-- [x] שחזור backup2 במחשב אחר (המחשב של מוריה) — בוצע ב־15.11.2026 לפי [ההוראות](PullAndRestore.md); ראו [שחזור backup2 במחשב אחר](#שחזור-backup2-במחשב-אחר).
-- [x] גרסת הגשת שלב ב׳ מרוכזת ב־main תחת TAG בשם `stage-b-2026-11-14`; פרסום הענף והתג נבדק מול השרת לאחר יצירת הגרסה.
+בכל אינדקס הרצנו את אותה שאילתה ב־EXPLAIN (ANALYZE, BUFFERS) לפני יצירת האינדקס ואחריה, ועדכנו סטטיסטיקות ב־ANALYZE. לא כפינו שימוש באינדקס: המתכנן בחר בו בעצמו.
 
-אין לסמן סעיף כהושלם על בסיס Placeholder. יומני בדיקה בתיקיית audit הם ראיות הרצה, ואינם צילומי מסך של pgAdmin.
+### 1. idx_testorder_patient_date
 
+**השימוש:** היסטוריית ההזמנות של מטופל לפי טווח תאריכים (מסך ניהול מטופלים). **המוטיבציה:** אינדקס מורכב: קודם שוויון על PatientID, ואחר כך טווח ומיון לפי OrderedAt. כך מגיעים ישר להזמנות של המטופל, והן כבר ממוינות לפי תאריך.
 
-## תוצאות בדיקה בפועל — 12.11.2026
+```sql
+CREATE INDEX idx_testorder_patient_date ON testorder(patientid,orderedat);
+```
 
-נבדק ב-PostgreSQL 16.15 בבסיס נפרד `codex_stage_b_20261112`. האכלוס כולל 66,657 רשומות בשמונה טבלאות; לפחות 500 בכל טבלה, 30,000 בדיקות ו-24,000 תוצאות. הבסיס המקורי `Hospiatl_Lab_db` לא שונה. תוצאות הבדיקות והדוגמאות נמצאות ב-[audit](audit/verification.json).
+**השאילתה שנמדדה:**
 
-כל 12 מימושי ה-SELECT החזירו נתונים. ארבעת הזוגות הושוו בשני הכיוונים ב-EXCEPT ALL כדי לבדוק גם כפילויות. בדיקת Q4 האחרונה, לאחר הוספת מספר מטופלים וצירוף ההזמנות, נמצאת ב-[Q4_final_equivalence.txt](audit/Q4_final_equivalence.txt); הדוגמאות העדכניות הן [Q4A](audit/Q4A_final_samples.txt) ו-[Q4B](audit/Q4B_final_samples.txt). לשאר השאילתות ראו [דוגמאות עד חמש שורות](audit/03_select_samples.txt).
+```sql
+SELECT o.orderid,o.orderedat,p.firstname,p.lastname,d.firstname AS doctor_firstname
+FROM testorder o JOIN patient p USING(patientid) JOIN doctor d USING(doctorid)
+WHERE o.patientid=17 AND o.orderedat>=TIMESTAMP '2026-01-01'
+ORDER BY o.orderedat;
+```
 
-### מדידת ארבעת הזוגות
+**לפני יצירת האינדקס:**
 
-הטבלה מציגה זמן Execution Time של הרצה אחת לכל דרך, במילישניות. הזמנים אינם SLA ואין להסיק מהפרשים קטנים יתרון קבוע. האינדקסים החדשים כבר היו קיימים בעת מדידה זו. התוכניות המלאות עם BUFFERS נשמרו ב-audit בשם Q1A_plan.txt וכן הלאה.
+| תוכנית ביצוע | זמן ריצה |
+|---|---|
+| ![תוכנית ביצוע](screenshots/index-1-before-plan.jpg) | ![זמן ריצה](screenshots/index-1-before-time.jpg) |
 
-| זוג | דרך A, ms | דרך B, ms | פירוש באכלוס הנוכחי |
-|---|---:|---:|---|
-| Q1 | 23.784 | 5024.153 | A מהירה משמעותית; B מבצעת ספירות מתואמות חוזרות. |
-| Q2 | 11.944 | 19496.062 | A מהירה משמעותית; B חוזרת על צירופי הספירה לכל מטופל. |
-| Q3 | 37.841 | 40.125 | A מהירה מעט במדידה זו; ההפרש קטן והמתכנן יכול לייעל NOT EXISTS. |
-| Q4 | 30.692 | 31.239 | שקולות בפועל: אותן סריקות, אותו מיון ואותם 464 Buffers. A מהירה בכ־0.5 ms במדידה זו, הפרש של פחות מ־2% שהוא בתחום הרעש. B יעילה מעט יותר בתכנון: היא מחשבת את הממוצע ב־WindowAgg באותו מעבר, בעוד A סורקת את ה־CTE פעמיים (פעם לחישוב הממוצע ופעם לסינון), ולכן העלות המוערכת של B נמוכה במעט. |
+**אחרי יצירת האינדקס:**
 
-### מדידות האינדקסים
+| תוכנית ביצוע | זמן ריצה |
+|---|---|
+| ![תוכנית ביצוע](screenshots/index-1-after-plan.jpg) | ![זמן ריצה](screenshots/index-1-after-time.jpg) |
 
-חציון של חמש הרצות לפני וחמש אחרי כל אינדקס, עם ANALYZE ובלי לשנות enable_seqscan:
+**התוצאה:** Seq Scan על TESTORDER הוחלף ב־Bitmap Index Scan על האינדקס. בצילומים: 13.405 ms לפני, ו־51.333 ms אחרי. חציון של חמש הרצות: 0.637 ms לפני, ו־0.189 ms אחרי.
 
-| אינדקס | לפני, ms | אחרי, ms | שינוי בתוכנית |
-|---|---:|---:|---|
-| idx_testorder_patient_date | 0.637 | 0.189 | Seq Scan על testorder הוחלף ב-Bitmap Index/Heap Scan. |
-| idx_labtest_type_status | 3.051 | 0.983 | Seq Scan על labtest הוחלף ב-Index Scan. |
-| idx_labalert_open_created | 0.841 | 0.522 | Seq Scan על labalert הוחלף ב-Bitmap Index/Heap Scan על האינדקס החלקי. |
+### 2. idx_labtest_type_status
 
-במדידה הראשונה של אינדקס המטופל דווקא נרשמה האטה: 0.359 ms לפני לעומת 4.062 ms אחרי. זאת ראיה לכך שמדידה בודדת מושפעת ממטמון ותזמון; המדידה החוזרת הראתה חציון נמוך יותר אחרי יצירת האינדקס. גם במקרים האחרים אין לייחס כל הפרש בזמן לאינדקס לבדו; יש לקרוא את מספר הרשומות, סוגי הסריקה ונתוני BUFFERS. [מדידה ראשונה](audit/09_index_before_after.txt), [חמש החזרות המלאות](audit/10_repeated_index_plans.txt).
+**השימוש:** סינון בדיקות לפי סוג ומצב (מסך ניהול בדיקות מעבדה). **המוטיבציה:** צירוף סוג הבדיקה והמצב סלקטיבי בהרבה מכל אחד מהם לבד. מתוך 30,000 בדיקות נשלפות כ־40 בלבד.
 
-### שינויים, אילוצים וטרנזקציות
+```sql
+CREATE INDEX idx_labtest_type_status ON labtest(testtypeid,status);
+```
 
-כל אחת משלוש המחיקות ושלושת העדכונים השפיעה על רשומות קיימות. לאחר ROLLBACK נבדקה התאמה מלאה של הטבלה למצבה הקודם בשני כיווני EXCEPT ALL. [יומן לפני/אחרי וביטול](audit/07_mutations.txt). שלוש ההכנסות השגויות נכשלו בקוד 23514 ועל שם האילוץ הנכון, ללא הפרת אילוץ אחר קודם לכן. [השגיאות הצפויות](audit/06_expected_errors.txt). בהדגמת הטרנזקציות התקבלו restored=true וגם persisted=true. [יומן הטרנזקציות](audit/08_transactions.txt).
+**השאילתה שנמדדה:**
 
-### גיבוי ומיגרציה
+```sql
+SELECT l.labtestid,tt.testname,l.status,o.orderid,o.orderedat
+FROM labtest l JOIN testtype tt USING(testtypeid) JOIN testorder o USING(orderid)
+WHERE l.testtypeid=25 AND l.status='Completed' ORDER BY l.labtestid;
+```
 
-[backup2.dump](backup2.dump) הוא גיבוי Custom של בסיס הבדיקה המעודכן, הכולל את האכלוס, שלושת האילוצים ושלושת האינדקסים ואת סימון COMMIT בשדה Notes. הוא שוחזר בהצלחה לבסיס `codex_stage_b_20261112_restore` באותו שרת. הושוו כל ערכי הרשומות באמצעות טביעות MD5 מסודרות, מטא־דאטה עמודות, הגדרות האינדקסים, מבנה האילוצים וההגדרות המדויקות של שלושת האילוצים החדשים. [השוואת השחזור](audit/13_restore_comparison.txt), [בדיקת נפחים וקשרים בשחזור](audit/11_backup2_restore.txt).
+**לפני יצירת האינדקס:**
 
-pg_dump/pg_restore כתבו מחדש ביטויי cast של מערכי VARCHAR באילוצי IN הישנים. לכן השוואת מחרוזת של pg_get_constraintdef לבדה הציגה הבדל תחבירי. ההבדל תועד ב-[catalog_diff.txt](audit/catalog_diff.txt); האילוצים החדשים והאינדקסים נמצאו זהים, ובדיקות הנתונים והקטלוג עברו.
+| תוכנית ביצוע | זמן ריצה |
+|---|---|
+| ![תוכנית ביצוע](screenshots/index-2-before-plan.jpg) | ![זמן ריצה](screenshots/index-2-before-time.jpg) |
 
-StageA_Migration.sql הורץ על עותק נפרד של הבסיס המקורי. נבדק שכל העמודות הקודמות נשמרו ללא שינוי ושתאריכי ההסמכה החדשים זהים לתאריכים בהקמה מאפס. [יומן המיגרציה](audit/14_migration.txt), [שימור הרשומות המקוריות](audit/15_preserved_original_rows.txt).
+**אחרי יצירת האינדקס:**
 
-SHA-256 של backup2.dump:
+| תוכנית ביצוע | זמן ריצה |
+|---|---|
+| ![תוכנית ביצוע](screenshots/index-2-after-plan.jpg) | ![זמן ריצה](screenshots/index-2-after-time.jpg) |
+
+**התוצאה:** Seq Scan על LABTEST הוחלף ב־Index Scan על האינדקס. בצילומים: 82.255 ms לפני, ו־6.719 ms אחרי. חציון של חמש הרצות: 3.051 ms לפני, ו־0.983 ms אחרי.
+
+### 3. idx_labalert_open_created
+
+**השימוש:** תור ההתראות הפתוחות לפי תאריך (מסך תוצאות והתראות). **המוטיבציה:** אינדקס חלקי (WHERE status='Open'): הוא מכיל רק התראות פתוחות, ולכן קטן ומהיר יותר מאינדקס על כל ההתראות.
+
+```sql
+CREATE INDEX idx_labalert_open_created ON labalert(createdat) WHERE status='Open';
+```
+
+**השאילתה שנמדדה:**
+
+```sql
+SELECT a.alertid,a.severity,a.createdat,r.isabnormal,l.labtestid
+FROM labalert a JOIN testresult r USING(resultid) JOIN labtest l USING(labtestid)
+WHERE a.status='Open' AND a.createdat>=TIMESTAMP '2026-06-01'
+ AND a.createdat<TIMESTAMP '2026-06-08' ORDER BY a.createdat;
+```
+
+**לפני יצירת האינדקס:**
+
+| תוכנית ביצוע | זמן ריצה |
+|---|---|
+| ![תוכנית ביצוע](screenshots/index-3-before-plan.jpg) | ![זמן ריצה](screenshots/index-3-before-time.jpg) |
+
+**אחרי יצירת האינדקס:**
+
+| תוכנית ביצוע | זמן ריצה |
+|---|---|
+| ![תוכנית ביצוע](screenshots/index-3-after-plan.jpg) | ![זמן ריצה](screenshots/index-3-after-time.jpg) |
+
+**התוצאה:** Seq Scan על LABALERT הוחלף ב־Bitmap Index Scan על האינדקס החלקי. בצילומים: 249.162 ms לפני, ו־54.932 ms אחרי. חציון של חמש הרצות: 0.841 ms לפני, ו־0.522 ms אחרי.
+
+### סיכום והסבר התוצאות
+
+| אינדקס | צילום לפני (ms) | צילום אחרי (ms) | חציון 5 הרצות לפני (ms) | חציון 5 הרצות אחרי (ms) | שיפור לפי החציון |
+|---|---:|---:|---:|---:|---|
+| idx_testorder_patient_date | 13.405 | 51.333 | 0.637 | 0.189 | פי 3.4 |
+| idx_labtest_type_status | 82.255 | 6.719 | 3.051 | 0.983 | פי 3.1 |
+| idx_labalert_open_created | 249.162 | 54.932 | 0.841 | 0.522 | פי 1.6 |
+
+- **בכל שלושת האינדקסים המתכנן החליף סריקה מלאה של הטבלה (Seq Scan) בגישה דרך האינדקס.** לכן הוא קורא רק את השורות הרלוונטיות ולא את כל הטבלה.
+- **השיפור הגדול ביותר נמדד באינדקס על LABTEST**, הטבלה הגדולה (30,000 שורות), שממנה נשלפות כ־40 שורות בלבד. ככל שהטבלה גדולה והסינון סלקטיבי יותר, התועלת גדולה יותר.
+- **באינדקס הראשון הצילום מראה דווקא זמן גבוה יותר אחרי יצירת האינדקס.** בהרצה הראשונה אחרי היצירה, דפי האינדקס החדש נקראו מהדיסק ולא מהזיכרון (shared read בתוכנית). זמן הצילום כולל את הקריאה הזו. העלות המוערכת של התוכנית ירדה מ־160.74 ל־28.06, ובחמש הרצות חוזרות החציון ירד מ־0.637 ms ל־0.189 ms. לכן ההשוואה האמינה היא לפי החציון.
+- **בצילומים הזמנים גבוהים מהחציון** בגלל עומס על המחשב ומטמון קר בזמן הצילום. ההשוואה בין לפני לאחרי נעשתה באותם תנאים. [המדידות המלאות](audit/10_repeated_index_plans.txt).
+
+## 10. גיבוי backup2 ושחזור
+
+הקובץ [backup2.dump](backup2.dump) הוא גיבוי מעודכן בפורמט Custom, שנוצר ב־pg_dump. הוא כולל את כל הנתונים, את העמודה החדשה, את שלושת האילוצים, את שלושת האינדקסים ואת השינוי שנשמר בהדגמת COMMIT. טביעת SHA-256 של הקובץ:
 
 ```text
 6fcacd9ef01f0bad38d48ff35348453af207af81723bd78855ac054150ff6a98
 ```
 
-צילומי pgAdmin נוספו לאחר חידוש החיבור דרך הדפדפן הפנימי. הם צילומי ממשק אמיתיים ולא תמונות של יומני CLI. ייבוא ובדיקת המקורות והפקת תמונות מלאות הושלמו. שחזור backup2 במחשב אחר בוצע ב־15.11.2026; ראו הסעיף בסוף הדוח. גרסת ההגשה מסומנת בתג `stage-b-2026-11-14`. ההורדה המקורית מהאתר נכשלה, והתמונות הופקו מקומית כאמור לעיל.
+**שחזור באותו מחשב:** הגיבוי שוחזר לבסיס נתונים נפרד, וכל הרשומות, העמודות, האילוצים והאינדקסים הושוו לבסיס המקורי ונמצאו זהים ([השוואת השחזור](audit/13_restore_comparison.txt)).
 
-בתיעוד המחיקות נשמרו חמישה מזהים בטבלה זמנית לפני הפעולה. לאחר הפעולה אותם מזהים הוצגו בצירוף חיצוני לטבלה הנוכחית: NULL ו-deleted=true מוכיחים שהרשומות נמחקו. בעדכונים אותן רשומות הוצגו עם הערכים החדשים. כל פעולה בוטלה ב-ROLLBACK. בהדגמת COMMIT נוסף הסימון UI COMMIT DEMO, נשמר ונבדק persisted=true, ואז בטרנזקציה נפרדת הוחזר Notes למצבו שלפני הדגמת הממשק. קובץ RollbackCommit.sql המקורי משאיר את סימון COMMIT DEMO בכוונה.
-
-שלושת ALTER TABLE הודגמו בטרנזקציה נפרדת לאחר הסרה זמנית של אותם שלושה אילוצים בעותק הבדיקה; לאחר הצילום בוטלה הטרנזקציה ונשארו האילוצים המקוריים של שלב ב׳. בדיקות הכישלון הורצו לאחר הביטול ונכשלו על האילוצים הקיימים.
-
-צילומי האינדקסים מציגים מדידות נוספות דרך הממשק, בתנאי עומס אחרים מהמדידה החוזרת. לאחר כל זוג בוטלה הטרנזקציה, ולכן נשארו שלושת האינדקסים כפי שהיו לפני התיעוד. המועדים בשאילתות קבועים. בדיקת הסיום בממשק אישרה 30,000 בדיקות, 24,000 תוצאות ושלושה אינדקסים חדשים.
-
-![בדיקת בסיס הבדיקה](screenshots/final-database-check.jpg)
-
-מגבלת הצילום: רוחב הדפדפן היה 614 פיקסלים, ולכן בחלק מהתמונות נראות רק העמודות השמאליות. קוד השאילתה ופלטי הבדיקה הטקסטואליים כוללים את יתר העמודות. אין לראות בתמונה החתוכה הוכחה לכל עמודה שאינה גלויה.
-
-## שחזור backup2 במחשב אחר
-
-בוצע ב־15.11.2026 במחשב של מוריה, שאינו המחשב שבו נוצר backup2, ב־PostgreSQL 16.15 וב־pgAdmin 4 (גרסה 9.18) המותקנים בו ב־Docker. קובץ backup2.dump נלקח מתג ההגשה `stage-b-2026-11-14`, וטביעת ה־SHA-256 שלו זהה לערך המתועד לעיל.
-
-שלבי השחזור, לפי [PullAndRestore.md](PullAndRestore.md):
+**שחזור במחשב אחר:** ב־15.11.2026 הגיבוי שוחזר במחשב של מוריה, שאינו המחשב שבו נוצר הגיבוי, לפי ההוראות ב־[PullAndRestore.md](PullAndRestore.md):
 
 1. נוצר בסיס נתונים חדש וריק בשם `stage_b_partner_restore_20261114`.
-2. Restore מתפריט pgAdmin: פורמט Custom, הקובץ backup2.dump, וב־Data Options סומנו Do not save Owner ו־Privileges. התהליך הסתיים בהודעה Successfully completed.
-3. ב־Query Tool על הבסיס המשוחזר הורצו בדיקות [PartnerValidation.sql](PartnerValidation.sql) (ללא שורת `\set` של psql): ספירות שמונה הטבלאות זהות לטבלה ב־PullAndRestore.md, והתקבלה ההודעה PASS, כלומר שני שדות ה־DATE, שלושת האילוצים ושלושת האינדקסים קיימים.
+2. ב־pgAdmin נבחר Restore: פורמט Custom, הקובץ backup2.dump, וסומנו Do not save Owner ו־Privileges. השחזור הסתיים בהודעה Successfully completed.
+3. ב־Query Tool הורצה בדיקת [PartnerValidation.sql](PartnerValidation.sql). ספירות כל שמונה הטבלאות תאמו (patient‏ 3,000; ‏doctor, ‏testtype ו־labtechnician‏ 500 כל אחת; ‏testorder‏ 5,000; ‏labtest‏ 30,000; ‏testresult‏ 24,000; ‏labalert‏ 3,157), והתקבלה ההודעה PASS.
 
-![שחזור backup2 ב־pgAdmin במחשב אחר — הסתיים בהצלחה](screenshots/partner-restore/partner-backup2-restore-success.jpg)
+| סיום השחזור | ספירות הטבלאות | בדיקת PartnerValidation |
+|---|---|---|
+| ![שחזור backup2 הסתיים בהצלחה](screenshots/partner-restore/partner-backup2-restore-success.jpg) | ![ספירות הטבלאות](screenshots/partner-restore/partner-backup2-row-counts.jpg) | ![PASS](screenshots/partner-restore/partner-backup2-validation-pass.jpg) |
 
-![ספירות הטבלאות בבסיס המשוחזר](screenshots/partner-restore/partner-backup2-row-counts.jpg)
+## 11. סדר הרצת הקבצים
 
-![בדיקת PartnerValidation — PASS](screenshots/partner-restore/partner-backup2-validation-pass.jpg)
+**בבסיס נתונים חדש וריק:**
+
+1. `createTables.sql` ו־`insertTables.sql` מתיקיית שלב א׳. הקבצים כבר כוללים את העמודה החדשה, ולכן אין צורך להריץ את StageA_Migration.sql.
+2. החלק הראשון של `Constraints.sql`: הטרנזקציה עם שלוש פקודות ALTER TABLE.
+3. `Queries.sql`. כל שאילתת שינוי מסתיימת ב־ROLLBACK, ולכן הנתונים לא משתנים.
+4. `RollbackCommit.sql` ואחריו `Index.sql`.
+5. שלוש ההכנסות שבסוף `Constraints.sql`, כל אחת בנפרד. הן אמורות להיכשל, וזו המטרה. אחרי כל שגיאה מריצים ROLLBACK.
+
+**בבסיס נתונים קיים משלב א׳:** מריצים קודם פעם אחת את `StageA_Migration.sql`, ואחר כך ממשיכים מהשלב השני.
+
+**מגיבוי:** משחזרים את `backup2.dump` לבסיס חדש, כמו בסעיף 10. בגיבוי כבר יש את האילוצים ואת האינדקסים.
